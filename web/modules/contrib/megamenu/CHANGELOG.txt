@@ -1,0 +1,12 @@
+Mega Menu 8.x-1.2, 29-Nov-2017
+------------------------------
+- Fixed issues with window load events in JS files.
+
+Mega Menu 8.x-1.1, 10-Sep-2017
+------------------------------
+- Added support for saving options for views menu links.
+- Fixed issue with saving menu items' custom styles.
+
+Mega Menu 8.x-1.0, 02-Aug-2017
+------------------------------
+- Initial release.

@@ -1,0 +1,258 @@
+<div id="viewWrapper" class="view_wrapper">
+    <div class="wrap">
+        <div class="clear_both"></div>
+        <div class="title_line" style="margin-bottom:10px">
+            <div class="icon32" id="icon-options-general"></div>
+            <a href="http://spyropress.com/docs/revolution/"
+               class="button-secondary float_right mtop_10 mleft_10" target="_blank">{{ "Help"|trans }}</a>
+        </div>
+
+        <div class="clear_both"></div>
+
+        <div class="title_line nobgnopd" style="height:auto; min-height:50px">
+            <div class="view_title">
+                Revolution Sliders
+            </div>
+            <div class="slider-sortandfilter">
+                <span class="slider-listviews slider-lg-views" data-type="rs-listview"><i
+                            class="eg-icon-align-justify"></i></span>
+                <span class="slider-gridviews slider-lg-views active" data-type="rs-gridview"><i class="eg-icon-th"></i></span>
+                <span class="slider-sort-drop">Sort By:</span>
+                <select id="sort-sliders" name="sort-sliders" style="max-width: 105px;" class="withlabel">
+                    <option value="id" selected="selected">By ID</option>
+                    <option value="name">By Name</option>
+                    <option value="type">By Type</option>
+                    <option value="favorit">By Favorit</option>
+                </select>
+
+                <span class="slider-filter-drop">Filter By:</span>
+
+                <select id="filter-sliders" name="filter-sliders" style="max-width: 105px;" class="withlabel">
+                    <option value="all" selected="selected">All</option>
+                    <option value="posts">Posts</option>
+                    <option value="gallery">Gallery</option>
+                    <option value="vimeo">Vimeo</option>
+                    <option value="youtube">YouTube</option>
+                    <option value="twitter">Twitter</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="flickr">Flickr</option>
+                </select>
+            </div>
+            <div style="width:100%;height:1px;float:none;clear:both"></div>
+        </div>
+
+
+        {% include '@revslider/admin/includes/sliders-list.html.twig'
+            with {sliders : data.sliders}
+        %}
+
+
+        <!--
+        THE INFO ABOUT EMBEDING OF THE SLIDER
+        -->
+        <div class="rs-dialog-embed-slider" title="Embed Slider" style="display: none;">
+            <div class="revyellow"
+                 style="background: none repeat scroll 0% 0% #F1C40F; left:0px;top:55px;position:absolute;height:205px;padding:20px 10px;">
+                <i style="color:#fff;font-size:25px" class="revicon-arrows-ccw"></i></div>
+            <div style="margin:5px 0px; padding-left: 55px;">
+                <div style="font-size:14px;margin-bottom:10px;"><strong>{{ 'Standard Embeding' | trans  }}</strong></div>
+                {{ 'In <b>Block layout</b> editor : Place Block with <b>Category</b> = `<b>RevSlider block</b>` and <b>Block</b> = `<b><code
+                            class="rs-example-title"></code></b>`' | trans }}
+            </div>
+        </div>
+
+
+
+        <div style="width:100%;height:40px"></div>
+
+
+        <!-- THE UPDATE HISTORY OF SLIDER REVOLUTION -->
+        <div style="width:100%;height:40px"></div>
+        <div class="rs-update-history-wrapper">
+            <div class="rs-dash-title-wrap">
+                <div class="rs-dash-title">{{ 'Update History'|trans }}</div>
+            </div>
+            <div class="rs-update-history">
+                <div class="slider-revolution-update-list">
+                    {% include '@revslider/changelog.html.twig' %}
+                    aaa
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Import slider dialog -->
+    <div id="dialog_import_slider" title="Import Slider" class="dialog_import_slider" style="display:none">
+        <form action="{{ data.links.ajaxurl }}" enctype="multipart/form-data" method="post"
+              id="form-import-slider-local">
+            <br>
+            <input type="hidden" name="action" value="revslider_ajax_action">
+            <input type="hidden" name="client_action" value="import_slider_slidersview">
+            <input type="hidden" name="nonce" value="bfeb7a67ce">
+            Choose the import file:
+            <br>
+            <input type="file" size="60" name="import_file" class="input_import_slider">
+            <br><br>
+            <span style="font-weight: 700;">Note: styles templates will be updated if they exist!</span><br><br>
+            <table>
+                <tbody>
+                <tr>
+                    <td>Custom Animations:</td>
+                    <td><input type="radio" name="update_animations" value="true" checked="checked"> Overwrite</td>
+                    <td><input type="radio" name="update_animations" value="false"> Append</td>
+                </tr>
+                <tr>
+                    <td>Custom Navigations:</td>
+                    <td><input type="radio" name="update_navigations" value="true" checked="checked"> Overwrite</td>
+                    <td><input type="radio" name="update_navigations" value="false"> Append</td>
+                </tr>
+                <!--tr>
+                    <td>Static Styles:</td>
+                    <td><input type="radio" name="update_static_captions" value="true"> Overwrite</td>
+                    <td><input type="radio" name="update_static_captions" value="false"> Append</td>
+                    <td><input type="radio" name="update_static_captions" value="none" checked="checked"> Ignore</td>
+                </tr-->
+                <tr style="display: none;">
+                    <td>Create Blank Page:</td>
+                    <td><input type="radio" name="page-creation" value="true"> Yes</td>
+                    <td><input type="radio" name="page-creation" value="false" checked="checked"> No</td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <input type="submit" class="button-primary revblue tp-be-button rev-import-slider-button"
+                   style="display: none;" value="Import Slider" original-title="">
+        </form>
+    </div>
+
+    <div id="dialog_duplicate_slider" class="dialog_duplicate_layer" title="Duplicate" style="display:none;">
+        <div style="margin-top:14px">
+            <span style="margin-right:15px">Title:</span><input id="rs-duplicate-animation" type="text"
+                                                                name="rs-duplicate-animation" value="">
+        </div>
+    </div>
+
+    <div id="dialog_duplicate_slider_package" class="dialog_duplicate_layer" title="Duplicate" style="display:none;">
+        <div style="margin-top:14px">
+            <span style="margin-right:15px">Prefix:</span><input id="rs-duplicate-prefix" type="text"
+                                                                 name="rs-duplicate-prefix" value="">
+        </div>
+    </div>
+
+
+    <!-- THE TEMPLATE AREA -->
+    <div id="template_area">
+        <div id="template_header_part">
+            <h2><span class="revlogo-mini" style="margin-right:15px;"></span>Slider Template Library</h2>
+
+            <div id="close-template"></div>
+
+            <div class="revolution-template-switcher">
+			<span id="template_filter_buttons_wrapper" style="display:table-cell;vertical-align:top">
+								<span style="display:none"
+                                      id="selected_template_package_title">Light Content Block Page</span>
+				<span style="display:none" id="leave_selected_template_package">Back</span>
+				<span class="template_filter_button selected" data-type="temp_all">All Templates</span>
+				<span class="template_filter_button" data-type="template_free">Free Templates</span>
+				<span class="template_filter_button" data-type="template_premium">Premium Templates</span>
+				<span class="template_filter_button" data-type="template_package_parent">Packages</span>
+				<span class="template_filter_button" data-type="temp_slider">Slider</span>
+				<span class="template_filter_button" data-type="temp_carousel">Carousel</span>
+				<span class="template_filter_button" data-type="temp_hero">Hero</span>
+				<span class="template_filter_button" data-type="temp_notinstalled">Not Installed</span>
+				<span class="template_filter_button" data-type="temp_socialmedia">Social Media</span>
+				<span class="template_filter_button" data-type="temp_postbased">Post-Based</span>
+				<span class="template_filter_button temp_new_udpated" data-type="temp_newupdate">New / Updated</span>
+			</span>
+                <span style="display:table-cell;vertical-align:top;text-align:right">
+				<span class="rs-reload-shop"><i class="eg-icon-arrows-ccw"></i>Update Library</span>
+			</span>
+            </div>
+        </div>
+
+        <!-- THE REVOLUTION BASE TEMPLATES -->
+        <div class="revolution-template-groups">
+            <!-- TEMPLATES WILL BE ADDED OVER AJAX -->
+        </div>
+
+
+    </div>
+
+    <!-- Import template slider dialog -->
+    <div id="dialog_import_template_slider" title="Import Template Slider" class="dialog_import_template_slider"
+         style="display:none">
+        <form id="form-import-online-slider-local" action="{{ data.links.ajaxurl }}"
+              enctype="multipart/form-data" method="post">
+            <input type="hidden" name="action" value="revslider_ajax_action">
+            <input type="hidden" name="client_action" value="import_slider_template_slidersview">
+            <input type="hidden" name="nonce" value="bfeb7a67ce">
+            <input type="hidden" name="uid" class="rs-uid" value="">
+
+            <p>Please select the corresponding zip file from the download packages import folder called:</p>
+            <p class="filetoimport"><b><span class="rs-zip-name"></span></b></p>
+            <table style="margin: 20px 0;display: none;">
+                <tbody>
+                <tr>
+                    <td>Create Blank Page:</td>
+                    <td><input type="radio" name="page-creation" value="true"> Yes</td>
+                    <td><input type="radio" name="page-creation" value="false" checked="checked"> No</td>
+                </tr>
+                </tbody>
+            </table>
+            <p class="import-file-wrapper"><input type="file" size="60" name="import_file" class="input_import_slider ">
+            </p>
+            <span style="margin-top:45px;display:block"><input type="submit"
+                                                               class="rs-import-slider-button button-primary revblue tp-be-button"
+                                                               value="Import Template Slider" original-title=""></span>
+            <span class="tp-clearfix"></span>
+            <span style="font-weight: 700;">Note: style templates will be updated if they exist!</span>
+            <table style="display: none;">
+                <tbody>
+                <tr>
+                    <td>Custom Animations:</td>
+                    <td><input type="radio" name="update_animations" value="true" checked="checked"> Overwrite</td>
+                    <td><input type="radio" name="update_animations" value="false"> Append</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+
+    <div id="dialog_import_template_slider_from" title="Import Template Slider"
+         class="dialog_import_template_slider_from modal" style="display:none">
+        Import Slider from local or from ThemePunch server?
+        <form action="{{ data.links.ajaxurl }}" enctype="multipart/form-data" method="post"
+              name="rs-import-template-from-server" id="rs-import-template-from-server">
+            <input type="hidden" name="action" value="revslider_ajax_action">
+            <input type="hidden" name="client_action" value="import_slider_online_template_slidersview">
+            <input type="hidden" name="nonce" value="bfeb7a67ce">
+            <input type="hidden" name="uid" class="rs-uid" value="">
+            <input type="hidden" name="package" class="rs-package" value="false">
+            <input type="hidden" name="page-creation" class="rs-page-creation" value="false">
+        </form>
+    </div>
+
+    <div id="dialog_import_template_slider_info" title="Importing Status" class="dialog_import_template_slider_info"
+         style="display:none">
+        <!-- ADD INFOS HERE ON DEMAND -->
+        <div class="revslider_logo_rotating">
+            <div class="revslidercycle"></div>
+        </div>
+        <div id="install-slider-counter-wrapper"><span id="install-slider-counter"></span></div>
+        <div id="nowinstalling_label">Now Installing</div>
+        <div id="import_dialog_box_action"></div>
+        <div id="import_dialog_box"></div>
+
+    </div>
+
+    <div id="dialog_import_template_slider_page_template" title="Create Blank Page"
+         class="dialog_import_template_slider_page_template" style="display:none">
+        Create a Blank Demo Page with this Slider added to it?
+    </div>
+    <div style="visibility: none;" id="register-wrong-purchase-code"></div>
+
+</div>

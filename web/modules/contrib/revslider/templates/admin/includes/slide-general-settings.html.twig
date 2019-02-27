@@ -1,0 +1,1942 @@
+<!-- THE CONTEXT MENU -->
+<div id="context_menu_underlay" class="ignorecontextmenu"></div>
+<nav id="context-menu" class="context-menu">
+    <ul id="context-menu-first-ul" class="context-menu__items">
+        <!-- CURRENT LAYER -->
+        <li class="context-menu__item not_in_ctx_bg" id="ctx-m-activelayer">
+            <div class="ctx_item_inner"><i id="cx-selected-layer-icon" class="rs-icon-layerimage_n context-menu__link"
+                                           data-action="nothing"></i><span
+                        id="cx-selected-layer-name">{{ "Black Canon DSLR"|trans }}</span>
+                <span data-uniqueid="4" id="ctx-list-of-layer-links" class="ctx-list-of-layer-links">
+    		<span id="ctx-layer-link-type-element-cs"
+                  class="ctx-layer-link-type-element ctx-layer-link-type-element-cs ctx-layer-link-type-3"></span>
+    		<span class="ctx-list-of-layer-links-inner">
+    			<span data-linktype="1" data-action="grouplinkchange"
+                      class="context-menu__link ctx-layer-link-type-element ctx-layer-link-type-1"></span>
+    			<span data-linktype="2" data-action="grouplinkchange"
+                      class="context-menu__link ctx-layer-link-type-element ctx-layer-link-type-2"></span>
+    			<span data-linktype="3" data-action="grouplinkchange"
+                      class="context-menu__link ctx-layer-link-type-element ctx-layer-link-type-3"></span>
+    			<span data-linktype="4" data-action="grouplinkchange"
+                      class="context-menu__link ctx-layer-link-type-element ctx-layer-link-type-4"></span>
+    			<span data-linktype="5" data-action="grouplinkchange"
+                      class="context-menu__link ctx-layer-link-type-element ctx-layer-link-type-5"></span>
+    			<span data-linktype="0" data-action="grouplinkchange"
+                      class="context-menu__link ctx-layer-link-type-element ctx-layer-link-type-0"></span>
+    		</span>
+    	</span>
+            </div>
+        </li>
+        <!-- BACKGROUND CONTEXT - ADD LAYER -->
+        <li class="context-menu__item context-with-sub not_in_ctx_layer">
+            <div class="ctx_item_inner">
+                <div class="context-menu__link"><i class="rs-icon-addlayer2"></i><span
+                            class="cx-layer-name">{{ "Add Layer"|trans }}</span></div>
+                <i class="fa-icon-chevron-right"></i></div>
+            <ul class="context-submenu">
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner">
+                        <div class="context-menu__link" data-action="addtextlayer"><i
+                                    class="rs-icon-layerfont_n"></i><span
+                                    class="cx-layer-name">{{ "Add Text/Html Layer"|trans }}</span></div>
+                    </div>
+                </li>
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner">
+                        <div class="context-menu__link" data-action="addimagelayer"><i class="rs-icon-layerimage_n"></i><span
+                                    class="cx-layer-name">{{ "Add Image Layer"|trans }}</span></div>
+                    </div>
+                </li>
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner">
+                        <div class="context-menu__link" data-action="addaudiolayer"><i class="rs-icon-layeraudio_n"></i><span
+                                    class="cx-layer-name">{{ "Add Audio Layer"|trans }}</span></div>
+                    </div>
+                </li>
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner">
+                        <div class="context-menu__link" data-action="addvideolayer"><i class="rs-icon-layervideo_n"></i><span
+                                    class="cx-layer-name">{{ "Add Video Layer"|trans }}</span></div>
+                    </div>
+                </li>
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner">
+                        <div class="context-menu__link" data-action="addbuttonlayer"><i
+                                    class="rs-icon-layerbutton_n"></i><span
+                                    class="cx-layer-name">{{ "Add Button Layer"|trans }}</span></div>
+                    </div>
+                </li>
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner">
+                        <div class="context-menu__link" data-action="addshapelayer"><i class="rs-icon-layershape_n"></i><span
+                                    class="cx-layer-name">{{ "Add Shape Layer"|trans }}</span></div>
+                    </div>
+                </li>
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner">
+                        <div class="context-menu__link" data-action="addobjectlayer"><i
+                                    class="rs-icon-layersvg_n"></i><span
+                                    class="cx-layer-name">{{ "Add Object Layer"|trans }}</span></div>
+                    </div>
+                </li>
+
+
+            </ul>
+        </li>
+        <!-- ALL LAYERS -->
+        <li class="context-menu__item ctx-m-top-divider context-with-sub" id="ctx-select-layer">
+            <div class="ctx_item_inner">
+                <div class="context-menu__link" data-action="select layer"><i class="eg-icon-menu"></i><span
+                            class="cx-layer-name">{{ "Select Layer"|trans }}</span></div>
+                <i class="fa-icon-chevron-right"></i></div>
+            <ul class="context-submenu" id="ctx_list_of_layers">
+
+            </ul>
+        </li>
+        <!-- LAYER MANIPULATION -->
+        <li class="context-menu__item not_in_ctx_bg">
+            <div class="ctx_item_inner">
+                <div class="context-menu__link" data-action="delete"><i class="rs-lighttrash"></i><span
+                            class="cx-layer-name">{{ "Delete Layer"|trans }}</span></div>
+            </div>
+        </li>
+
+        <li class="context-menu__item not_in_ctx_bg">
+            <div class="ctx_item_inner">
+                <div class="context-menu__link" data-action="duplicate"><i class="rs-lightcopy"></i><span
+                            class="cx-layer-name">{{ "Duplicate Layer"|trans }}</span></div>
+            </div>
+        </li>
+        <!-- LAYER VISIBILTY AND LOCK -->
+        <li class="context-menu__item ctx-m-top-divider context-with-sub">
+            <div class="ctx_item_inner">
+                <div class="context-menu__link"><i class="eg-icon-eye"></i><span
+                            class="cx-layer-name">{{ "Show Layers"|trans }}</span></div>
+                <i class="fa-icon-chevron-right"></i></div>
+            <ul class="context-submenu" id="ctx_list_of_invisibles">
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner">
+                        <div class="context-menu__link" data-action="showalllayer"><i class="fa-icon-asterisk"></i><span
+                                    class="cx-layer-name">{{ "Show All Layers"|trans }}</span></div>
+                    </div>
+                </li>
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner">
+                        <div class="context-menu__link" data-action="showonlycurrent"><i
+                                    class="fa-icon-hand-o-right"></i><span
+                                    class="cx-layer-name">{{ "Show Only Current Layer"|trans }}</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <li class="context-menu__item not_in_ctx_bg" id="cx-selected-layer-visible">
+            <div class="ctx_item_inner">
+                <div class="context-menu__link" data-action="showhide"><i class="eg-icon-eye-off"></i><span
+                            class="cx-layer-name">{{ "Hide Layer"|trans }}</span></div>
+            </div>
+        </li>
+
+        <li class="context-menu__item not_in_ctx_bg" id="cx-selected-layer-locked">
+            <div class="ctx_item_inner">
+                <div class="context-menu__link" data-action="lockunlock"><i class="eg-icon-lock-open"></i><span
+                            class="cx-layer-name">{{ "Lock Layer"|trans }}</span></div>
+            </div>
+        </li>
+
+        <!-- LAYER SPECIALS -->
+        <!-- STYLE OF LAYERS -->
+        <li class="context-menu__item ctx-m-top-divider context-with-sub not_in_ctx_bg">
+            <div class="ctx_item_inner">
+                <div class="context-menu__link"><i class="fa-icon-paint-brush"></i><span
+                            class="cx-layer-name">{{ "Style"|trans }}</span></div>
+                <i class="fa-icon-chevron-right"></i></div>
+            <ul class="context-submenu">
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner">
+                        <div class="context-menu__link" data-action="copystyle"><i class="fa-icon-cut"></i><span
+                                    class="cx-layer-name">{{ "Copy Style"|trans }}</span></div>
+                    </div>
+                </li>
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner">
+                        <div class="context-menu__link" data-action="pastestyle"><i class="fa-icon-edit"></i><span
+                                    class="cx-layer-name">{{ "Paste Style"|trans }}</span></div>
+                    </div>
+                </li>
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner">
+                        <div style="display:inline-block" class="context-menu__link" data-action="nothing"><i
+                                    class="fa-icon-edit"></i><span
+                                    class="cx-layer-name">{{ "Inherit Style from"|trans }}</span></div>
+                        <div style="display:inline-block; float:right; margin-top:3px; height:20px"
+                             data-action="nothing">
+                            <div id="ctx-inheritdesktop" class="ctx-in-one-row context-menu__link" data-size="desktop"
+                                 data-action="inheritfromdesktop"><i style="width:19px; margin:0;"
+                                                                     class="rs-displays-icon rs-slide-ds-desktop"></i>
+                            </div>
+                            <div id="ctx-inheritnotebook" class="ctx-in-one-row context-menu__link" data-size="notebook"
+                                 data-action="inheritfromnotebook"><i style="width:26px; margin:0;"
+                                                                      class="rs-displays-icon rs-slide-ds-notebook"></i>
+                            </div>
+                            <div id="ctx-inherittablet" class="ctx-in-one-row context-menu__link" data-size="tablet"
+                                 data-action="inheritfromtablet"><i style="width:15px; margin:0;"
+                                                                    class="rs-displays-icon rs-slide-ds-tablet"></i>
+                            </div>
+                            <div id="ctx-inheritmobile" class="ctx-in-one-row context-menu__link" data-size="mobile"
+                                 data-action="inheritfrommobile"><i style="width:17px; margin:0;"
+                                                                    class="rs-displays-icon rs-slide-ds-mobile"></i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner">
+                        <div class="context-menu__link" data-action="advancedcss"><i class="fa-icon-code"></i><span
+                                    class="cx-layer-name">{{ "Advanced Layer CSS"|trans }}</span></div>
+                    </div>
+                </li>
+                <li class="context-menu__item ctx-m-top-divider _ho_image _ho_group _ho_row _ho_column _ho_svg _ho_audio _ho_video _ho_group _ho_shape _ho_button">
+                    <div class="ctx_item_inner context-menu__link noleftmargin" data-action="delegate"
+                         data-delegate="ctx_linebreak"><i class="fa-icon-level-down"></i><span
+                                class="cx-layer-name">{{ "Line Break"|trans }}</span>
+                        <div id="ctx_linebreak" class="ctx-td-switcher context-menu__link"
+                             data-action="linebreak"></div>
+                    </div>
+                </li>
+                <li class="context-menu__item _ho_image _ho_group _ho_row _ho_column _ho_svg _ho_audio _ho_video _ho_group _ho_notincolumn">
+                    <div class="ctx_item_inner context-menu__link noleftmargin" data-action="nothing"><i
+                                class="fa-icon-text-width"></i><span
+                                class="cx-layer-name">{{ "Display Mode"|trans }}</span>
+                        <div class="context-menu__link ctx-td-option-selector-wrapper" data-action="nothing">
+                            <div id="ctx_displayblock" class="ctx-td-option-selector context-menu__link selected"
+                                 data-action="displayblock">Block
+                            </div>
+                            <div id="ctx_displayinline" class="ctx-td-option-selector context-menu__link"
+                                 data-action="displayinline">Inline
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="context-menu__item ctx-m-top-divider _ho_text  _ho_row _ho_column _ho_audio _ho_shape _ho_button">
+                    <div class="ctx_item_inner context-menu__link noleftmargin" data-action="delegate"
+                         data-delegate="ctx_keepaspect"><i class="fa-icon-expand"></i><span
+                                class="cx-layer-name">{{ "Keep Aspect Ratio"|trans }}</span>
+                        <div id="ctx_keepaspect" class="ctx-td-switcher context-menu__link"
+                             data-action="aspectratio"></div>
+                    </div>
+                </li>
+                <li class="context-menu__item _ho_text _ho_group _ho_row _ho_column _ho_audio _ho_video _ho_shape _ho_button">
+                    <div class="ctx_item_inner">
+                        <div class="context-menu__link" data-action="resetsize"><i class="fa-icon-rotate-left"></i><span
+                                    class="cx-layer-name">{{ "Reset Size"|trans }}</span></div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <!-- RESPONSIVENESS -->
+        <li class="context-menu__item context-with-sub not_in_ctx_bg">
+            <div class="ctx_item_inner">
+                <div class="context-menu__link"><i class="fa-icon-compress"></i><span
+                            class="cx-layer-name">{{ "Layer Responsiveness"|trans }}</span></div>
+                <i class="fa-icon-chevron-right"></i></div>
+            <ul class="context-submenu">
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner context-menu__link" data-action="nothing"><span
+                                class="cx-layer-name">{{ "Alignment"|trans }}</span>
+                        <div class="context-menu__link ctx-td-option-selector-wrapper" data-action="nothing">
+                            <div id="ctx_gridbased" class="ctx-td-option-selector context-menu__link selected"
+                                 data-action="gridbased">Grid Based
+                            </div>
+                            <div id="ctx_slidebased" class="ctx-td-option-selector context-menu__link"
+                                 data-action="slidebased">Slide Based
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="context-menu__item _ho_row _ho_column">
+                    <div class="ctx_item_inner context-menu__link" data-action="delegate"
+                         data-delegate="ctx_autoresponsive"><span
+                                class="cx-layer-name">{{ "Auto Responsive"|trans }}</span>
+                        <div id="ctx_autoresponsive" class="ctx-td-switcher context-menu__link"
+                             data-action="autoresponsive"></div>
+                    </div>
+                </li>
+                <li class="context-menu__item _ho_row _ho_column">
+                    <div class="ctx_item_inner context-menu__link" data-action="delegate"
+                         data-delegate="ctx_childrenresponsive"><span
+                                class="cx-layer-name">{{ "Children Responsive"|trans }}</span>
+                        <div id="ctx_childrenresponsive" class="ctx-td-switcher context-menu__link"
+                             data-action="childrenresponsive"></div>
+                    </div>
+                </li>
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner context-menu__link" data-action="delegate"
+                         data-delegate="ctx_responsiveoffset"><span
+                                class="cx-layer-name">{{ "Responsive Offset"|trans }}</span>
+                        <div id="ctx_responsiveoffset" class="ctx-td-switcher context-menu__link"
+                             data-action="responsiveoffset"></div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <!-- VISIBILITY -->
+        <li class="context-menu__item context-with-sub not_in_ctx_bg">
+            <div class="ctx_item_inner">
+                <div class="context-menu__link"><i class="fa-icon-eye"></i><span
+                            class="cx-layer-name">{{ "Visibility"|trans }}</span></div>
+                <i class="fa-icon-chevron-right"></i></div>
+            <ul class="context-submenu">
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner context-menu__link noleftmargin" data-action="delegate"
+                         data-delegate="ctx_showhideondesktop"><i class="rs-displays-icon rs-slide-ds-desktop"></i><span
+                                class="cx-layer-name">{{ "Desktop"|trans }}</span>
+                        <div id="ctx_showhideondesktop" class="ctx-td-switcher context-menu__link"
+                             data-action="showhideondesktop"></div>
+                    </div>
+                </li>
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner context-menu__link noleftmargin" data-action="delegate"
+                         data-delegate="ctx_showhideonnotebook"><i
+                                class="rs-displays-icon rs-slide-ds-notebook"></i><span
+                                class="cx-layer-name">{{ "Notebook"|trans }}</span>
+                        <div id="ctx_showhideonnotebook" class="ctx-td-switcher context-menu__link"
+                             data-action="showhideonnotebook"></div>
+                    </div>
+                </li>
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner context-menu__link noleftmargin" data-action="delegate"
+                         data-delegate="ctx_showhideontablet"><i class="rs-displays-icon rs-slide-ds-tablet"></i><span
+                                class="cx-layer-name">{{ "Tablet"|trans }}</span>
+                        <div id="ctx_showhideontablet" class="ctx-td-switcher context-menu__link"
+                             data-action="showhideontablet"></div>
+                    </div>
+                </li>
+                <li class="context-menu__item">
+                    <div class="ctx_item_inner context-menu__link noleftmargin" data-action="delegate"
+                         data-delegate="ctx_showhideonmobile"><i class="rs-displays-icon rs-slide-ds-mobile"></i><span
+                                class="cx-layer-name">{{ "Mobile"|trans }}</span>
+                        <div id="ctx_showhideonmobile" class="ctx-td-switcher context-menu__link"
+                             data-action="showhideonmobile"></div>
+                    </div>
+                </li>
+
+            </ul>
+        </li>
+
+    </ul>
+</nav>
+
+
+<div id="slide_main_settings_wrapper" class="editor_buttons_wrapper  postbox unite-postbox">
+    <div class="box-closed tp-accordion" style="border-bottom:5px solid #ddd;">
+        <ul class="rs-slide-settings-tabs">
+            {% if not slide_general_settings.slide.isStaticSlide %}
+                <li id="v_sgs_mp_1" data-content="#slide-main-image-settings-content" class="selected"><i
+                            style="height:45px"
+                            class="rs-mini-layer-icon eg-icon-picture-1 rs-toolbar-icon"></i><span>{{ "Main Background"|trans }}</span>
+                </li>
+            {% endif %}
+            <li id="v_sgs_mp_2" class="{{ slide_general_settings.slide.isStaticSlide ? ' selected' : '' }}"
+                data-content="#slide-general-settings-content"><i style="height:45px"
+                                                                  class="rs-mini-layer-icon rs-icon-chooser-2 rs-toolbar-icon"></i>{{ "General Settings"|trans }}
+            </li>
+            {% if not slide_general_settings.slide.isStaticSlide %}
+                <li id="v_sgs_mp_3" data-content="#slide-thumbnail-settings-content"><i style="height:45px"
+                                                                                        class="rs-mini-layer-icon eg-icon-flickr-1 rs-toolbar-icon"></i>{{ "Thumbnail"|trans }}
+                </li>
+                <li id="v_sgs_mp_4" data-content="#slide-animation-settings-content"
+                    id="slide-animation-settings-content-tab"><i style="height:45px"
+                                                                 class="rs-mini-layer-icon rs-icon-chooser-3 rs-toolbar-icon"></i>{{ "Slide Animation"|trans }}
+                </li>
+                <li id="v_sgs_mp_5" data-content="#slide-seo-settings-content"><i style="height:45px"
+                                                                                  class="rs-mini-layer-icon rs-icon-advanced rs-toolbar-icon"></i>{{ "Link & Seo"|trans }}
+                </li>
+                <li id="v_sgs_mp_6" data-content="#slide-info-settings-content"><i style="height:45px; font-size:16px;"
+                                                                                   class="rs-mini-layer-icon eg-icon-info-circled rs-toolbar-icon"></i>{{ "Slide Info"|trans }}
+                </li>
+                <li id="main-menu-nav-settings-li" data-content="#slide-nav-settings-content"><i
+                            style="height:45px; font-size:16px;"
+                            class="rs-mini-layer-icon eg-icon-magic rs-toolbar-icon"></i>{{ "Nav. Overwrite"|trans }}
+                </li>
+            {% endif %}
+        </ul>
+
+        <div style="clear:both"></div>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function () {
+                jQuery('.rs-slide-settings-tabs li').click(function () {
+                    var tw = jQuery('.rs-slide-settings-tabs .selected'),
+                        tn = jQuery(this);
+                    jQuery(tw.data('content')).hide(0);
+                    tw.removeClass("selected");
+                    tn.addClass("selected");
+                    jQuery(tn.data('content')).show(0);
+                });
+            });
+        </script>
+    </div>
+    <div style="padding:15px">
+        <form name="form_slide_params" id="form_slide_params" class="slide-main-settings-form">
+            {% if not slide_general_settings.slide.isStaticSlide %}
+                <div id="slide-main-image-settings-content" class="slide-main-settings-form">
+
+                    <ul class="rs-layer-main-image-tabs" style="display:inline-block; ">
+                        <li data-content="#mainbg-sub-source" class="selected">{{ "Source"|trans }}</li>
+                        <li class="mainbg-sub-settings-selector"
+                            data-content="#mainbg-sub-setting">{{ "Source Settings"|trans }}</li>
+                        <li class="mainbg-sub-filtres-selector"
+                            data-content="#mainbg-sub-filters">{{ "Filters"|trans }}</li>
+                        <li class="mainbg-sub-parallax-selector"
+                            data-content="#mainbg-sub-parallax">{{ "Parallax / 3D"|trans }}</li>
+                        <li class="mainbg-sub-kenburns-selector"
+                            data-content="#mainbg-sub-kenburns">{{ "Ken Burns"|trans }}</li>
+                    </ul>
+
+                    <div class="tp-clearfix"></div>
+
+                    <script type="text/javascript">
+                        document.addEventListener("DOMContentLoaded", function () {
+                            jQuery('.rs-layer-main-image-tabs li').click(function () {
+                                var tw = jQuery('.rs-layer-main-image-tabs .selected'),
+                                    tn = jQuery(this);
+                                jQuery(tw.data('content')).hide(0);
+                                tw.removeClass("selected");
+                                tn.addClass("selected");
+                                jQuery(tn.data('content')).show(0);
+                            });
+                        });
+                    </script>
+
+
+                    <!-- SLIDE MAIN IMAGE -->
+                    <span id="mainbg-sub-source" style="display:block">
+                        {% set slider_type = slide_general_settings.slider_type %}
+                        {% set bgType = slide_general_settings.bgType %}
+                        <input type="hidden" name="rs-gallery-type" value="{{ slider_type | e('html_attr') }}"/>
+						<span class="diblock bg-settings-block">
+							<!-- IMAGE FROM MEDIAGALLERY -->
+                            {% if slider_type == 'posts' or slider_type == 'specific_posts' or slider_type == 'current_post' or slider_type == 'woocommerce' %}
+                                <label>{{ "Featured Image"|trans }}</label>
+                                <input type="radio" name="background_type" value="image" class="bgsrcchanger"
+                                       data-callid="tp-bgimagewpsrc" data-imgsettings="on" data-bgtype="image"
+                                       id="radio_back_image" {{ ( bgType == 'image') ? 'checked="checked"' : '' }}>
+                            {% elseif not slider_type == 'gallery' %}
+                                <label>{{ "Stream Image"|trans }}</label>
+                                <input type="radio" name="background_type" value="image" class="bgsrcchanger"
+                                       data-callid="tp-bgimagewpsrc" data-imgsettings="on" data-bgtype="image"
+                                       id="radio_back_image" {{ ( bgType == 'image') ? 'checked="checked"' : '' }}>
+                                {% if slider_type == 'vimeo' or slider_type == 'youtube' or slider_type == 'instagram' or slider_type == 'twitter' %}
+
+                                    <div class="tp-clearfix"></div>
+                                    <label>{{ "Stream Video"|trans }}</label>
+                                    <input type="radio" name="background_type"
+                                           value="stream{{ slider_type | e('html_attr') }}"
+                                           class="bgsrcchanger" data-callid="tp-bgimagewpsrc" data-imgsettings="on"
+                                           data-bgtype="stream{{ slider_type | e('html_attr') }}" {{ ( bgType == 'stream' ~ slider_type) ? 'checked="checked"' : '' }}>
+                                    <span id="streamvideo_cover" class="streamvideo_cover"
+                                          style="display:none;margin-left:20px;">
+										<span style="margin-right: 10px">{{ "Use Cover"|trans }}</span>
+										<input type="checkbox" class="tp-moderncheckbox" id="stream_do_cover"
+                                               name="stream_do_cover"
+                                               data-unchecked="off" {{ ( slide_general_settings.stream_do_cover == 'on') ? 'checked="checked"' : '' }}>
+									</span>
+
+                                    <div class="tp-clearfix"></div>
+                                    <label>{{ "Stream Video + Image"|trans }}</label>
+                                    <input type="radio" name="background_type"
+                                           value="stream{{ slider_type | e('html_attr') }}both" class="bgsrcchanger"
+                                           data-callid="tp-bgimagewpsrc" data-imgsettings="on"
+                                           data-bgtype="stream{{ slider_type | e('html_attr') }}both" {{ ( bgType == 'stream' ~ slider_type ~ 'both') ? 'checked="checked"' : '' }}>
+                                    <span id="streamvideo_cover_both" class="streamvideo_cover_both"
+                                          style="display:none;margin-left:20px;">
+										<span style="margin-right: 10px">{{ "Use Cover"|trans }}</span>
+										<input type="checkbox" class="tp-moderncheckbox" id="stream_do_cover_both"
+                                               name="stream_do_cover_both"
+                                               data-unchecked="off" {{ ( slide_general_settings.stream_do_cover_both == 'on') ? 'checked="checked"' : '' }}>
+									</span>
+                                {% endif %}
+                            {% else %}
+                                <label>{{ "Main / Background Image"|trans }}</label>
+                                <input type="radio" name="background_type" value="image" class="bgsrcchanger"
+                                       data-callid="tp-bgimagewpsrc" data-imgsettings="on" data-bgtype="image"
+                                       id="radio_back_image" {{ ( bgType == 'image') ? 'checked="checked"' : '' }}>
+                            {% endif %}
+                            <!-- THE BG IMAGE CHANGED DIV -->
+							<span id="tp-bgimagewpsrc" class="bgsrcchanger-div" style="display:none;margin-left:20px;">
+								<a href="javascript:void(0)" id="button_change_image" class="button-primary revblue"><i
+                                            class="fa-icon-drupal"></i>{{ "Media Library"|trans }}</a>
+								{#<a href="javascript:void(0)" id="button_change_image_objlib"#}
+                                   {#class="button-primary revpurple"><i#}
+                                            {#class="fa-icon-book"></i>{{ "Object Library"|trans }}</a>#}
+							</span>
+
+							</span>
+							<div class="tp-clearfix"></div>
+
+                        <!-- IMAGE FROM EXTERNAL -->
+							<label>{{ "External URL"|trans }}</label>
+							<input type="radio" name="background_type" value="external" data-callid="tp-bgimageextsrc"
+                                   data-imgsettings="on" class="bgsrcchanger" data-bgtype="external"
+                                   id="radio_back_external" {{ ( bgType == 'external') ? 'checked="checked"' : '' }}>
+
+                        <!-- THE BG IMAGE FROM EXTERNAL SOURCE -->
+							<span id="tp-bgimageextsrc" class="bgsrcchanger-div" style="display:none;margin-left:20px;">
+								<input type="text" name="bg_external" id="slide_bg_external"
+                                       value="{{ slide_general_settings.slideBGExternal | e('html_attr') }}"
+                                        {{ not ( bgType == 'external') ? ' class="disabled"' : '' }}>
+								<a href="javascript:void(0)" id="button_change_external"
+                                   class="button-primary revblue">{{ "Get External"|trans }}</a>
+							</span>
+
+							<div class="tp-clearfix"></div>
+
+                        <!-- TRANSPARENT BACKGROUND -->
+							<label>{{ "Transparent"|trans }}</label>
+							<input type="radio" name="background_type" value="trans" data-callid="" class="bgsrcchanger"
+                                   data-bgtype="trans"
+                                   id="radio_back_trans" {{ ( bgType == 'trans') ? 'checked="checked"' : '' }}>
+							<div class="tp-clearfix"></div>
+
+                        <!-- COLORED BACKGROUND -->
+							<label>{{ "Colored"|trans }}</label>
+							<input type="radio" name="background_type" value="solid" data-callid="tp-bgcolorsrc"
+                                   class="bgsrcchanger" data-bgtype="solid"
+                                   id="radio_back_solid" {{ ( bgType == 'solid') ? 'checked="checked"' : '' }}>
+
+                        <!-- THE COLOR SELECTOR -->
+							<span id="tp-bgcolorsrc" class="bgsrcchanger-div" style="display:none;margin-left:20px;">
+								<input type="text" data-editing="Background Color" name="bg_color" id="slide_bg_color"
+                                       class="my-color-field"
+                                       value="{{ slide_general_settings.slideBGColor | e('html_attr') }}">
+							</span>
+							<div class="tp-clearfix"></div>
+
+                        <!-- THE YOUTUBE SELECTOR -->
+							<label id="label_radio_back_youtube">{{ "YouTube Video"|trans }}</label>
+							<input type="radio" name="background_type" value="youtube" data-callid="tp-bgyoutubesrc"
+                                   class="bgsrcchanger" data-bgtype="youtube"
+                                   id="radio_back_youtube" {{ ( bgType == 'youtube') ? 'checked="checked"' : '' }}>
+							<div class="tp-clearfix"></div>
+
+                        <!-- THE BG IMAGE FROM YOUTUBE SOURCE -->
+							<span id="tp-bgyoutubesrc" class="bgsrcchanger-div" style="display:none; margin-left:20px;">
+								<label style="min-width:180px">{{ "ID:"|trans }}</label>
+								<input type="text" name="slide_bg_youtube" id="slide_bg_youtube"
+                                       value="{{ slide_general_settings.slideBGYoutube | e('html_attr') }}"
+                                        {{ not ( bgType == 'youtube') ? ' class="disabled"' : '' }}>
+                                {{ "example: T8--OggjJKQ"|trans }}
+                                <div class="tp-clearfix"></div>
+								<label style="min-width:180px">{{ "Cover Image:"|trans }}</label>
+								<span id="youtube-image-picker"><a href="javascript:void(0)" id="button_change_image_yt"
+                                                                   class="button-primary revgreen"><i
+                                                class="fa-icon-photo"></i>{{ "YouTube Video Poster"|trans }}</a></span>
+							</span>
+							<div class="tp-clearfix"></div>
+
+                        <!-- THE VIMEO SELECTOR -->
+							<label id="label_radio_back_vimeo">{{ "Vimeo Video"|trans }}</label>
+							<input type="radio" name="background_type" value="vimeo" data-callid="tp-bgvimeosrc"
+                                   class="bgsrcchanger" data-bgtype="vimeo"
+                                   id="radio_back_vimeo" {{ ( bgType == 'vimeo') ? 'checked="checked"' : '' }}>
+							<div class="tp-clearfix"></div>
+
+                        <!-- THE BG IMAGE FROM VIMEO SOURCE -->
+							<span id="tp-bgvimeosrc" class="bgsrcchanger-div" style="display:none; margin-left:20px;">
+								<label style="min-width:180px">{{ "ID:"|trans }}</label>
+								<input type="text" name="slide_bg_vimeo" id="slide_bg_vimeo"
+                                       value="{{ slide_general_settings.slideBGVimeo | e('html_attr') }}"
+                                        {{ not ( bgType == 'vimeo') ? ' class="disabled"' : '' }}>
+                                {{ "example: 30300114"|trans }}
+                                <div class="tp-clearfix"></div>
+								<label style="min-width:180px">{{ "Cover Image:"|trans }}</label>
+								<span id="vimeo-image-picker"></span>
+							</span>
+							<div class="tp-clearfix"></div>
+
+                        <!-- THE HTML5 SELECTOR -->
+							<label>{{ "HTML5 Video"|trans }}</label>
+							<input type="radio" name="background_type" value="html5" data-callid="tp-bghtmlvideo"
+                                   class="bgsrcchanger" data-bgtype="html5"
+                                   id="radio_back_htmlvideo" {{ ( bgType == 'html5') ? 'checked="checked"' : '' }}>
+							<div class="tp-clearfix"></div>
+                        <!-- THE BG IMAGE FROM HTML5 SOURCE -->
+							<span id="tp-bghtmlvideo" class="bgsrcchanger-div" style="display:none; margin-left:20px;">
+
+								<label style="min-width:180px">{{ "MPEG:"|trans }}</label>
+								<input type="text" name="slide_bg_html_mpeg" id="slide_bg_html_mpeg"
+                                       value="{{ slide_general_settings.slideBGhtmlmpeg | e('html_attr') }}"
+                                        {{ not ( bgType == 'html5') ? ' class="disabled"' : '' }}>
+								<span class="vidsrcchanger-div" style="margin-left:20px;">
+									<a href="javascript:void(0)" data-inptarget="slide_bg_html_mpeg"
+                                       class="button_change_video button-primary revblue">{{ "Change Video"|trans }}</a>
+								</span>
+								<div class="tp-clearfix"></div>
+								<label style="min-width:180px">{{ "WEBM:"|trans }}</label>
+								<input type="text" name="slide_bg_html_webm" id="slide_bg_html_webm"
+                                       value="{{ slide_general_settings.slideBGhtmlwebm | e('html_attr') }}"
+                                        {{ not ( bgType == 'html5') ? ' class="disabled"' : '' }}>
+								<span class="vidsrcchanger-div" style="margin-left:20px;">
+									<a href="javascript:void(0)" data-inptarget="slide_bg_html_webm"
+                                       class="button_change_video button-primary revblue">{{ "Change Video"|trans }}</a>
+								</span>
+								<div class="tp-clearfix"></div>
+								<label style="min-width:180px">{{ "OGV:"|trans }}</label>
+								<input type="text" name="slide_bg_html_ogv" id="slide_bg_html_ogv"
+                                       value="{{ slide_general_settings.slideBGhtmlogv | e('html_attr') }}"
+                                        {{ not ( bgType == 'html5') ? ' class="disabled"' : '' }}>
+								<span class="vidsrcchanger-div" style="margin-left:20px;">
+									<a href="javascript:void(0)" data-inptarget="slide_bg_html_ogv"
+                                       class="button_change_video button-primary revblue">{{ "Change Video"|trans }}</a>
+								</span>
+								<div class="tp-clearfix"></div>
+								<label style="min-width:180px">{{ "Cover Image:"|trans }}</label>
+								<span id="html5video-image-picker"></span>
+							</span>
+						</span>
+                    </span>
+                    <div id="mainbg-sub-setting" style="display:none">
+                        <div style="float:none; clear:both; margin-bottom: 10px;"></div>
+                        <div class="rs-img-source-url">
+                            <label>{{ "Source Info:"|trans }}</label>
+                            <span class="text-selectable" id="the_image_source_url" style="margin-right:20px"></span>
+                            <span class="description">{{ "Read Only ! Image can be changed from \"Source Tab\""|trans }}</span>
+                        </div>
+
+                        <div class="rs-img-source-size">
+
+                            <label>{{ "Image Source Size:"|trans }}</label>
+                            <span style="margin-right:20px">
+								<select name="image_source_type">
+                                    {% for img_size in slide_general_settings.img_sizes %}
+                                        <option value="{{ img_size.imghandle_val }}" {{ (slide_general_settings.bg_image_size == img_size.imghandle)? ' selected="selected"' : '' }}>
+                                            {{ img_size.imgSize }}</option>
+                                    {% endfor %}
+								</select>
+							</span>
+                        </div>
+
+                        <div id="tp-bgimagesettings" class="bgsrcchanger-div" style="display:none;">
+                            <!-- ALT -->
+                            <div>
+                                {% set alt_option = slide_general_settings.alt_option %}
+                                <label>{{ "Alt:"|trans }}</label>
+                                <select id="alt_option" name="alt_option">
+                                    <option value="media_library" {{ (alt_option == 'media_library') ? ' selected="selected"' : '' }}>{{ "From Media Library"|trans }}</option>
+                                    <option value="file_name" {{ (alt_option == 'file_name') ? ' selected="selected"' : '' }}>{{ "From Filename"|trans }}</option>
+                                    <option value="custom" {{ (alt_option == 'custom') ? ' selected="selected"' : '' }}>{{ "Custom"|trans }}</option>
+                                </select>
+                                <input style="{{ not (alt_option == 'custom') ? 'display:none;' : '' }}"
+                                       type="text" id="alt_attr" name="alt_attr"
+                                       value="{{ slide_general_settings.alt_attr | e('html_attr') }}>{{ "From Media Library"|trans }}">
+                            </div>
+                            <div class="ext_setting" style="display: none;">
+                                <label>{{ "Width:" | trans }}</label>
+                                <input type="text" name="ext_width"
+                                       value="{{ slide_general_settings.ext_width | e('html_attr') }}"/>
+                            </div>
+                            <div class="ext_setting" style="display: none;">
+                                <label>{{ "Height:" | trans }}</label>
+                                <input type="text" name="ext_height"
+                                       value="{{ slide_general_settings.ext_width | e('html_attr') }}"/>
+                            </div>
+
+                            <!-- TITLE -->
+                            <div>
+                                {% set title_option = slide_general_settings.title_option %}
+                                <label>{{ "Title:"|trans }}</label>
+                                <select id="title_option" name="title_option">
+                                    <option value="media_library" {{ (title_option == 'media_library') ? ' selected="selected"' : '' }}>
+                                        {{ "From Media Library"|trans }}</option>
+                                    <option value="file_name" {{ (title_option == 'file_name') ? ' selected="selected"' : '' }}>
+                                        {{ "From Filename"|trans }}</option>
+                                    <option value="custom" {{ (title_option == 'custom') ? ' selected="selected"' : '' }}>
+                                        {{ "Custom"|trans }}</option>
+                                </select>
+                                <input style="{{ not (title_option == 'custom') ? 'display:none;' : '' }}"
+                                       type="text" id="title_attr" name="title_attr"
+                                       value="{{ slide_general_settings.title_attr | e('html_attr') }}">
+                            </div>
+                        </div>
+
+                        <div id="video-settings" style="display: block;">
+                            <div>
+                                <label for="video_force_cover"
+                                       class="video-label">{{ "Force Cover:"|trans }}</label>
+                                <input type="checkbox" class="tp-moderncheckbox" id="video_force_cover"
+                                       name="video_force_cover"
+                                       data-unchecked="off" {{ (slide_general_settings.video_force_cover == 'on') ? ' checked="checked"' : '' }}>
+                            </div>
+                            <span id="video_dotted_overlay_wrap">
+								<label for="video_dotted_overlay">
+									{{ "Dotted Overlay:"|trans }}
+								</label>
+								<select id="video_dotted_overlay" name="video_dotted_overlay" style="width:100px">
+                                    {% set video_dotted_overlay = slide_general_settings.video_dotted_overlay %}
+                                    <option {{ (video_dotted_overlay == 'none') ? ' selected="selected"' : '' }}
+                                            value="none">{{ "none"|trans }}</option>
+									<option {{ (video_dotted_overlay == 'twoxtwo') ? ' selected="selected"' : '' }}
+                                            value="twoxtwo">{{ "2 x 2 Black"|trans }}</option>
+									<option {{ (video_dotted_overlay == 'twoxtwowhite') ? ' selected="selected"' : '' }}
+                                            value="twoxtwowhite">{{ "2 x 2 White"|trans }}</option>
+									<option {{ (video_dotted_overlay == 'threexthree') ? ' selected="selected"' : '' }}
+                                            value="threexthree">{{ "3 x 3 Black"|trans }}</option>
+									<option {{ (video_dotted_overlay == 'threexthreewhite') ? ' selected="selected"' : '' }}
+                                            value="threexthreewhite">{{ "3 x 3 White"|trans }}</option>
+								</select>
+								<div style="clear: both;"></div>
+							</span>
+                            <label for="video_ratio">
+                                {{ "Aspect Ratio:"|trans }}
+                            </label>
+                            <select id="video_ratio" name="video_ratio" style="width:100px">
+                                {% set video_ratio = slide_general_settings.video_ratio %}
+                                <option {{ (video_ratio == '16:9') ? ' selected="selected"' : '' }}
+                                        value="16:9">{{ "16:9"|trans }}</option>
+                                <option {{ (video_ratio == '4:3') ? ' selected="selected"' : '' }}
+                                        value="4:3">{{ "4:3"|trans }}</option>
+                            </select>
+                            <div style="clear: both;"></div>
+                            <div>
+                                <label for="video_ratio">
+                                    {{ "Start At:"|trans }}
+                                </label>
+                                <input type="text" value="{{ slide_general_settings.video_start_at | e('html_attr') }}"
+                                       name="video_start_at"> {{ "For Example: 00:17"|trans }}
+                                <div style="clear: both;"></div>
+                            </div>
+                            <div>
+                                <label for="video_ratio">
+                                    {{ "End At:"|trans }}
+                                </label>
+                                <input type="text" value="{{ slide_general_settings.video_end_at | e('html_attr') }}"
+                                       name="video_end_at"> {{ "For Example: 02:17"|trans }}
+                                <div style="clear: both;"></div>
+                            </div>
+                            <div>
+                                <label for="video_loop">{{ "Loop Video:"|trans }}</label>
+                                <select id="video_loop" name="video_loop" style="width: 200px;">
+                                    {% set video_loop = slide_general_settings.video_loop %}
+                                    <option {{ (video_loop == 'none') ? ' selected="selected"' : '' }}
+                                            value="none">{{ "Disable"|trans }}</option>
+                                    <option {{ (video_loop == 'loop') ? ' selected="selected"' : '' }}
+                                            value="loop">{{ "Loop, Slide is paused"|trans }}</option>
+                                    <option {{ (video_loop == 'loopandnoslidestop') ? ' selected="selected"' : '' }}
+                                            value="loopandnoslidestop">{{ "Loop, Slide does not stop"|trans }}</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="video_nextslide">{{ "Next Slide On End:"|trans }}</label>
+                                <input type="checkbox" class="tp-moderncheckbox" id="video_nextslide"
+                                       name="video_nextslide"
+                                       data-unchecked="off" {{ (slide_general_settings.video_nextslide == 'on') ? ' checked="checked"' : '' }}>
+                            </div>
+                            <div>
+                                <label for="video_force_rewind">{{ "Rewind at Slide Start:"|trans }}</label>
+                                <input type="checkbox" class="tp-moderncheckbox" id="video_force_rewind"
+                                       name="video_force_rewind"
+                                       data-unchecked="off" {{ (slide_general_settings.video_force_rewind == 'on') ? ' checked="checked"' : '' }}>
+                            </div>
+
+                            <div>
+                                <label for="video_mute">{{ "Mute Video:"|trans }}</label>
+                                <input type="checkbox" class="tp-moderncheckbox" id="video_mute" name="video_mute"
+                                       data-unchecked="off" {{ (slide_general_settings.video_mute == 'on') ? ' checked="checked"' : '' }}>
+                            </div>
+
+                            <div class="vid-rev-vimeo-youtube video_volume_wrapper">
+                                <label for="video_volume">{{ "Video Volume:"|trans }}</label>
+                                <input type="text" id="video_volume" name="video_volume"
+                                       value="{{ slide_general_settings.video_volume | e('html_attr') }}">
+                            </div>
+
+                            <span id="vid-rev-youtube-options">
+								<div>
+									<label for="video_speed">{{ "Video Speed:"|trans }}</label>
+									<select id="video_speed" name="video_speed" style="width:75px">
+                                         {% set video_speed = slide_general_settings.video_speed %}
+                                        <option {{ (video_speed == '0.25') ? ' selected="selected"' : '' }}
+                                                value="0.25">{{ "0.25"|trans }}</option>
+										<option {{ (video_speed == '0.50') ? ' selected="selected"' : '' }}
+                                                value="0.50">{{ "0.50"|trans }}</option>
+										<option {{ (video_speed == '1') ? ' selected="selected"' : '' }}
+                                                value="1">{{ "1"|trans }}</option>
+										<option {{ (video_speed == '1.5') ? ' selected="selected"' : '' }}
+                                                value="1.5">{{ "1.5"|trans }}</option>
+										<option {{ (video_speed == '2') ? ' selected="selected"' : '' }}
+                                                value="2">{{ "2"|trans }}</option>
+									</select>
+								</div>
+								<div>
+									<label>{{ "Arguments YouTube:"|trans }}</label>
+									<input type="text" id="video_arguments" name="video_arguments" style="width:350px;"
+                                           value="{{ slide_general_settings.video_arguments | e('html_attr') }}">
+								</div>
+							</span>
+                            <div id="vid-rev-vimeo-options">
+                                <label>{{ "Arguments Vimeo:"|trans }}</label>
+                                <input type="text" id="video_arguments_vim" name="video_arguments_vim"
+                                       style="width:350px;"
+                                       value="{{ slide_general_settings.video_arguments_vim | e('html_attr') }}">
+                            </div>
+                        </div>
+
+                        <div id="bg-setting-wrap">
+                            <div id="bg-setting-bgfit-wrap">
+                                <label for="slide_bg_fit">{{ "Background Fit:"|trans }}</label>
+                                <select name="bg_fit" id="slide_bg_fit" style="margin-right:20px">
+                                    {% set bgFit = slide_general_settings.bgFit %}
+                                    <option value="cover" {{ (bgFit == 'cover') ? ' selected="selected"' : '' }}>
+                                        cover
+                                    </option>
+                                    <option value="contain" {{ (bgFit == 'contain') ? ' selected="selected"' : '' }}>
+                                        contain
+                                    </option>
+                                    <option value="percentage" {{ (bgFit == 'percentage') ? ' selected="selected"' : '' }}>
+                                        (%, %)
+                                    </option>
+                                    <option value="normal" {{ (bgFit == 'normal') ? ' selected="selected"' : '' }}>
+                                        normal
+                                    </option>
+                                </select>
+                                <input type="text" name="bg_fit_x"
+                                       style="min-width:54px;{{ not (bgFit == 'percentage') ? 'display: none;' : '' }} width:60px;margin-right:10px"
+                                       value="{{ slide_general_settings.bgFitX | e('html_attr') }}"/>
+                                <input type="text" name="bg_fit_y"
+                                       style="min-width:54px;{{ not (bgFit == 'percentage') ? 'display: none;' : '' }} width:60px;margin-right:10px"
+                                       value="{{ slide_general_settings.bgFitY | e('html_attr') }}"/>
+                            </div>
+                            <div id="bg-setting-bgpos-def-wrap">
+                                <div id="bg-setting-bgpos-wrap">
+                                    <label for="slide_bg_position"
+                                           id="bg-position-lbl">{{ "Background Position:"|trans }}</label>
+                                    <span id="bg-start-position-wrapper">
+										<select name="bg_position" id="slide_bg_position">
+                                            {% set bgPosition = slide_general_settings.bgPosition %}
+                                            <option value="center top"{{ (bgPosition == 'center top') ? ' selected="selected"' : '' }}>
+                                                center top</option>
+											<option value="center right"{{ (bgPosition == 'center right') ? ' selected="selected"' : '' }}>
+                                                center right</option>
+											<option value="center bottom"{{ (bgPosition == 'center bottom') ? ' selected="selected"' : '' }}>
+                                                center bottom</option>
+											<option value="center center"{{ (bgPosition == 'center center') ? ' selected="selected"' : '' }}>
+                                                center center</option>
+											<option value="left top"{{ (bgPosition == 'left top') ? ' selected="selected"' : '' }}>
+                                                left top</option>
+											<option value="left center"{{ (bgPosition == 'left center') ? ' selected="selected"' : '' }}>
+                                                left center</option>
+											<option value="left bottom"{{ (bgPosition == 'left bottom') ? ' selected="selected"' : '' }}>
+                                                left bottom</option>
+											<option value="right top"{{ (bgPosition == 'right top') ? ' selected="selected"' : '' }}>
+                                                right top</option>
+											<option value="right center"{{ (bgPosition == 'right center') ? ' selected="selected"' : '' }}>
+                                                right center</option>
+											<option value="right bottom"{{ (bgPosition == 'right bottom') ? ' selected="selected"' : '' }}>
+                                                right bottom</option>
+											<option value="percentage"{{ (bgPosition == 'percentage') ? ' selected="selected"' : '' }}>
+                                                (x%, y%)</option>
+										</select>
+										<input type="text" name="bg_position_x"
+                                               style="min-width:54px;{{ not (bgPosition == 'percentage') ? 'display: none;' : '' }}width:60px;margin-right:10px"
+                                               value="{{ slide_general_settings.bgPositionX | e('html_attr') }}"/>
+										<input type="text" name="bg_position_y"
+                                               style="min-width:54px;{{ not (bgPosition == 'percentage') ? 'display: none;' : '' }}width:60px;margin-right:10px"
+                                               value="{{ slide_general_settings.bgPositionY | e('html_attr') }}"/>
+									</span>
+                                </div>
+                            </div>
+                            <div id="bg-setting-bgrep-wrap">
+                                <label>{{ "Background Repeat:"|trans }}</label>
+                                <span>
+                                <select name="bg_repeat" id="slide_bg_repeat" style="margin-right:20px">
+                            {% set bgRepeat = slide_general_settings.bgRepeat %}
+                                    <option value="no-repeat"{{ (bgRepeat == 'no-repeat') ? ' selected="selected"' : '' }}>
+                                no-repeat</option>
+                                <option value="repeat"{{ (bgRepeat == 'repeat') ? ' selected="selected"' : '' }}>
+                                repeat</option>
+                                <option value="repeat-x"{{ (bgRepeat == 'repeat-x') ? ' selected="selected"' : '' }}>
+                                repeat-x</option>
+                                <option value="repeat-y"{{ (bgRepeat == 'repeat-y') ? ' selected="selected"' : '' }}>
+                                repeat-y</option>
+                                </select>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <span id="mainbg-sub-parallax" style="display:none">
+                                <p>
+                                {% if slide_general_settings.use_parallax == "off" %}
+                                    <i style="color:#c0392b">
+                                {{ "Parallax Feature in Slider Settings is deactivated, parallax will be ignored." | trans }}
+                            </i>
+                                {% else %}
+                                    {% if slide_general_settings.parallaxisddd == "off" %}
+                                        <label>{{ "Parallax Level:"|trans }}</label>
+                                        <select name="slide_parallax_level" id="slide_parallax_level">
+                                    {% set slide_parallax_level = slide_general_settings.slide_parallax_level %}
+                                            {% set parallax_level = slide_general_settings.parallax_level %}
+                                            <option value="-" {{ (slide_parallax_level == '-') ? ' selected="selected"' : '' }}>
+                                        {{ "No Parallax"|trans }}</option>
+                                    <option value="1" {{ (slide_parallax_level == '1') ? ' selected="selected"' : '' }}>
+                                        1 - ({{ parallax_level[0] | e('html') }} %)
+                                    </option>
+                                    <option value="2" {{ (slide_parallax_level == '2') ? ' selected="selected"' : '' }}>
+                                        2 - ({{ parallax_level[1] | e('html') }} %)
+                                    </option>
+                                    <option value="3" {{ (slide_parallax_level == '3') ? ' selected="selected"' : '' }}>
+                                        3 - ({{ parallax_level[2] | e('html') }} %)
+                                    </option>
+                                    <option value="4" {{ (slide_parallax_level == '4') ? ' selected="selected"' : '' }}>
+                                        4 - ({{ parallax_level[3] | e('html') }} %)
+                                    </option>
+                                    <option value="5" {{ (slide_parallax_level == '5') ? ' selected="selected"' : '' }}>
+                                        5 - ({{ parallax_level[4] | e('html') }} %)
+                                    </option>
+                                    <option value="6" {{ (slide_parallax_level == '6') ? ' selected="selected"' : '' }}>
+                                        6 - ({{ parallax_level[5] | e('html') }} %)
+                                    </option>
+                                    <option value="7" {{ (slide_parallax_level == '7') ? ' selected="selected"' : '' }}>
+                                        7 - ({{ parallax_level[6] | e('html') }} %)
+                                    </option>
+                                    <option value="8" {{ (slide_parallax_level == '8') ? ' selected="selected"' : '' }}>
+                                        8 - ({{ parallax_level[7] | e('html') }} %)
+                                    </option>
+                                    <option value="9" {{ (slide_parallax_level == '9') ? ' selected="selected"' : '' }}>
+                                        9 - ({{ parallax_level[8] | e('html') }} %)
+                                    </option>
+                                    <option value="10" {{ (slide_parallax_level == '10') ? ' selected="selected"' : '' }}>
+                                        10 - ({{ parallax_level[9] | e('html') }} %)
+                                    </option>
+                                    <option value="11" {{ (slide_parallax_level == '11') ? ' selected="selected"' : '' }}>
+                                        11 - ({{ parallax_level[10] | e('html') }}> %)
+                                    </option>
+                                    <option value="12" {{ (slide_parallax_level == '12') ? ' selected="selected"' : '' }}>
+                                        12 - ({{ parallax_level[11] | e('html') }}> %)
+                                    </option>
+                                    <option value="13" {{ (slide_parallax_level == '13') ? ' selected="selected"' : '' }}>
+                                        13 - ({{ parallax_level[12] | e('html') }}> %)
+                                    </option>
+                                    <option value="14" {{ (slide_parallax_level == '14') ? ' selected="selected"' : '' }}>
+                                        14 - ({{ parallax_level[13] | e('html') }}> %)
+                                    </option>
+                                    <option value="15" {{ (slide_parallax_level == '15') ? ' selected="selected"' : '' }}>
+                                        15 - ({{ parallax_level[14] | e('html') }}> %)
+                                    </option>
+                                </select>
+                                {% else %}
+                                        {% if slide_general_settings.parallaxbgfreeze == "off" %}
+                                            <label>{{ "Selected 3D Depth:"|trans }}</label>
+                                            <input style="min-width:54px;width:54px" type="text" disabled
+                                                   value="{{ parallax_level[15] | e('html') }}%"/>
+                                            <span><i>{{ "3D Parallax is Enabled via Slider Settings !"|trans }}</i></span>
+                                    {% else %}
+                                            <label>{{ "Background 3D is Disabled"|trans }}</label>
+                                            <span style="display: inline-block;vertical-align: middle;line-height:32px"><i>
+                                                {{ "To Enable 3D Parallax for Background please change the Option \"BG 3D Disabled\" to \"OFF\" via the Slider Settings !"|trans }}</i></span>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                                </p>
+
+                                </span>
+                    <span id="mainbg-sub-filters" style="display:none">
+						<div style="display:none; margin-bottom: 10px;">
+							<select id="media-filter-type" name="media-filter-type">
+                                {% set mediafilter = slide_general_settings.mediafilter %}
+                                <option value="none">{{ "No Filter"|trans }}</option>
+									<option {{ (mediafilter == '_1977') ? ' selected="selected"' : '' }}
+                                            value="_1977">1977</option>
+									<option {{ (mediafilter == 'aden') ? ' selected="selected"' : '' }}
+                                            value="aden">Aden</option>
+									<option {{ (mediafilter == 'brooklyn') ? ' selected="selected"' : '' }}
+                                            value="brooklyn">Brooklyn</option>
+									<option {{ (mediafilter == 'clarendon') ? ' selected="selected"' : '' }}
+                                            value="clarendon">Clarendon</option>
+									<option {{ (mediafilter == 'earlybird') ? ' selected="selected"' : '' }}
+                                            value="earlybird">Earlybird</option>
+									<option {{ (mediafilter == 'gingham') ? ' selected="selected"' : '' }}
+                                            value="gingham">Gingham</option>
+									<option {{ (mediafilter == 'hudson') ? ' selected="selected"' : '' }}
+                                            value="hudson">Hudson</option>
+									<option {{ (mediafilter == 'inkwell') ? ' selected="selected"' : '' }}
+                                            value="inkwell">Inkwell</option>
+									<option {{ (mediafilter == 'lark') ? ' selected="selected"' : '' }}
+                                            value="lark">Lark</option>
+									<option {{ (mediafilter == 'lofi') ? ' selected="selected"' : '' }}
+                                            value="lofi">Lo-Fi</option>
+									<option {{ (mediafilter == 'mayfair') ? ' selected="selected"' : '' }}
+                                            value="mayfair">Mayfair</option>
+									<option {{ (mediafilter == 'moon') ? ' selected="selected"' : '' }}
+                                            value="moon">Moon</option>
+									<option {{ (mediafilter == 'nashville') ? ' selected="selected"' : '' }}
+                                            value="nashville">Nashville</option>
+									<option {{ (mediafilter == 'perpetua') ? ' selected="selected"' : '' }}
+                                            value="perpetua">Perpetua</option>
+									<option {{ (mediafilter == 'reyes') ? ' selected="selected"' : '' }}
+                                            value="reyes">Reyes</option>
+									<option {{ (mediafilter == 'rise') ? ' selected="selected"' : '' }}
+                                            value="rise">Rise</option>
+									<option {{ (mediafilter == 'slumber') ? ' selected="selected"' : '' }}
+                                            value="slumber">Slumber</option>
+									<option {{ (mediafilter == 'toaster') ? ' selected="selected"' : '' }}
+                                            value="toaster">Toaster</option>
+									<option {{ (mediafilter == 'walden') ? ' selected="selected"' : '' }}
+                                            value="walden">Walden</option>
+									<option{{ (mediafilter == 'willow') ? ' selected="selected"' : '' }}
+                                            value="willow">Willow</option>
+									<option {{ (mediafilter == 'xpro2') ? ' selected="selected"' : '' }}
+                                            value="xpro2">X-pro II</option>
+							</select>
+						</div>
+						<div id="inst-filter-grid">
+							<div data-type="none" class="filter_none inst-filter-griditem selected"><div
+                                        class="ifgname">{{ "No Filter"|trans }}</div><div
+                                        class="inst-filter-griditem-img none"
+                                        style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="_1977" class="filter__1977 inst-filter-griditem "><div
+                                        class="ifgname">1977</div><div class="inst-filter-griditem-img _1977"
+                                                                       style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="aden" class="filter_aden inst-filter-griditem "><div
+                                        class="ifgname">Aden</div><div class="inst-filter-griditem-img aden"
+                                                                       style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="brooklyn" class="filter_brooklyn inst-filter-griditem "><div
+                                        class="ifgname">Brooklyn</div><div class="inst-filter-griditem-img brooklyn"
+                                                                           style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="clarendon" class="filter_clarendon inst-filter-griditem "><div
+                                        class="ifgname">Clarendon</div><div class="inst-filter-griditem-img clarendon"
+                                                                            style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="earlybird" class="filter_earlybird inst-filter-griditem "><div
+                                        class="ifgname">Earlybird</div><div class="inst-filter-griditem-img earlybird"
+                                                                            style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="gingham" class="filter_gingham inst-filter-griditem "><div class="ifgname">Gingham</div><div
+                                        class="inst-filter-griditem-img gingham"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="hudson" class="filter_hudson inst-filter-griditem "><div class="ifgname">Hudson</div><div
+                                        class="inst-filter-griditem-img hudson"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="inkwell" class="filter_inkwell inst-filter-griditem "><div class="ifgname">Inkwell</div><div
+                                        class="inst-filter-griditem-img inkwell"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="lark" class="filter_lark inst-filter-griditem "><div
+                                        class="ifgname">Lark</div><div class="inst-filter-griditem-img lark"
+                                                                       style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="lofi" class="filter_lofi inst-filter-griditem "><div
+                                        class="ifgname">Lo-Fi</div><div class="inst-filter-griditem-img lofi"
+                                                                        style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="mayfair" class="filter_mayfair inst-filter-griditem "><div class="ifgname">Mayfair</div><div
+                                        class="inst-filter-griditem-img mayfair"
+                                        style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="moon" class="filter_moon inst-filter-griditem "><div
+                                        class="ifgname">Moon</div><div class="inst-filter-griditem-img moon"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="nashville" class="filter_nashville inst-filter-griditem "><div
+                                        class="ifgname">Nashville</div><div
+                                        class="inst-filter-griditem-img nashville"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="perpetua" class="filter_perpetua inst-filter-griditem "><div
+                                        class="ifgname">Perpetua</div><div class="inst-filter-griditem-img perpetua"
+                                                                           style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="reyes" class="filter_reyes inst-filter-griditem "><div
+                                        class="ifgname">Reyes</div><div class="inst-filter-griditem-img reyes"
+                                                                        style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="rise" class="filter_rise inst-filter-griditem "><div
+                                        class="ifgname">Rise</div><div class="inst-filter-griditem-img rise"
+                                                                       style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="slumber" class="filter_slumber inst-filter-griditem "><div class="ifgname">Slumber</div><div
+                                        class="inst-filter-griditem-img slumber"
+                                        style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="toaster" class="filter_toaster inst-filter-griditem "><div class="ifgname">Toaster</div><div
+                                        class="inst-filter-griditem-img toaster"
+                                        style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="walden" class="filter_walden inst-filter-griditem "><div class="ifgname">Walden</div><div
+                                        class="inst-filter-griditem-img walden"
+                                        style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="willow" class="filter_willow inst-filter-griditem "><div class="ifgname">Willow</div><div
+                                        class="inst-filter-griditem-img willow"
+                                        style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+							<div data-type="xpro2" class="filter_xpro2 inst-filter-griditem "><div class="ifgname">X-pro II</div><div
+                                        class="inst-filter-griditem-img xpro2"
+                                        style="visibility: inherit; opacity: 1;"></div><div
+                                        class="inst-filter-griditem-img-noeff"></div></div>
+						</div>
+					</span>
+                    <div id="mainbg-sub-kenburns" style="display:none; position:relative">
+                        {% set kenburn_effect = slide_general_settings.kenburn_effect %}
+                        <div>
+                            <label>{{ "Ken Burns / Pan Zoom:"|trans }}</label>
+                            <input type="checkbox" class="tp-moderncheckbox withlabel" id="kenburn_effect"
+                                   name="kenburn_effect" data-unchecked="off"
+                                    {{ (kenburn_effect == 'on') ? ' checked="checked"' }}>
+                        </div>
+                        <div id="kenburn_wrapper" {{ (kenburn_effect == 'off') ? 'style="display: none;"' : '' }}>
+                            <div id="ken_burn_example_wrapper">
+                                <div id="kenburn-playpause-wrapper"><i
+                                            class="eg-icon-play"></i><span>{{ "PLAY"|trans }}</span>
+                                </div>
+                                <div id="kenburn-backtoidle"></div>
+                                <div id="ken_burn_example">
+                                    <div id="ken_burn_slot_example" class="tp-bgimg defaultimg">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p>
+                                <label>{{ "Scale: (in %):"|trans }}</label>
+                                <label style="min-width:40px">{{ "From"|trans }}</label>
+                                <input style="min-width:54px;width:54px" class="kb_input_values" type="text"
+                                       name="kb_start_fit" id="kb_start_fit"
+                                       value="{{ slide_general_settings.kb_start_fit | e('html_attr') }}"/>
+                                <label style="min-width:20px">{{ "To" | trans }}</label>
+                                <input style="min-width:54px;width:54px" class="kb_input_values" type="text"
+                                       name="kb_end_fit" id="kb_end_fit"
+                                       value="{{ slide_general_settings.kb_end_fit | e('html_attr') }}"/>
+                            </p>
+
+                            <p>
+                                <label>{{ "Horizontal Offsets (+/-):" | trans }}</label>
+                                <label style="min-width:40px">{{ "From"|trans }}</label>
+                                <input style="min-width:54px;width:54px" class="kb_input_values" type="text"
+                                       name="kb_start_offset_x" id="kb_start_offset_x"
+                                       value="{{ slide_general_settings.kbStartOffsetX | e('html_attr') }}"/>
+                                <label style="min-width:20px">{{ "To" | trans }}</label>
+                                <input style="min-width:54px;width:54px" class="kb_input_values" type="text"
+                                       name="kb_end_offset_x" id="kb_end_offset_x"
+                                       value="{{ slide_general_settings.kbEndOffsetX | e('html_attr') }}"/>
+                            </p>
+
+                            <p>
+                                <label>{{ "Vertical Offsets (+/-):" | trans }}</label>
+                                <label style="min-width:40px">{{ "From"|trans }}</label>
+                                <input style="min-width:54px;width:54px" class="kb_input_values" type="text"
+                                       name="kb_start_offset_y" id="kb_start_offset_y"
+                                       value="{{ slide_general_settings.kbStartOffsetY | e('html_attr') }}"/>
+                                <label style="min-width:20px">{{ "To" | trans }}</label>
+                                <input style="min-width:54px;width:54px" class="kb_input_values" type="text"
+                                       name="kb_end_offset_y" id="kb_end_offset_y"
+                                       value="{{ slide_general_settings.kbEndOffsetY | e('html_attr') }}"/>
+                            </p>
+                            <p>
+                                <label>{{ "Rotation:" | trans }}</label>
+                                <label style="min-width:40px">{{ "From"|trans }}</label>
+                                <input style="min-width:54px;width:54px" class="kb_input_values" type="text"
+                                       name="kb_start_rotate" id="kb_start_rotate"
+                                       value="{{ slide_general_settings.kbStartRotate | e('html_attr') }}"/>
+                                <label style="min-width:20px">{{ "To" | trans }}</label>
+                                <input style="min-width:54px;width:54px" class="kb_input_values" type="text"
+                                       name="kb_end_rotate" id="kb_end_rotate"
+                                       value="{{ slide_general_settings.kbEndRotate | e('html_attr') }}"/>
+                            </p>
+
+                            <p>
+                                <label>{{ "Blur Filter:" | trans }}</label>
+                                <label style="min-width:40px">{{ "From"|trans }}</label>
+                                <input style="min-width:54px;width:54px" class="kb_input_values" type="text"
+                                       name="kb_blur_start" id="kb_blur_start"
+                                       value="{{ slide_general_settings.kbBlurStart | e('html_attr') }}"/>
+                                <label style="min-width:20px">{{ "To" | trans }}</label>
+                                <input style="min-width:54px;width:54px" class="kb_input_values" type="text"
+                                       name="kb_blur_end" id="kb_blur_end"
+                                       value="{{ slide_general_settings.kbBlurEnd | e('html_attr') }}"/>
+                            </p>
+
+                            <p>
+                                <label>{{ "Easing:"|trans }}</label>
+                                <select name="kb_easing" id="kb_easing" class="kb_input_values">
+                                    {% set kb_easing = slide_general_settings.kb_easing %}
+                                    <option {{ (kb_easing == 'Linear.easeNone') ? ' selected="selected"' : '' }}
+                                            value="Linear.easeNone">
+                                        Linear.easeNone
+                                    </option>
+                                    <option {{ (kb_easing == 'Power0.easeIn') ? ' selected="selected"' : '' }}
+                                            value="Power0.easeIn">
+                                        Power0.easeIn (linear)
+                                    </option>
+                                    <option {{ (kb_easing == 'Power0.easeInOut') ? ' selected="selected"' : '' }}
+                                            value="Power0.easeInOut">
+                                        Power0.easeInOut (linear)
+                                    </option>
+                                    <option {{ (kb_easing == 'Power0.easeOut') ? ' selected="selected"' : '' }}
+                                            value="Power0.easeOut">
+                                        Power0.easeOut (linear)
+                                    </option>
+                                    <option {{ (kb_easing == 'Power1.easeIn') ? ' selected="selected"' : '' }}
+                                            value="Power1.easeIn">
+                                        Power1.easeIn
+                                    </option>
+                                    <option {{ (kb_easing == 'Power1.easeInOut') ? ' selected="selected"' : '' }}
+                                            value="Power1.easeInOut">
+                                        Power1.easeInOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Power1.easeOut') ? ' selected="selected"' : '' }}
+                                            value="Power1.easeOut">
+                                        Power1.easeOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Power2.easeIn') ? ' selected="selected"' : '' }}
+                                            value="Power2.easeIn">
+                                        Power2.easeIn
+                                    </option>
+                                    <option {{ (kb_easing == 'Power2.easeInOut') ? ' selected="selected"' : '' }}
+                                            value="Power2.easeInOut">
+                                        Power2.easeInOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Power2.easeOut') ? ' selected="selected"' : '' }}
+                                            value="Power2.easeOut">
+                                        Power2.easeOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Power3.easeIn') ? ' selected="selected"' : '' }}
+                                            value="Power3.easeIn">
+                                        Power3.easeIn
+                                    </option>
+                                    <option {{ (kb_easing == 'Power3.easeInOut') ? ' selected="selected"' : '' }}
+                                            value="Power3.easeInOut">
+                                        Power3.easeInOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Power3.easeOut') ? ' selected="selected"' : '' }}
+                                            value="Power3.easeOut">
+                                        Power3.easeOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Power4.easeIn') ? ' selected="selected"' : '' }}
+                                            value="Power4.easeIn">
+                                        Power4.easeIn
+                                    </option>
+                                    <option {{ (kb_easing == 'Power4.easeInOut') ? ' selected="selected"' : '' }}
+                                            value="Power4.easeInOut">
+                                        Power4.easeInOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Power4.easeOut') ? ' selected="selected"' : '' }}
+                                            value="Power4.easeOut">
+                                        Power4.easeOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Back.easeIn') ? ' selected="selected"' : '' }}
+                                            value="Back.easeIn">
+                                        Back.easeIn
+                                    </option>
+                                    <option {{ (kb_easing == 'Back.easeInOut') ? ' selected="selected"' : '' }}
+                                            value="Back.easeInOut">
+                                        Back.easeInOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Back.easeOut') ? ' selected="selected"' : '' }}
+                                            value="Back.easeOut">
+                                        Back.easeOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Bounce.easeIn') ? ' selected="selected"' : '' }}
+                                            value="Bounce.easeIn">
+                                        Bounce.easeIn
+                                    </option>
+                                    <option {{ (kb_easing == 'Bounce.easeInOut') ? ' selected="selected"' : '' }}
+                                            value="Bounce.easeInOut">
+                                        Bounce.easeInOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Bounce.easeOut') ? ' selected="selected"' : '' }}
+                                            value="Bounce.easeOut">
+                                        Bounce.easeOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Circ.easeIn') ? ' selected="selected"' : '' }}
+                                            value="Circ.easeIn">
+                                        Circ.easeIn
+                                    </option>
+                                    <option {{ (kb_easing == 'Circ.easeInOut') ? ' selected="selected"' : '' }}
+                                            value="Circ.easeInOut">
+                                        Circ.easeInOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Circ.easeOut') ? ' selected="selected"' : '' }}
+                                            value="Circ.easeOut">
+                                        Circ.easeOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Elastic.easeIn') ? ' selected="selected"' : '' }}
+                                            value="Elastic.easeIn">
+                                        Elastic.easeIn
+                                    </option>
+                                    <option {{ (kb_easing == 'Elastic.easeInOut') ? ' selected="selected"' : '' }}
+                                            value="Elastic.easeInOut">Elastic.easeInOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Elastic.easeOut') ? ' selected="selected"' : '' }}
+                                            value="Elastic.easeOut">
+                                        Elastic.easeOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Expo.easeIn') ? ' selected="selected"' : '' }}
+                                            value="Expo.easeIn">
+                                        Expo.easeIn
+                                    </option>
+                                    <option {{ (kb_easing == 'Expo.easeInOut') ? ' selected="selected"' : '' }}
+                                            value="Expo.easeInOut">
+                                        Expo.easeInOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Expo.easeOut') ? ' selected="selected"' : '' }}
+                                            value="Expo.easeOut">
+                                        Expo.easeOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Sine.easeIn') ? ' selected="selected"' : '' }}
+                                            value="Sine.easeIn">
+                                        Sine.easeIn
+                                    </option>
+                                    <option {{ (kb_easing == 'Sine.easeInOut') ? ' selected="selected"' : '' }}
+                                            value="Sine.easeInOut">
+                                        Sine.easeInOut
+                                    </option>
+                                    <option {{ (kb_easing == 'Sine.easeOut') ? ' selected="selected"' : '' }}
+                                            value="Sine.easeOut">
+                                        Sine.easeOut
+                                    </option>
+                                    <option {{ (kb_easing == 'SlowMo.ease') ? ' selected="selected"' : '' }}
+                                            value="SlowMo.ease">
+                                        SlowMo.ease
+                                    </option>
+                                </select>
+                            </p>
+                            <p>
+                                <label>{{ "Duration (in ms):" | trans }}</label>
+                                <input type="text" name="kb_duration" class="kb_input_values"
+                                       id="kb_duration"
+                                       value="{{ slide_general_settings.kb_duration | e('html_attr') }}"/>
+                            </p>
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="image_url" name="image_url"
+                           value="{{ slide_general_settings.imageUrl | e('html_attr') }}"/>
+                    <input type="hidden" id="image_id" name="image_id"
+                           value="{{ slide_general_settings.imageID | e('html_attr') }}"/>
+                </div>
+            {% endif %}
+            <div id="slide-general-settings-content"
+                 style="{{ not slide_general_settings.slide.isStaticSlide ? ' display:none' : '' }}">
+                {% if not slide_general_settings.slide.isStaticSlide %}
+                    <!-- SLIDE TITLE -->
+                    <p style="display:none">
+                        <label>{{ "Slide Title"|trans }}</label>
+                        <input type="text" class="medium" id="title" disabled="disabled" name="title"
+                               value="{{ slide_general_settings.title | e('html_attr') }}">
+                        <span class="description">{{ "The title of the slide, will be shown in the slides list."|trans }}</span>
+                    </p>
+
+                    <!-- SLIDE DELAY -->
+                    <p>
+                        <label>{{ "Slide \"Delay\":"|trans }}</label>
+                        <input type="text" class="small-text" id="delay" name="delay"
+                               value="{{ slide_general_settings.delay | e('html_attr') }}">
+                        <span class="description">{{ "A new delay value for the Slide. If no delay defined per slide, the delay defined via Options (9000ms) will be used."|trans }}</span>
+                    </p>
+
+                    <!-- SLIDE PAUSE ON PURPOSE -->
+                    <p>
+                        <label>{{ "Pause Slider:"|trans }}</label>
+                        <select id="stoponpurpose" name="stoponpurpose">
+                            {% set stoponpurpose = slide_general_settings.stoponpurpose %}
+                            <option value="false"{{ (stoponpurpose == 'false' )? ' selected="selected"' : '' }}>
+                                {{ "Default"|trans }}</option>
+                            <option value="true"{{ (stoponpurpose == 'true' )? ' selected="selected"' : '' }}>
+                                {{ "Stop Slider Progress"|trans }}</option>
+                        </select>
+                        <span class="description">{{ "Stop Slider Progress on this slider or use Slider Settings Defaults"|trans }}</span>
+                    </p>
+
+
+                    <!-- SLIDE PAUSE ON PURPOSE -->
+                    <p>
+                        <label>{{ "Slide in Navigation (invisible):"|trans }}</label>
+                        <select id="invisibleslide" name="invisibleslide">
+                            {% set invisibleslide = slide_general_settings.invisibleslide %}
+                            <option value="false"{{ (invisibleslide == 'false' )? ' selected="selected"' : '' }}>
+                                {{ "Show Always"|trans }}</option>
+                            <option value="true"{{ (invisibleslide == 'true' )? ' selected="selected"' : '' }}>
+                                {{ "Only Via Actions"|trans }}</option>
+                        </select>
+                        <span class="description">{{ "Show Slide always or only on Action calls. Invisible slides are not available due Navigation Elements."|trans }}</span>
+                    </p>
+
+
+                    <!-- SLIDE STATE -->
+                    <p>
+                        <label>{{ "Slide State:"|trans }}</label>
+                        <select id="state" name="state">
+                            {% set state = slide_general_settings.state %}
+                            <option value="published"{{ (state == 'published' )? ' selected="selected"' : '' }}>
+                                {{ "Published"|trans }}</option>
+                            <option value="unpublished"{{ (state == 'unpublished' )? ' selected="selected"' : '' }}>
+                                {{ "Unpublished"|trans }}</option>
+                        </select>
+                        <span class="description">{{ "The state of the slide. The unpublished slide will be excluded from the slider."|trans }}</span>
+                    </p>
+
+                    <!-- SLIDE HIDE AFTER LOOP -->
+                    <p>
+                        <label>{{ "Hide Slide After Loop:"|trans }}</label>
+                        <input type="text" class="small-text" id="hideslideafter" name="hideslideafter"
+                               value="{{ slide_general_settings.hideslideafter | e('html_attr') }}">
+                        <span class="description">{{ "After how many Loops should the Slide be hidden ? 0 = Slide is never hidden."|trans }}</span>
+                    </p>
+
+                    <!-- HIDE SLIDE ON MOBILE -->
+                    <p>
+                        <label>{{ "Hide Slide On Mobile:"|trans }}</label>
+                        <span style="display:inline-block; width:200px; margin-right:20px;line-height:27px">
+								<input type="checkbox" class="tp-moderncheckbox" id="hideslideonmobile"
+                                       name="hideslideonmobile"
+                                       data-unchecked="off" {{ (slide_general_settings.hideslideonmobile == 'on') ? ' checked="checked"' : '' }}>
+							</span>
+                        <span class="description">{{ "Show/Hide this Slide if Slider loaded on Mobile Device."|trans }}</span>
+                    </p>
+
+                    <!-- SLIDE VISIBLE FROM -->
+                    <p>
+                        <label>{{ "Visible from:"|trans }}</label>
+                        <input type="text" class="inputDatePicker" id="date_from" name="date_from"
+                               value="{{ slide_general_settings.date_from | e('html_attr') }}">
+                        <span class="description">{{ "If set, slide will be visible after the date is reached."|trans }}</span>
+                    </p>
+
+                    <!-- SLIDE VISIBLE UNTIL -->
+                    <p>
+                        <label>{{ "Visible until:"|trans }}</label>
+                        <input type="text" class="inputDatePicker" id="date_to" name="date_to"
+                               value="{{ slide_general_settings.date_to | e('html_attr') }}">
+                        <span class="description">{{ "If set, slide will be visible till the date is reached."|trans }}</span>
+                    </p>
+
+
+                    <!-- SLIDE VISIBLE FROM -->
+                    <p style="display:none">
+                        <label>{{ "Save Performance:"|trans }}</label>
+                        <span style="display:inline-block; width:200px; margin-right:20px;">
+								<input type="checkbox" class="tp-moderncheckbox withlabel" id="save_performance"
+                                       name="save_performance"
+                                       data-unchecked="off" {{ (slide_general_settings.save_performance == 'on') ? ' checked="checked"' : '' }}>
+							</span>
+                        <span class="description">{{ "Slide End Transition will first start when last Layer has been removed."|trans }}</span>
+                    </p>
+                {% else %}
+                    <!-- STATIC LAYER OVERFLOW (ON/OFF) -->
+                    <p>
+                        <label>{{ "Static Layers Overflow:"|trans }}</label>
+                        <select id="staticoverflow" name="staticoverflow">
+                            {% set staticoverflow = slide_general_settings.staticoverflow %}
+                            <option value="visible"{{ (staticoverflow == 'visible' ) ? ' selected="selected' : '' }}>{{ "Visible"|trans }}</option>
+                            <option value="hidden"{{ (staticoverflow == 'hidden' ) ? ' selected="selected' : '' }}>{{ "Hidden"|trans }}</option>
+                        </select>
+                        <span class="description">{{ "Set the Overflow of Static Layers to Visible or Hidden."|trans }}</span>
+                    </p>
+
+                {% endif %}
+            </div>
+            {% if not slide_general_settings.slide.isStaticSlide %}
+
+            <!-- THUMBNAIL SETTINGS -->
+            <div id="slide-thumbnail-settings-content" style="display:none">
+                <!-- THUMBNAIL SETTINGS -->
+                <div style="margin-top:10px">
+                    {% set slide_thumb = slide_general_settings.slide_thumb %}
+                    {% set slide_thumb_url = slide_general_settings.slide_thumb_url %}
+                    <span style="display:inline-block; vertical-align: top;">
+							<label>{{ "Thumbnail:"|trans }}</label>
+						</span>
+                    <div style="display:inline-block; vertical-align: top;">
+                        <div id="slide_thumb_button_preview" class="setting-image-preview">
+                            {% if slide_thumb_url is not empty %}
+                            <div style="width:100px;height:70px;
+                                    background:url('{{ slide_thumb_url | e('html_attr') }}');
+                                    background-position:center center; background-size:cover;"></div>
+                            {% endif %}
+                        </div>
+                        <input type="hidden" id="slide_thumb" name="slide_thumb"
+                               value="{{ slide_thumb | e('html_attr') }}">
+                        <span style="clear:both;display:block"></span>
+                        <input type="button" id="slide_thumb_button"
+                               style="width:110px !important; display:inline-block;"
+                               class="button-image-select button-primary revblue" value="Choose Image"
+                               original-title="">
+                        <input type="button" id="slide_thumb_button_remove"
+                               style="margin-right:20px !important; width:85px !important; display:inline-block;"
+                               class="button-image-remove button-primary revred" value="Remove"
+                               original-title="">
+                        <span class="description">{{ "Slide Thumbnail. If not set - it will be taken from the slide image."|trans }}</span>
+                    </div>
+                </div>
+                {% set thumb_dimension = slide_general_settings.thumb_dimension %}
+                {% set thumb_for_admin = slide_general_settings.thumb_for_admin %}
+
+                <p>
+						<span style="display:inline-block; vertical-align: top;">
+							<label>{{ "Thumbnail Dimensions:"|trans }}</label>
+						</span>
+                    <select name="thumb_dimension">
+                        <option value="slider" {{ (thumb_dimension == 'slider')? ' selected="selected"' : '' }}>
+                            {{ "From Slider Settings"|trans }}</option>
+                        <option value="orig" {{ (thumb_dimension == 'orig')? ' selected="selected"' : '' }}>
+                            {{ "Original Size"|trans }}</option>
+                    </select>
+                    <span class="description">{{ "Width and height of thumbnails can be changed in the Slider Settings -> Navigation -> Thumbs tab."|trans }}</span>
+                </p>
+
+                <p style="display:none;" class="show_on_thumbnail_exist">
+						<span style="display:inline-block; vertical-align: top;">
+							<label>{{ "Thumbnail Admin Purpose:"|trans }}</label>
+						</span>
+                    <span style="display:inline-block; width:200px; margin-right:20px;line-height:27px">
+							<input type="checkbox" class="tp-moderncheckbox" id="thumb_for_admin" name="thumb_for_admin"
+                                   data-unchecked="off" {{ (thumb_for_admin == 'on')? ' checked="checked"' : '' }}>
+						</span>
+                    <span class="description">{{ "Use the Thumbnail also for Admin purposes. This will use the selected Thumbnail to represent the Slide in all Slider Admin area."|trans }}</span>
+                </p>
+            </div>
+
+        <!-- SLIDE ANIMATIONS -->
+            <div id="slide-animation-settings-content" style="display:none">
+
+                <!-- ANIMATION / TRANSITION -->
+                <div id="slide_transition_row">
+                    {% set slide_transition = slide_general_settings.slide_transition %}
+                    {% set slot_amount = slide_general_settings.slot_amount %}
+                    {% set transition_rotation = slide_general_settings.transition_rotation %}
+                    {% set transition_duration = slide_general_settings.transition_duration %}
+                    {% set js_choosen_slide_transition = slide_general_settings.js_choosen_slide_transition %}
+                    {% set js_transition_settings = slide_general_settings.js_transition_settings %}
+                    <script type="text/javascript">
+                        var choosen_slide_transition = [{{ js_choosen_slide_transition | raw }}];
+                        var transition_settings = {
+                            'slot': [{{ js_transition_settings.slot | raw }}],
+                            'rotation': [{{ js_transition_settings.rotation | raw }}],
+                            'duration': [{{ js_transition_settings.duration | raw }}],
+                            'ease_in': [{{ js_transition_settings.ease_in | raw }}],
+                            'ease_out': [{{ js_transition_settings.ease_out | raw }}]
+                        };
+                    </script>
+                    <div id="slide_transition" multiple="" size="1" style="z-index: 100;">
+                        {{ slide_general_settings.transmenu | raw }}
+                        {{ slide_general_settings.listoftrans | raw }}
+                        <div class="slide-trans-example">
+                            <div class="slide-trans-example-inner">
+                                <div class="oldslotholder"
+                                     style="overflow:hidden;width:100%;height:100%;position:absolute;top:0px;left:0px;z-index:1">
+                                    <div class="tp-bgimg defaultimg slide-transition-example"></div>
+                                </div>
+                                <div class="slotholder"
+                                     style="overflow:hidden;width:100%;height:100%;position:absolute;top:0px;left:0px;z-index:1">
+                                    <div class="tp-bgimg defaultimg slide-transition-example"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-trans-cur-selected">
+                            <p>{{ "Used Transitions (Order in Loops)"|trans }}</p>
+                            <ul class="slide-trans-cur-ul">
+                            </ul>
+                        </div>
+                        <div class="slide-trans-cur-selected-settings">
+                            <!-- SLOT AMOUNT -->
+
+                            <label>{{ "Slot / Box Amount:"|trans }}</label>
+                            <input type="text" class="small-text input-deepselects" id="slot_amount"
+                                   name="slot_amount" value="{{ slot_amount[0] | e('html_attr') }}"
+                                   data-selects="1||Random||Custom||Default"
+                                   data-svalues="1||random||3||default"
+                                   data-icons="thumbs-up||shuffle||wrench||key">
+                            <span class="tp-clearfix"></span>
+                            <span class="description">{{ "# of slots/boxes the slide is divided into or divided by."|trans }}</span>
+                            <span class="tp-clearfix"></span>
+
+                            <!-- ROTATION -->
+
+                            <label>{{ "Slot Rotation:"|trans }}</label>
+                            <input type="text" class="small-text input-deepselects" id="transition_rotation"
+                                   name="transition_rotation"
+                                   value="{{ transition_rotation[0] | e('html_attr') }}"
+                                   data-selects="0||Random||Custom||Default||45||90||180||270||360"
+                                   data-svalues="0||random||-75||default||45||90||180||270||360"
+                                   data-icons="thumbs-up||shuffle||wrench||key||star-empty||star-empty||star-empty||star-empty||star-empty">
+                            <span class="tp-clearfix"></span>
+                            <span class="description">{{ "Start Rotation of Transition (deg)."|trans }}</span>
+                            <span class="tp-clearfix"></span>
+
+                            <!-- DURATION -->
+
+                            <label>{{ "Animation Duration:"|trans }}</label>
+                            <input type="text" class="small-text input-deepselects" id="transition_duration"
+                                   name="transition_duration"
+                                   value="{{ transition_duration[0] | e('html_attr') }}"
+                                   data-selects="300||Random||Custom||Default"
+                                   data-svalues="500||random||650||default"
+                                   data-icons="thumbs-up||shuffle||wrench||key">
+                            <span class="tp-clearfix"></span>
+                            <span class="description">{{ "The duration of the transition."|trans }}</span>
+                            <span class="tp-clearfix"></span>
+
+                            <!-- IN EASE -->
+
+                            <label>{{ "Easing In:"|trans }}</label>
+                            <select name="transition_ease_in">
+                                <option value="default">Default</option>
+                                <option value="Linear.easeNone">Linear.easeNone</option>
+                                <option value="Power0.easeIn">Power0.easeIn (linear)</option>
+                                <option value="Power0.easeInOut">Power0.easeInOut (linear)</option>
+                                <option value="Power0.easeOut">Power0.easeOut (linear)</option>
+                                <option value="Power1.easeIn">Power1.easeIn</option>
+                                <option value="Power1.easeInOut">Power1.easeInOut</option>
+                                <option value="Power1.easeOut">Power1.easeOut</option>
+                                <option value="Power2.easeIn">Power2.easeIn</option>
+                                <option value="Power2.easeInOut">Power2.easeInOut</option>
+                                <option value="Power2.easeOut">Power2.easeOut</option>
+                                <option value="Power3.easeIn">Power3.easeIn</option>
+                                <option value="Power3.easeInOut">Power3.easeInOut</option>
+                                <option value="Power3.easeOut">Power3.easeOut</option>
+                                <option value="Power4.easeIn">Power4.easeIn</option>
+                                <option value="Power4.easeInOut">Power4.easeInOut</option>
+                                <option value="Power4.easeOut">Power4.easeOut</option>
+                                <option value="Back.easeIn">Back.easeIn</option>
+                                <option value="Back.easeInOut">Back.easeInOut</option>
+                                <option value="Back.easeOut">Back.easeOut</option>
+                                <option value="Bounce.easeIn">Bounce.easeIn</option>
+                                <option value="Bounce.easeInOut">Bounce.easeInOut</option>
+                                <option value="Bounce.easeOut">Bounce.easeOut</option>
+                                <option value="Circ.easeIn">Circ.easeIn</option>
+                                <option value="Circ.easeInOut">Circ.easeInOut</option>
+                                <option value="Circ.easeOut">Circ.easeOut</option>
+                                <option value="Elastic.easeIn">Elastic.easeIn</option>
+                                <option value="Elastic.easeInOut">Elastic.easeInOut</option>
+                                <option value="Elastic.easeOut">Elastic.easeOut</option>
+                                <option value="Expo.easeIn">Expo.easeIn</option>
+                                <option value="Expo.easeInOut">Expo.easeInOut</option>
+                                <option value="Expo.easeOut">Expo.easeOut</option>
+                                <option value="Sine.easeIn">Sine.easeIn</option>
+                                <option value="Sine.easeInOut">Sine.easeInOut</option>
+                                <option value="Sine.easeOut">Sine.easeOut</option>
+                                <option value="SlowMo.ease">SlowMo.ease</option>
+                            </select>
+                            <span class="tp-clearfix"></span>
+                            <span class="description">{{ "The easing of Appearing transition."|trans }}</span>
+                            <span class="tp-clearfix"></span>
+
+                            <!-- OUT EASE -->
+
+                            <label>{{ "Easing Out:"|trans }}</label>
+                            <select name="transition_ease_out">
+                                <option value="default">Default</option>
+                                <option value="Linear.easeNone">Linear.easeNone</option>
+                                <option value="Power0.easeIn">Power0.easeIn (linear)</option>
+                                <option value="Power0.easeInOut">Power0.easeInOut (linear)</option>
+                                <option value="Power0.easeOut">Power0.easeOut (linear)</option>
+                                <option value="Power1.easeIn">Power1.easeIn</option>
+                                <option value="Power1.easeInOut">Power1.easeInOut</option>
+                                <option value="Power1.easeOut">Power1.easeOut</option>
+                                <option value="Power2.easeIn">Power2.easeIn</option>
+                                <option value="Power2.easeInOut">Power2.easeInOut</option>
+                                <option value="Power2.easeOut">Power2.easeOut</option>
+                                <option value="Power3.easeIn">Power3.easeIn</option>
+                                <option value="Power3.easeInOut">Power3.easeInOut</option>
+                                <option value="Power3.easeOut">Power3.easeOut</option>
+                                <option value="Power4.easeIn">Power4.easeIn</option>
+                                <option value="Power4.easeInOut">Power4.easeInOut</option>
+                                <option value="Power4.easeOut">Power4.easeOut</option>
+                                <option value="Back.easeIn">Back.easeIn</option>
+                                <option value="Back.easeInOut">Back.easeInOut</option>
+                                <option value="Back.easeOut">Back.easeOut</option>
+                                <option value="Bounce.easeIn">Bounce.easeIn</option>
+                                <option value="Bounce.easeInOut">Bounce.easeInOut</option>
+                                <option value="Bounce.easeOut">Bounce.easeOut</option>
+                                <option value="Circ.easeIn">Circ.easeIn</option>
+                                <option value="Circ.easeInOut">Circ.easeInOut</option>
+                                <option value="Circ.easeOut">Circ.easeOut</option>
+                                <option value="Elastic.easeIn">Elastic.easeIn</option>
+                                <option value="Elastic.easeInOut">Elastic.easeInOut</option>
+                                <option value="Elastic.easeOut">Elastic.easeOut</option>
+                                <option value="Expo.easeIn">Expo.easeIn</option>
+                                <option value="Expo.easeInOut">Expo.easeInOut</option>
+                                <option value="Expo.easeOut">Expo.easeOut</option>
+                                <option value="Sine.easeIn">Sine.easeIn</option>
+                                <option value="Sine.easeInOut">Sine.easeInOut</option>
+                                <option value="Sine.easeOut">Sine.easeOut</option>
+                                <option value="SlowMo.ease">SlowMo.ease</option>
+                            </select>
+                            <span class="tp-clearfix"></span>
+                            <span class="description">{{ "The easing of Disappearing transition."|trans }}</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        <!-- SLIDE BASIC INFORMATION -->
+            <div id="slide-nav-settings-content" style="display:none">
+                <ul class="rs-layer-nav-settings-tabs" style="display:inline-block; ">
+                    <li id="custom-nav-arrows-tab-selector" data-content="arrows"
+                        class="selected">{{ "Arrows"|trans }}</li>
+                    <li id="custom-nav-bullets-tab-selector"
+                        data-content="bullets">{{ "Bullets"|trans }}</li>
+                    <li id="custom-nav-tabs-tab-selector" data-content="tabs">{{ "Tabs"|trans }}</li>
+                    <li id="custom-nav-thumbs-tab-selector"
+                        data-content="thumbs">{{ "Thumbnails"|trans }}</li>
+                </ul>
+
+                <div class="tp-clearfix"></div>
+
+
+                <ul id="navigation-placeholder-wrapper">
+                    {{ slide_general_settings.html_navigation_placeholder_wrapper | raw }}
+                </ul>
+                <p style="margin-top:25px">
+                    <i>{{ "The Custom Settings are always depending on the current selected Navigation Elements in Slider Settings, and will only be active on the current Slide."|trans }}</i>
+                </p>
+                <script type="text/javascript">
+                    document.addEventListener("DOMContentLoaded", function () {
+                        if (jQuery('.custom-nav-types.nav-type-arrows').length == 0)
+                            jQuery('#custom-nav-arrows-tab-selector').remove();
+
+                        if (jQuery('.custom-nav-types.nav-type-bullets').length == 0)
+                            jQuery('#custom-nav-bullets-tab-selector').remove();
+
+                        if (jQuery('.custom-nav-types.nav-type-tabs').length == 0)
+                            jQuery('#custom-nav-tabs-tab-selector').remove();
+
+                        if (jQuery('.custom-nav-types.nav-type-thumbs').length == 0)
+                            jQuery('#custom-nav-thumbs-tab-selector').remove();
+
+                        if (jQuery('#navigation-placeholder-wrapper li').length == 0)
+                            jQuery('#main-menu-nav-settings-li').remove();
+
+
+                        jQuery('.rs-layer-nav-settings-tabs li').click(function () {
+                            var tn = jQuery(this);
+                            jQuery('.custom-nav-types').hide();
+                            jQuery('.custom-nav-types.nav-type-' + tn.data('content')).show();
+                            jQuery('.rs-layer-nav-settings-tabs .selected').removeClass("selected");
+                            tn.addClass("selected");
+                        });
+
+                        setTimeout(function () {
+                            jQuery('.rs-layer-nav-settings-tabs li:nth-child(1)').click();
+                        }, 100)
+
+                    });
+                </script>
+            </div>
+            {% endif %}
+            <!-- SLIDE ADDON WRAP -->
+            <div id="slide-addon-wrapper" style="margin:-15px; display:none">
+                <div id="rs-addon-wrapper-button-row">
+                    <span class="rs-layer-toolbar-box"
+                          style="padding:5px 20px">{{ "Select Add-on"|trans }}</span>
+                    {% for rs_addon_handle,rs_addon in slide_general_settings.slide_general_addon %}
+                        <span class="rs-layer-toolbar-box">
+								<span id="rs-addon-settings-trigger-{{ rs_addon_handle | e('html_attr') }}"
+                                      class="rs-addon-settings-trigger">{{ rs_addon.title | e('html_attr') }}</span>
+							</span>
+                    {% endfor %}
+                </div>
+                <div style="border-top:1px solid #ddd;">
+                    {% for rs_addon_handle,rs_addon in slide_general_settings.slide_general_addon %}
+                        <div id="rs-addon-settings-trigger-{{ rs_addon_handle | e('html_attr') }}-settings"
+                             class="rs-addon-settings-wrapper-settings" style="display: none;">
+                            {{ rs_addon.markup | raw }}
+                            <script type="text/javascript">
+                                {{ rs_addon.javascript | raw }}
+                            </script>
+                        </div>
+                    {% endfor %}
+                    <script type="text/javascript">
+                        document.addEventListener("DOMContentLoaded", function () {
+                            jQuery('.rs-addon-settings-trigger').click(function () {
+                                var show_addon = jQuery(this).attr('id');
+                                jQuery('.rs-addon-settings-trigger').removeClass("selected");
+                                jQuery(this).addClass("selected");
+                                jQuery('.rs-addon-settings-wrapper-settings').hide();
+                                jQuery('#' + show_addon + '-settings').show();
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+            {% if not slide_general_settings.slide.isStaticSlide %}
+                <!-- SLIDE BASIC INFORMATION -->
+                <div id="slide-info-settings-content" style="display:none">
+                    <ul>
+                        {% for info_setting in slide_general_settings.slide_info_settings %}
+                            <li>
+                                <label>{{ "Parameter"|trans }} {{ info_setting.index | e('html_attr') }}</label>
+                                <input type="text" name="params_{{ info_setting.index | e('html_attr') }}"
+                                       value="{{ info_setting.value | e('html_attr') }}">
+                                {{ "Max. Chars"|trans }}
+                                <input type="text" style="width: 50px; min-width: 50px;"
+                                       name="params_{{ info_setting.index | e('html_attr') }}_chars"
+                                       value="{{ info_setting.max_chars | e('html_attr') }}">
+                                {% if not (slider_type == 'gallery' ) %}
+                                    <i class="eg-icon-pencil rs-param-meta-open"
+                                       data-curid="{{ info_setting.index | e('html_attr') }}"></i>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                    <!-- BASIC DESCRIPTION -->
+                    <p>
+                        <label>{{ "Description of Slider:"|trans }}</label>
+
+                        <textarea name="slide_description"
+                                  style="height: 425px; width: 100%">{{ slide_general_settings.slide_description | e('html') }}</textarea>
+                        <span class="description">{{ "Define a description here to show at the navigation if enabled in Slider Settings"|trans }}</span>
+                    </p>
+                </div>
+
+                <!-- SLIDE SEO INFORMATION -->
+                <div id="slide-seo-settings-content" style="display:none">
+                    <!-- CLASS -->
+                    <p>
+                        <label>{{ "Class:"|trans }}</label>
+                        <input type="text" class="" id="class_attr" name="class_attr"
+                               value="{{ slide_general_settings.class_attr | e('html_attr') }}">
+                        <span class="description">{{ "Adds a unique class to the li of the Slide like class=\"rev_special_class\" (add only the classnames, seperated by space)"|trans }}</span>
+                    </p>
+
+                    <!-- ID -->
+                    <p>
+                        <label>{{ "ID:"|trans }}</label>
+                        <input type="text" class="" id="id_attr" name="id_attr"
+                               value="{{ slide_general_settings.id_attr | e('html_attr') }}">
+                        <span class="description">{{ "Adds a unique ID to the li of the Slide like id=\"rev_special_id\" (add only the id)"|trans }}</span>
+                    </p>
+
+                    <!-- CUSTOM FIELDS -->
+                    <p>
+                        <label>{{ "Custom Fields:"|trans }}</label>
+                        <textarea id="data_attr"
+                                  name="data_attr">{{ slide_general_settings.data_attr | e('html') }}</textarea>
+                        <span class="description">{{ "Add as many attributes as you wish here. (i.e.: data-layer=\"firstlayer\" data-custom=\"somevalue\")."|trans }}</span>
+                    </p>
+
+                    <!-- Enable Link -->
+                    <p>
+                        {% set enable_link = slide_general_settings.enable_link %}
+                        <label>{{ "Enable Link:"|trans }}</label>
+                        <select id="enable_link" name="enable_link">
+                            <option value="true"{{ (enable_link == 'true' ) ? ' selected="selected"' }}>{{ "Enable"|trans }}</option>
+                            <option value="false"{{ (enable_link == 'false' ) ? ' selected="selected"' }}>{{ "Disable"|trans }}</option>
+                        </select>
+                        <span class="description">{{ "Link the Full Slide to an URL or Action."|trans }}</span>
+                    </p>
+
+                    <div class="rs-slide-link-setting-wrapper">
+                        <!-- Link Type -->
+                        <p>
+                            {% set enable_link_2 = slide_general_settings.enable_link_2 %}
+                            <label>{{ "Link Type:"|trans }}</label>
+                            <span style="display:inline-block; width:200px; margin-right:20px;">
+								<input type="radio" id="link_type_1" value="regular"
+                                       name="link_type"{{ (enable_link_2 == 'regular') ? ' checked="checked" ' : '' }}>
+                                <span style="line-height:30px; vertical-align: middle; margin:0px 20px 0px 10px;">{{ "Regular"|trans }}</span>
+								<input type="radio" id="link_type_2" value="slide"
+                                       name="link_type"{{ (enable_link_2 == 'slide') ? ' checked="checked" ' : '' }}>
+                                <span style="line-height:30px; vertical-align: middle; margin:0px 20px 0px 10px;">{{ "To Slide"|trans }}</span>
+							</span>
+                            <span class="description">{{ "Regular - Link to URL,  To Slide - Call a Slide Action"|trans }}</span>
+                        </p>
+
+                        <div class="rs-regular-link-setting-wrap">
+                            <!-- SLIDE LINK -->
+                            <p>
+                                <label>{{ "Slide Link:"|trans }}</label>
+                                <input type="text" id="rev_link" name="link"
+                                       value="{{ slide_general_settings.val_link | e('html') }}">
+                                <span class="description">{{ "A link on the whole slide pic (use {{link}} or {{meta:somemegatag}} in template sliders to link to a post or some other meta)"|trans }}</span>
+                            </p>
+
+                            <!-- LINK TARGET -->
+                            <p>
+                                {% set link_open_in = slide_general_settings.link_open_in %}
+                                <label>{{ "Link Target:"|trans }}</label>
+                                <select id="link_open_in" name="link_open_in">
+                                    <option value="same"{{ (link_open_in == 'same' )? ' selected="selected"' : '' }}>
+                                        {{ "Same Window"|trans }}</option>
+                                    <option value="new"{{ (link_open_in == 'new' )? ' selected="selected"' : '' }}>
+                                        {{ "New Window"|trans }}</option>
+                                </select>
+                                <span class="description">{{ "The target of the slide link."|trans }}</span>
+                            </p>
+                        </div>
+                        <!-- LINK TO SLIDE -->
+                        <p class="rs-slide-to-slide">
+                            <label>{{ "Link To Slide:"|trans }}</label>
+                            <select id="slide_link" name="slide_link">
+                                {% set slide_link = slide_general_settings.slide_link %}
+                                {% for link_handle,link_name in slide_general_settings.arrSlideLinkLayers %}
+                                    <option value="{{ link_handle | e('html_attr') }}" {{ (link_handle == slide_link ) ? ' selected="selected"' : '' }}>
+                                        {{ link_name | e('html') }}</option>
+                                {% endfor %}
+                            </select>
+                            <span class="description">{{ "Call Slide Action"|trans }}</span>
+                        </p>
+                        <!-- Link POSITION -->
+                        <p>
+                            {% set link_pos = slide_general_settings.link_pos %}
+                            <label>{{ "Link Sensibility:"|trans }}</label>
+                            <span style="display:inline-block; width:200px; margin-right:20px;">
+								<input type="radio" id="link_pos_1" value="front"
+                                       name="link_pos"{{ (link_pos == 'front') ? ' checked="checked"' }}>
+                                <span style="line-height:30px; vertical-align: middle; margin:0px 20px 0px 10px;">{{ "Front"|trans }}</span>
+								<input type="radio" id="link_pos_2" value="back"
+                                       name="link_pos"{{ (link_pos == 'back') ? ' checked="checked"' }}>
+                                <span style="line-height:30px; vertical-align: middle; margin:0px 20px 0px 10px;">{{ "Back"|trans }}</span>
+							</span>
+                            <span class="description">{{ "The z-index position of the link related to layers"|trans }}</span>
+                        </p>
+                    </div>
+                </div>
+            {% endif %}
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        jQuery('.my-alphacolor-field').tpColorPicker({
+            mode: 'single',
+            wrapper: '<span class="rev-colorpickerspan"></span>'
+        });
+
+
+        jQuery('#enable_link').change(function () {
+            if (jQuery(this).val() == 'true') {
+                jQuery('.rs-slide-link-setting-wrapper').show();
+            } else {
+                jQuery('.rs-slide-link-setting-wrapper').hide();
+            }
+        });
+        jQuery('#enable_link option:selected').change();
+
+        jQuery('input[name="link_type"]').change(function () {
+            if (jQuery(this).val() == 'regular') {
+                jQuery('.rs-regular-link-setting-wrap').show();
+                jQuery('.rs-slide-to-slide').hide();
+            } else {
+                jQuery('.rs-regular-link-setting-wrap').hide();
+                jQuery('.rs-slide-to-slide').show();
+            }
+        });
+        jQuery('input[name="link_type"]:checked').change();
+
+    });
+</script>

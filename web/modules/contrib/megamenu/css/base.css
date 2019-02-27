@@ -1,0 +1,667 @@
+/* =========================================================================
+   BASE
+   ========================================================================= */
+
+/* Reset
+   ========================================================================= */
+
+.megamenu-responsive-toggle,
+.megamenu,
+.megamenu .megamenu-nav,
+.megamenu .megamenu-submenu,
+.megamenu .megamenu-submenu__footer,
+.megamenu .megamenu-row,
+.megamenu .megamenu-column,
+.megamenu .megamenu-tabs,
+.megamenu .megamenu-item,
+.megamenu .megamenu-anchor,
+.megamenu .megamenu-retractor,
+.megamenu .megamenu-divider,
+.megamenu .megamenu-image,
+.megamenu .megamenu-icon {
+  z-index: 10;
+  position: static;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  overflow: visible;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  line-height: 1.3em;
+  vertical-align: top;
+  text-transform: none;
+  text-indent: 0;
+  clip: auto;
+  pointer-events: auto;
+}
+
+.megamenu-responsive-toggle
+.megamenu,
+.megamenu .megamenu-nav,
+.megamenu .megamenu-submenu,
+.megamenu .megamenu-submenu__footer,
+.megamenu .megamenu-row,
+.megamenu .megamenu-column,
+.megamenu .megamenu-tabs,
+.megamenu .megamenu-item,
+.megamenu .megamenu-anchor,
+.megamenu .megamenu-retractor,
+.megamenu .megamenu-divider {
+  width: auto;
+  max-height: none;
+  min-height: 0;
+  height: auto;
+}
+
+/*
+ * Fix some issue and prepare transitions.
+ *
+ * - megamenu-submenu--drop is very important for transitions inside submenus
+ * - megamenu-image will prevent jiggle on transition in Chrome
+ * - webkit transform disables transform in IE because fonts get blurry
+ */
+.megamenu .megamenu-submenu--drop,
+.megamenu .megamenu-image {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+}
+
+.megamenu {
+  display: block;
+  background: #fff;
+  line-height: 1.3em;
+  text-align: left;
+}
+
+.megamenu--bound {
+  position: relative;
+}
+
+.megamenu--bound--inner .megamenu-nav {
+  position: relative;
+}
+
+.megamenu,
+.megamenu-nav {
+  z-index: 100;
+  overflow: visible !important;
+}
+
+.megamenu-nav {
+  text-align: inherit;
+}
+
+.megamenu-nav,
+.megamenu-submenu,
+.megamenu-row {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.megamenu a.megamenu-anchor,
+.megamenu--trigger-click .megamenu-item--has-submenu-drop > .megamenu-anchor {
+  cursor: pointer;
+}
+
+.megamenu span.megamenu-anchor {
+  cursor: default;
+}
+
+.megamenu--accessible .megamenu-anchor {
+  outline: none;
+}
+
+.megamenu--accessible:not(:hover) .megamenu-anchor:focus,
+.megamenu--accessible input:not(:hover):focus {
+  z-index: 50;
+  outline: 1px solid #29c5ff;
+  box-shadow: 0 0 5px #29c5ff !important;
+  transition: outline .1s linear;
+}
+
+/* Menu bar
+   ========================================================================= */
+
+.megamenu--bar-inner-center .megamenu-nav {
+  margin: 0 auto;
+}
+
+.megamenu--bar-align-full {
+  clear: both;
+}
+
+.megamenu--bar-align-left {
+  float: left;
+}
+
+.megamenu--bar-align-right {
+  float: right;
+}
+
+.megamenu--bar-align-center {
+  float: none;
+  margin: 0 auto;
+}
+
+/* Top level menu items aligment
+   ========================================================================= */
+
+.megamenu--items-align-center {
+  text-align: center;
+}
+
+.megamenu--items-align-right {
+  text-align: right;
+}
+
+.megamenu .megamenu-item {
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+}
+
+/* Top level menu items
+   ========================================================================= */
+
+.megamenu .megamenu-item--level-0 {
+  vertical-align: bottom;
+  -moz-backface-visibility: visible;
+  backface-visibility: visible;
+}
+
+.megamenu--items-align-top .megamenu-item--level-0 {
+  vertical-align: top;
+}
+
+.megamenu .megamenu-item.megamenu-item--level-0 {
+  float: none;
+}
+
+.megamenu--items-align-left.megamenu--horizontal .megamenu-item.megamenu-item--level-0 {
+  float: left;
+}
+
+.megamenu.megamenu--horizontal .megamenu-item.megamenu-item--align-left {
+  float: left;
+}
+
+.megamenu.megamenu--horizontal .megamenu-item.megamenu-item--align-right {
+  float: right;
+}
+
+body:not(.rtl) .megamenu.megamenu--horizontal .megamenu-item--level-0:first-child > .megamenu-anchor {
+  border-left: none;
+}
+
+.megamenu .megamenu-anchor,
+.megamenu .megamenu-custom-content--padded,
+.megamenu .megamenu-block--custom--padded,
+.megamenu .megamenu-retractor,
+.megamenu-responsive-toggle,
+.megamenu .megamenu-submenu--type-stack > .megamenu-item--display-normal > .megamenu-anchor,
+.megamenu .megamenu-submenu--padded {
+  padding: 15px 20px;
+}
+
+.megamenu .megamenu-anchor--no-wrap > .megamenu-anchor__title {
+  white-space: nowrap;
+}
+
+.megamenu--horizontal .megamenu-item.megamenu-item--mini > .megamenu-anchor {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* Top level always visible stack
+   ========================================================================= */
+
+.megamenu .megamenu-item--level-0.megamenu-item--has-submenu-stack {
+  position: relative;
+}
+
+.megamenu .megamenu-item--level-0 > .megamenu-submenu--type-stack {
+  padding-top: 0;
+}
+
+.megamenu .megamenu-item--level-0 > .megamenu-submenu--type-stack > .megamenu-item {
+  clear: both;
+  width: 100%;
+}
+
+/* Submenu stack
+   ========================================================================= */
+
+.megamenu .megamenu-submenu .megamenu-submenu--type-stack {
+  width: auto;
+}
+
+.megamenu .megamenu-submenu--type-stack {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Remove padding from top of stacks in columns */
+
+.megamenu .megamenu-item--type-column > .megamenu-submenu--type-stack {
+  padding-top: 0;
+}
+
+/* Add top margin for a stack of menu items */
+
+.megamenu .megamenu-item--type-column > .megamenu-submenu--type-stack > .megamenu-item--display-normal:first-child {
+  margin-top: 10px;
+}
+
+.megamenu .megamenu-submenu--type-stack > .megamenu-item--display-normal > .megamenu-anchor {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.megamenu .megamenu-anchor {
+  display: block;
+  text-decoration: none;
+  position: relative;
+}
+
+/* Clearfix for images taller than text */
+
+.megamenu .megamenu-anchor--has-image {
+  overflow: hidden;
+}
+
+/* Submenu indicators
+   ========================================================================= */
+
+.megamenu--sub-indicators .megamenu-item--has-submenu-drop > .megamenu-anchor:after {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  display: inline-block;
+  margin-top: -6px;
+  content: "\f107";
+  color: inherit;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.megamenu--sub-indicators .megamenu-item--has-submenu-drop > .megamenu-anchor {
+  padding-right: 25px;
+}
+
+.megamenu--sub-indicators .megamenu-item--has-children > .megamenu-anchor.megamenu-anchor--no-indicator {
+  padding-right: 20px;
+}
+
+.megamenu--sub-indicators .megamenu-item--mini.megamenu-item--has-children > .megamenu-anchor.megamenu-anchor--no-indicator {
+  padding-right: 5px;
+}
+
+.megamenu--sub-indicators .megamenu-item--has-submenu-drop > .megamenu-anchor--no-indicator:after {
+  display: none;
+  content: '';
+}
+
+/* Right arrows
+   ========================================================================= */
+
+.megamenu--sub-indicators .megamenu-submenu--type-flyout > .megamenu-item--has-submenu-drop > .megamenu-anchor:after,
+.megamenu--sub-indicators .megamenu-submenu--type-stack > .megamenu-item--has-submenu-drop.megamenu-item--has-submenu-flyout > .megamenu-anchor:after {
+  content: "\f105";
+}
+
+/* Reverse flyouts
+   ========================================================================= */
+
+.megamenu--sub-indicators .megamenu-submenu .megamenu-item--has-submenu-flyout.megamenu-submenu--reverse > .megamenu-anchor:after {
+  left: 10px;
+  right: auto;
+  content: '\f104';
+}
+
+/* Anchor
+   ========================================================================= */
+
+.megamenu .megamenu-anchor__text {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.megamenu .megamenu-anchor__description {
+  clear: both;
+  display: block;
+  font-size: 80%;
+  font-weight: normal;
+}
+
+.megamenu .megamenu-anchor--has-image > .megamenu-anchor__text {
+  clear: none;
+  display: block;
+}
+
+.megamenu .megamenu-item.megamenu-item--disable-padding > .megamenu-anchor {
+  padding: 0;
+}
+
+.megamenu.megamenu--sub-indicators .megamenu-item.megamenu-item--disable-padding.megamenu-item--has-submenu-drop > .megamenu-anchor {
+  padding-right: 30px;
+}
+
+/* Images
+   ========================================================================= */
+
+.megamenu .megamenu-image {
+  display: block;
+  transition: opacity 1s ease;
+  opacity: 1;
+  max-width: 100%;
+}
+
+.megamenu .megamenu-image:not(.megamenu-image--lazy-load) {
+  height: auto;
+}
+
+.megamenu .megamenu-image--lazy-load {
+  opacity: 0;
+}
+
+.megamenu .megamenu-anchor--layout-image_left > .megamenu-anchor__text {
+  padding-left: 50px;
+}
+
+.megamenu .megamenu-anchor--layout-image_left > .megamenu-image {
+  float: left;
+}
+
+.megamenu .megamenu-anchor--layout-image_right > .megamenu-anchor__text {
+  padding-right: 50px;
+}
+
+.megamenu .megamenu-anchor--layout-image_right > .megamenu-image {
+  float: right;
+}
+
+.megamenu .megamenu-anchor--layout-image_above > .megamenu-image {
+  margin-bottom: 10px;
+}
+
+.megamenu .megamenu-anchor--layout-image_below > .megamenu-image {
+  margin-top: 10px;
+}
+
+/* Icons
+   ========================================================================= */
+
+.megamenu .megamenu-icon {
+  width: 1.3em;
+  text-align: center;
+  line-height: 1em;
+}
+
+.megamenu .megamenu-anchor--no-text > .megamenu-icon {
+  line-height: 1.3em;
+}
+
+.megamenu .megamenu-anchor--layout-icon_left > .megamenu-icon,
+.megamenu .megamenu-anchor--layout-icon_right > .megamenu-icon {
+  vertical-align: middle;
+}
+
+.megamenu .megamenu-anchor--layout-icon_top > .megamenu-icon,
+.megamenu .megamenu-anchor--layout-icon_bottom > .megamenu-icon {
+  line-height: 1.3em;
+}
+
+.megamenu .megamenu-anchor--layout-icon_left > .megamenu-anchor__title {
+  display: inline-block;
+  margin-left: .6em;
+}
+
+.megamenu.megamenu--icons-inline .megamenu-anchor--layout-icon_left > .megamenu-icon,
+.megamenu.megamenu--icons-inline .megamenu-anchor--layout-icon_left > .megamenu-anchor__title {
+  display: inline;
+  white-space: normal;
+}
+
+/* Content alignment
+   ========================================================================= */
+
+.megamenu .megamenu-anchor--content-align-left {
+  text-align: left;
+}
+
+.megamenu .megamenu-anchor--content-align-left > .megamenu-image {
+  display: inline-block;
+}
+
+.megamenu .megamenu-anchor--content-align-center {
+  text-align: center;
+}
+
+.megamenu .megamenu-anchor--content-align-center > .megamenu-image {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.megamenu .megamenu-anchor--content-align-right {
+  text-align: right;
+}
+
+.megamenu .megamenu-anchor--content-align-right > .megamenu-image {
+  display: inline-block;
+}
+
+/* Columns and rows
+   ========================================================================= */
+
+.megamenu .megamenu-row,
+.megamenu .megamenu-column {
+  max-width: 100%;
+}
+
+/* Drop submenu
+   ========================================================================= */
+
+.megamenu .megamenu-item .megamenu-submenu--drop {
+  position: absolute;
+  z-index: 500;
+  top: -10000px;
+  overflow: hidden;
+  display: none \9; /* \9 is IE6-8 hack, other browsers will ignore this */
+  visibility: hidden;
+  height: 0;
+  max-height: 0;
+}
+
+.megamenu .megamenu-item:not(.megamenu-active) .megamenu-submenu--drop {
+  min-height: 0 !important;
+}
+
+.megamenu .megamenu-item .megamenu-submenu--padded {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.megamenu--no-js .megamenu-item:hover > .megamenu-submenu--drop,
+.megamenu .megamenu-item.megamenu-active > .megamenu-submenu--drop {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+  max-height: none;
+}
+
+.megamenu--no-js .megamenu-item:hover > .megamenu-submenu--type-flyout,
+.megamenu .megamenu-item.megamenu-active > .megamenu-submenu--type-flyout {
+  overflow: visible;
+}
+
+.megamenu .megamenu-item.megamenu-item--in-transition > .megamenu-submenu--type-flyout {
+  overflow: hidden;
+}
+
+.megamenu .megamenu-item .megamenu-submenu--drop {
+  box-shadow: 0 0 20px rgba(0, 0, 0, .15);
+}
+
+.megamenu .megamenu-item--level-0 > .megamenu-submenu--drop {
+  clip: rect(0, 5000px, 5000px, -5000px);
+}
+
+.megamenu--bound .megamenu-submenu--type-mega {
+  min-width: 50%;
+}
+
+/* Mega submenu grid layouts
+   ========================================================================= */
+
+.megamenu .megamenu-submenu--grid,
+.megamenu .megamenu-row--grid {
+  padding-right: 20px;
+}
+
+.megamenu .megamenu-submenu--grid .megamenu-anchor,
+.megamenu .megamenu-row--grid .megamenu-anchor {
+  padding-right: 0;
+}
+
+/* Drop submenu - open layering
+   ========================================================================= */
+
+.megamenu--no-js .megamenu-item:hover > .megamenu-anchor,
+.megamenu .megamenu-item.megamenu-active > .megamenu-anchor {
+  position: relative;
+}
+
+.megamenu--no-js .megamenu-item:hover .megamenu-submenu--drop,
+.megamenu .megamenu-item.megamenu-active .megamenu-submenu--drop {
+  z-index: 20;
+}
+
+/* Drop submemu - left edge of menu item
+   ========================================================================= */
+
+.megamenu .megamenu-submenu--drop.megamenu-submenu--align-left_edge_item {
+  left: auto;
+}
+
+/* Drop submenu - right edge of menu item (force RTL)
+   ========================================================================= */
+
+.megamenu .megamenu-submenu--drop.megamenu-submenu--align-right_edge_item {
+  right: auto;
+}
+
+/* Drop submenu - left edge of menu bar
+   ========================================================================= */
+
+.megamenu .megamenu-submenu--drop.megamenu-submenu--align-left_edge_bar,
+.megamenu .megamenu-submenu--drop.megamenu-submenu--align-full_width {
+  left: 0;
+}
+
+/* Drop submenu - right edge of menu bar
+   ========================================================================= */
+
+.megamenu .megamenu-submenu--drop.megamenu-submenu--align-right_edge_bar {
+  right: 0;
+}
+
+.megamenu .megamenu-submenu--rtl {
+  direction: rtl;
+}
+
+.megamenu .megamenu-submenu--rtl > * {
+  direction: ltr;
+}
+
+.megamenu .megamenu-submenu--drop.megamenu-submenu--align-full_width {
+  width: 100%;
+}
+
+/* Retractors
+   ========================================================================= */
+
+.megamenu .megamenu-retractor {
+  clear: both;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+}
+
+.megamenu .megamenu-retractor:hover {
+  background: rgba(0, 0, 0, .1);
+}
+
+.megamenu .megamenu-retractor--desktop {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  padding: 7px 10px;
+}
+
+/* Stack submenu
+   ========================================================================= */
+
+.megamenu .megamenu-submenu--type-stack > .megamenu-item {
+  display: block;
+}
+
+.megamenu .megamenu-submenu--type-stack > .megamenu-item.megamenu-column--auto {
+  float: none;
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Indented stacks
+   ========================================================================= */
+
+.megamenu .megamenu-submenu--type-stack.megamenu-submenu--indent {
+  padding-top: .4em;
+  padding-left: 1.6em;
+}
+
+.megamenu .megamenu-submenu__footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 20px;
+  color: inherit;
+  list-style: none;
+  font-size: inherit;
+}
+
+.megamenu .megamenu-submenu__footer a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: inherit;
+}

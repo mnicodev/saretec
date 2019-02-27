@@ -1,0 +1,180 @@
+/**
+ * @file
+ * Visual styles for Blue Bar skin.
+ *
+ * Main colors:
+ *  - #116fa8 (blue): used as background color (same as bartik theme's original item).
+ *  - #055a8e (dark blue): used for top menu items with submenu background (active, hover)
+ *  - #e1e1e1 (light grey): used for non-active anchor font color
+ *  - #ededed (grey): used for tab items background and responsive toggle font
+ *  - #fafafa (dark white): used for submenu and tab background
+ *  - #bad8ea (yellow): used for highlighted items
+ */
+
+.megamenu--skin-blue_bar {
+  border: none;
+  font-size: 12px;
+  background: #116fa8;
+  color: #888888;
+}
+
+/* =========================================================================
+   RESPONSIVE TOGGLE
+   ========================================================================= */
+
+.megamenu--skin-blue_bar.megamenu-responsive-toggle {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ededed;
+}
+
+.megamenu--skin-blue_bar.megamenu-responsive-toggle:hover {
+  border-bottom: 0;
+  background: #055a8e;
+  color: #ffffff;
+}
+
+/* =========================================================================
+   ANCHOR
+   ========================================================================= */
+
+.megamenu--skin-blue_bar .megamenu-anchor {
+  color: #555555;
+}
+
+.megamenu--skin-blue_bar .megamenu-anchor__description {
+  color: #aaaaaa;
+}
+
+/* First level anchors
+   ========================================================================= */
+
+.megamenu--skin-blue_bar .megamenu-item--level-0 > .megamenu-anchor {
+  border-left: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #e1e1e1;
+}
+
+.megamenu--skin-blue_bar .megamenu-item--level-0:hover > .megamenu-anchor,
+.megamenu--skin-blue_bar .megamenu-item--level-0.megamenu-active > .megamenu-anchor {
+  background: #055a8e;
+  color: #ffffff;
+}
+
+.megamenu--skin-blue_bar .megamenu-item--level-0.megamenu-item--current > .megamenu-anchor,
+.megamenu--skin-blue_bar .megamenu-item--level-0.megamenu-item--active-trail > .megamenu-anchor {
+  background: #055a8e;
+  color: #ffffff;
+}
+
+/* Higlight */
+
+.megamenu--skin-blue_bar .megamenu-item.megamenu-item--level-0 > .megamenu-anchor--highlight {
+  background: transparent;
+  color: #ecd900;
+}
+
+/* Hide box shadow for anchor for first item of first level in horizontal menu */
+
+body:not(.rtl) .megamenu--skin-blue_bar.megamenu--horizontal .megamenu-item--level-0:first-child > .megamenu-anchor {
+  box-shadow: none;
+}
+
+/* =========================================================================
+   SUBMENU
+   ========================================================================= */
+
+.megamenu--skin-blue_bar .megamenu-submenu,
+.megamenu--skin-blue_bar .megamenu-submenu .megamenu-anchor {
+  color: #555555;
+}
+
+.megamenu--skin-blue_bar .megamenu-submenu .megamenu-anchor--highlight {
+  color: #ecd900;
+}
+
+.megamenu--skin-blue_bar .megamenu-submenu .megamenu-anchor:hover,
+.megamenu--skin-blue_bar .megamenu-submenu .megamenu-active > .megamenu-anchor {
+  color: #111111;
+}
+
+.megamenu--skin-blue_bar .megamenu-submenu .megamenu-anchor > .megamenu-anchor__description {
+  color: #aaaaaa;
+}
+
+.megamenu--skin-blue_bar .megamenu-submenu .megamenu-active > .megamenu-anchor > .megamenu-anchor__description {
+  color: #666666;
+}
+
+.megamenu--skin-blue_bar .megamenu-submenu .megamenu-item--current > .megamenu-anchor {
+  background: transparent;
+  color: #292929;
+}
+
+/* Header
+   ========================================================================= */
+
+.megamenu--skin-blue_bar .megamenu-submenu .megamenu-item--display-header > .megamenu-anchor {
+  font-weight: bold;
+  color: #555555;
+}
+
+.megamenu--skin-blue_bar .megamenu-submenu .megamenu-item--display-header.megamenu-item--has-submenu-stack > .megamenu-anchor {
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.megamenu--skin-blue_bar .megamenu-submenu .megamenu-item--display-header > .megamenu-anchor:hover {
+  color: #292929;
+}
+
+/* Submenu - Stack
+   ========================================================================= */
+
+.megamenu--skin-blue_bar .megamenu-item--level-0 > .megamenu-submenu--type-stack > .megamenu-item > .megamenu-anchor {
+  color: #e1e1e1;
+}
+
+.megamenu--skin-blue_bar .megamenu-item--level-0 > .megamenu-submenu--type-stack > .megamenu-item > .megamenu-anchor:hover {
+  color: #ffffff;
+}
+
+/* Submenu - Drop
+   ========================================================================= */
+
+.megamenu--skin-blue_bar .megamenu-submenu--drop {
+  border: 1px solid #e0e0e0;
+  border-bottom-width: 3px;
+  background: #fafafa;
+}
+
+.megamenu--skin-blue_bar.megamenu--transition-fade .megamenu-item .megamenu-submenu--drop {
+  margin-top: 0;
+}
+
+/* Remove top border for first level submenu drop in horizontal menu */
+
+.megamenu--skin-blue_bar.megamenu--horizontal .megamenu-item--level-0 > .megamenu-submenu--drop {
+  border-top: none;
+}
+
+/* =========================================================================
+   TABS
+   ========================================================================= */
+
+.megamenu--skin-blue_bar .megamenu-tabs__group,
+.megamenu--skin-blue_bar .megamenu-tabs__tab > .megamenu-anchor,
+.megamenu--skin-blue_bar .megamenu-tabs__pane {
+  border-color: #ededed;
+}
+
+.megamenu--skin-blue_bar .megamenu-tabs__pane {
+  background: #fafafa;
+}
+
+.megamenu--no-js.megamenu--skin-blue_bar .megamenu-submenu .megamenu-tabs .megamenu-tabs__tab:hover > .megamenu-anchor,
+.megamenu--skin-blue_bar .megamenu-submenu .megamenu-tabs__tab.megamenu-active > .megamenu-anchor {
+  background: #ededed;
+  color: #111111;
+}

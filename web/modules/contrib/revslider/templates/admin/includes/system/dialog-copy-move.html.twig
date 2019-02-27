@@ -1,0 +1,15 @@
+<div id="dialog_copy_move" data-textclose="{{"Close" | trans}}"
+     data-textupdate="{{"Do It!" | trans}}"
+     title="{{"Copy / move slide" | trans}}" style="display:none">
+    <br>
+    {{"Choose Slider" | trans }}:
+    {{ dialog_copy_move.selectSliders | raw }}
+    <br><br>
+    {{"Choose Operation" | trans}}:
+     <input type="radio" id="radio_copy" value="copy" name="copy_move_operation" checked />
+        <label for="radio_copy" style="cursor:pointer;">{{"Copy"|trans}}</label>
+        &nbsp; &nbsp;
+        <input type="radio" id="radio_move" value="move" name="copy_move_operation" />
+        <label for="radio_move" style="cursor:pointer;">{{"Move"|trans}}</label>
+
+</div>

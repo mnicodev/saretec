@@ -1,0 +1,7 @@
+services:
+  megamenu.twig.MegaMenuTwigExtension:
+    class: Drupal\megamenu\MegaMenuTwigExtension
+    tags:
+      - { name: twig.extension }
+  megamenu:
+    class: Drupal\megamenu\MegaMenu

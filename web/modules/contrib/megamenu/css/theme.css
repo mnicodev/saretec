@@ -1,0 +1,131 @@
+/* =========================================================================
+   MISCELLANEOUS
+   ========================================================================= */
+
+/**
+ * Reset menu and submenu background colors.
+ */
+
+.megamenu {
+  background: transparent;
+}
+
+.megamenu-submenu--drop {
+  background: white;
+}
+
+.megamenu-screen-reader,
+.megamenu-anchor__divider {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.megamenu:after,
+.megamenu .megamenu-submenu:after,
+.megamenu .megamenu-column:after,
+.megamenu .megamenu-tabs:after,
+.megamenu .megamenu-block--content:after,
+.megamenu .megamenu-image:after {
+  clear: both;
+  display: table;
+  content: "";
+}
+
+/**
+ * Used by JavaScript.
+ */
+
+.megamenu-test-dimensions {
+  visibility: hidden !important;
+  display: block !important;
+}
+
+.megamenu-item--no-transition,
+.megamenu-item--no-transition > .megamenu-submenu--drop {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+/* =========================================================================
+   RTL
+   ========================================================================= */
+
+/* Text RTL */
+
+[dir="rtl"] .megamenu,
+[dir="rtl"] .megamenu .megamenu-item {
+  text-align: right;
+}
+
+/* Top level menu items - left aligned */
+
+[dir="rtl"] .megamenu--items-align-left.megamenu--horizontal {
+  text-align: left;
+}
+
+[dir="rtl"] .megamenu--items-align-left.megamenu--horizontal .megamenu-item.megamenu-item--level-0 {
+  float: none;
+}
+
+/* Top level menu items - center aligned  */
+
+[dir="rtl"] .megamenu--items-align-center.megamenu--horizontal {
+  text-align: center;
+}
+
+[dir="rtl"] .megamenu--items-align-left.megamenu--horizontal .megamenu-item.megamenu-item--level-0 {
+  float: none;
+}
+
+/* Top level menu item on most left */
+
+[dir="rtl"] .megamenu.megamenu--horizontal .megamenu-item--level-0:last-child > .megamenu-anchor {
+  box-shadow: none;
+  border-left: none;
+}
+
+/* Columns RTL */
+
+[dir="rtl"] .megamenu .megamenu-submenu--type-mega > .megamenu-column:not(.megamenu-tabs__group),
+[dir="rtl"] .megamenu .megamenu-submenu--type-tab-content-panel > .megamenu-column:not(.megamenu-tabs__group) {
+  float: right;
+}
+
+/* Icon padding reverse */
+
+[dir="rtl"] .megamenu .megamenu-anchor--layout-icon_left > .megamenu-anchor__title {
+  margin-left: 0;
+  margin-right: .6em;
+}
+
+/* Arrows to the left */
+
+[dir="rtl"] .megamenu--sub-indicators .megamenu-item--level-0.megamenu-item--has-submenu-drop > .megamenu-anchor {
+  padding-left: 25px;
+  padding-right: 20px;
+}
+
+[dir="rtl"] .megamenu--sub-indicators .megamenu-item--level-0.megamenu-item--has-submenu-drop > .megamenu-anchor:after {
+  left: 10px;
+  right: auto;
+}
+
+/* Padding disabled
+ *
+ * - Disable padding
+ * - Keep indicator on left for sub indicator
+ */
+
+[dir="rtl"] .megamenu.megamenu--sub-indicators .megamenu-item.megamenu-item--disable-padding.megamenu-item--has-submenu-drop > .megamenu-anchor {
+  padding-left: 30px;
+  padding-right: 0;
+}

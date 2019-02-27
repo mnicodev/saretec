@@ -1,0 +1,188 @@
+/* =========================================================================
+   RESPONSIVE TOGGLE
+   ========================================================================= */
+
+.megamenu-responsive-toggle {
+  display: none;
+  max-width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.megamenu-responsive-toggle:hover {
+  text-decoration: none;
+}
+
+.megamenu-responsive-toggle .fa {
+  width: 1.3em;
+  margin-right: .6em;
+  text-align: center;
+}
+
+.megamenu-responsive-toggle--icon-only .fa {
+  margin-right: 0;
+}
+
+.megamenu-responsive-toggle--align-left {
+  float: left;
+}
+
+.megamenu-responsive-toggle--align-right {
+  float: right;
+}
+
+.megamenu-responsive-toggle--content-align-left {
+  text-align: left;
+}
+
+.megamenu-responsive-toggle--content-align-center {
+  text-align: center;
+}
+
+.megamenu-responsive-toggle--content-align-right {
+  text-align: right;
+}
+
+/* =========================================================================
+   DIVIDER
+   ========================================================================= */
+
+.megamenu .megamenu-divider {
+  clear: both;
+  display: block;
+  padding: 20px 0;
+}
+
+.megamenu .megamenu-submenu--type-stack > .megamenu-divider {
+  padding: 10px 0;
+}
+
+.megamenu .megamenu-divider hr {
+  display: block;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid #ddd;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  background: transparent;
+}
+
+/* =========================================================================
+   TABS
+   ========================================================================= */
+
+.megamenu .megamenu-tabs {
+  position: relative;
+  width: 100%;
+}
+
+.megamenu .megamenu-tabs__group {
+  border-style: solid;
+}
+
+.megamenu .megamenu-tabs__tab .megamenu-tabs__pane {
+  position: absolute;
+  display: none;
+}
+
+.megamenu .megamenu-tabs__tab > .megamenu-anchor,
+.megamenu .megamenu-tabs__tab .megamenu-tabs__pane {
+  border-width: 0;
+  border-style: solid;
+}
+
+.megamenu--no-js .megamenu-tabs__tab:hover > .megamenu-tabs__pane,
+.megamenu .megamenu-tabs__tab.megamenu-active > .megamenu-tabs__pane {
+  display: block;
+}
+
+/* Display first tab panel */
+
+.megamenu--no-js .megamenu-tabs--show-default > .megamenu-tabs__group > .megamenu-tabs__tab:first-child > .megamenu-tabs__pane {
+  display: block;
+}
+
+/* Hide first tab panel when displaying others */
+
+.megamenu--no-js .megamenu-tabs--show-default:hover > .megamenu-tabs__group > .megamenu-tabs__tab:first-child > .megamenu-tabs__pane {
+  display: none;
+}
+
+/* Display first tab panel when hovering in its tab */
+
+.megamenu--no-js .megamenu-tabs--show-default:hover > .megamenu-tabs__group > .megamenu-tabs__tab:first-child:hover > .megamenu-tabs__pane {
+  display: block;
+}
+
+/* Tabs Left
+   ========================================================================= */
+
+.megamenu .megamenu-tabs--layout-left > .megamenu-tabs__group {
+  float: left;
+  border-width: 0 1px 0 0;
+}
+
+.megamenu .megamenu-tabs--layout-left > .megamenu-tabs__group > .megamenu-tabs__tab > .megamenu-tabs__pane {
+  top: 0;
+  right: 0;
+}
+
+.megamenu--sub-indicators .megamenu-tabs.megamenu-tabs--layout-left > .megamenu-tabs__group > .megamenu-item--has-submenu-drop > .megamenu-anchor:after {
+  content: "\f105";
+}
+
+/* Tabs Right
+   ========================================================================= */
+
+.megamenu .megamenu-tabs--layout-right > .megamenu-tabs__group {
+  float: right;
+  border-width: 0 0 0 1px;
+}
+
+.megamenu .megamenu-tabs--layout-right > .megamenu-tabs__group > .megamenu-tabs__tab > .megamenu-tabs__pane {
+  top: 0;
+  left: 0;
+}
+
+.megamenu .megamenu-tabs--layout-right > .megamenu-tabs__group > .megamenu-item--has-submenu-drop > .megamenu-anchor {
+  padding-left: 25px;
+  padding-right: 20px;
+}
+
+.megamenu--sub-indicators megamenu-tabs--layout-right > .megamenu-tabs__group > .megamenu-item--has-submenu-drop > .megamenu-anchor:after {
+  right: auto;
+  left: 10px;
+  content: "\f104";
+}
+
+/* Tabs Top
+   ========================================================================= */
+
+.megamenu .megamenu-tabs--layout-top > .megamenu-tabs__group {
+  border-width: 0;
+}
+
+.megamenu .megamenu-tabs--layout-top > .megamenu-tabs__group > .megamenu-tabs__tab > .megamenu-tabs__pane {
+  left: 0;
+  top: auto;
+  border-width: 1px 0 0 0;
+}
+
+/* Tabs Bottom
+   ========================================================================= */
+
+.megamenu .megamenu-tabs--layout-bottom > .megamenu-tabs__group {
+  position: absolute;
+  bottom: 0;
+  border-width: 1px 0 0 0;
+}
+
+.megamenu .megamenu-tabs--layout-bottom > .megamenu-tabs__group > .megamenu-tabs__tab > .megamenu-tabs__pane {
+  left: 0;
+  bottom: 100%;
+}
+
+.megamenu--sub-indicators .megamenu-tabs.megamenu-tabs--layout-bottom > .megamenu-tabs__group > .megamenu-item--has-submenu-drop > .megamenu-anchor:after {
+  content: "\f106";
+}

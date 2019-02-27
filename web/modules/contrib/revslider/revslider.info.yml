@@ -1,0 +1,7 @@
+name: Slider Revolution
+description: 'Integrate the RevSlider library with Drupal'
+package: Revolution
+type: module
+version: '8.x-5.5'
+core: 8.x
+php: 5.6

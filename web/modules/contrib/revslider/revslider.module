@@ -1,0 +1,39 @@
+<?php
+/**
+ * Created by FsFlex.
+ * User: VH
+ * Date: 6/20/2017
+ * Time: 5:00 PM
+ */
+
+/**
+ * Implements hook_theme().
+ */
+/**
+ * Implements hook_requirements().
+ */
+
+function revslider_theme($existing, $type, $theme, $path)
+{
+    $theme = array();
+
+    $theme['revslider_admin_master_view'] = array(
+        'variables'=>array(
+            'data'=>array()
+        ),
+        'path'=>$path.'/templates/admin'
+    );
+    $theme['revslider'] = array(
+        'variables'=>array(
+            'data'=>array()
+        ),
+        'path'=>$path.'/templates'
+    );
+    $theme['revslider_front_view'] = array(
+        'variables'=>array(
+            'data'=>array()
+        ),
+        'path'=>$path.'/templates/front'
+    );
+    return $theme;
+}

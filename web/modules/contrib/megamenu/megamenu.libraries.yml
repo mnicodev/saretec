@@ -1,0 +1,65 @@
+# MegaMenu JS
+core_js:
+  version: VERSION
+  js:
+    js/megamenu.js: {}
+    js/megamenu.init.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+
+# MegaMenu CSS
+core_css:
+  version: VERSION
+  css:
+    base:
+      css/base.css: {}
+    layout:
+      css/layout.css: {}
+      css/breakpoints.css: {}
+    component:
+      css/component.css: {}
+    theme:
+      css/theme.css: {}
+
+# MegaMenu skins
+skins.base:
+  version: VERSION
+  css:
+    theme:
+      css/skins/base.css: {}
+skins.bartik_blue_bar:
+  version: VERSION
+  css:
+    theme:
+      css/skins/bartik_blue_bar.css: {}
+skins.dark_bar:
+  version: VERSION
+  css:
+    theme:
+      css/skins/dark_bar.css: {}
+skins.blue_bar:
+  version: VERSION
+  css:
+    theme:
+      css/skins/blue_bar.css: {}
+skins.light_bar:
+  version: VERSION
+  css:
+    theme:
+      css/skins/light_bar.css: {}
+
+# Font Awesome
+fontawesome:
+  version: 4.7.0
+  css:
+    component:
+      /libraries/fontawesome/css/font-awesome.min.css: {minified: true }
+# Font Awesome CDN
+fontawesome.cdn:
+  version: 4.7.0
+  css:
+    theme:
+      //maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css: { type: external, minified: true }

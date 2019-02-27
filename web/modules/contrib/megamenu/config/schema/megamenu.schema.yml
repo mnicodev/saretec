@@ -1,0 +1,4 @@
+# Schema for the configuration files of the Mega Menu module.
+megamenu.settings:
+  type: sequence
+  label: 'Mega Menu settings'

@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Main module file.
+ */
+
+// Include files.
+module_load_include('inc', 'megamenu', 'includes/megamenu_utils');
+module_load_include('inc', 'megamenu', 'includes/megamenu_hooks');
+module_load_include('inc', 'megamenu', 'includes/megamenu_hooks__menu_form');
+module_load_include('inc', 'megamenu', 'includes/megamenu_hooks__menu_link_form');
+module_load_include('inc', 'megamenu', 'includes/megamenu_themes');

@@ -1,0 +1,5 @@
+revslider.admin:
+  title: 'Revolution Sliders'
+  description: 'Main Menu of Revolution Sliders'
+  parent: system.admin_structure
+  route_name: revslider.admin

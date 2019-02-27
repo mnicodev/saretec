@@ -1,0 +1,4 @@
+administer revslider:
+  title: 'Administer Revolution Sliders'
+  description: 'Allow to configure, edit and delete Revolution Sliders.'
+  restrict access: TRUE

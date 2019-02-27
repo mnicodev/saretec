@@ -1,0 +1,33 @@
+<ul class="tp-list_sliders">
+{% for slider in sliders %}
+    {% include '@revslider/admin/includes/single/slider.html.twig'
+        with slider
+    %}
+{% endfor %}
+
+<li class="tls-slide tls-addnewslider">
+    <a href='{{ addNewLink  | e('html_attr')}}'>
+			<span class="tls-main-metas">
+				<span class="tls-new-icon-wrapper">
+					<span class="slider_list_add_buttons add_new_slider_icon"></span>
+				</span>
+				<span class="tls-title-wrapper">
+					<span class="tls-title"><?php _e("New Slider",'revslider'); ?></span>
+					<span class="tls-title">{{ "New Slider"|trans }}</span>
+				</span>
+			</span>
+    </a>
+</li>
+<li class="tls-slide tls-addnewslider">
+    <a href="javascript:void(0);" id="button_import_slider">
+				<span class="tls-main-metas">
+					<span class="tls-new-icon-wrapper">
+						<i class="slider_list_add_buttons  add_new_import_icon"></i>
+					</span>
+					<span class="tls-title-wrapper">
+						<span class="tls-title">{{ "Import Slider"|trans }}</span>
+					</span>
+				</span>
+    </a>
+</li>
+</ul>

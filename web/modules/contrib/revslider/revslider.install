@@ -1,0 +1,246 @@
+<?php
+
+function revslider_schema()
+{
+    $schema = array();
+    $schema ['revslider_options'] = array(
+        'description' => 'Options Table',
+        'fields'      => array(
+            'id'       => array(
+                'description' => 'The primary entity identifier.',
+                'type'        => 'serial',
+                'not null'    => TRUE,
+                'unsigned'    => TRUE
+            ),
+            'name'     => array(
+                'type'     => 'varchar',
+                'length'   => 100,
+                'not null' => true,
+            ),
+            'value'    => array(
+                'type'     => 'text',
+                'size'     => 'normal',
+                'not null' => true,
+            ),
+            'autoload' => array(
+                'type'     => 'varchar',
+                'length'   => 255,
+                'not null' => false,
+            )
+        ),
+        'primary key' => array('id'),
+        'unique keys' => array(
+            'option_name' => array('name'),
+        ),
+    );
+    $schema ['revslider_css'] = array(
+        'description' => 'Css Table',
+        'fields'      => array(
+            'id'       => array(
+                'description' => 'The primary entity identifier.',
+                'type'        => 'serial',
+                'not null'    => TRUE,
+                'unsigned'    => TRUE
+            ),
+            'advanced' => array(
+                'type'     => 'text',
+                'size'     => 'big',
+                'not null' => false,
+            ),
+            'handle'   => array(
+                'type'     => 'text',
+                'size'     => 'normal',
+                'not null' => true,
+            ),
+            'hover'    => array(
+                'type'     => 'text',
+                'size'     => 'big',
+                'not null' => false,
+            ),
+            'params'   => array(
+                'type'     => 'text',
+                'size'     => 'big',
+                'not null' => true,
+            ),
+            'settings' => array(
+                'type'     => 'text',
+                'size'     => 'big',
+                'not null' => false,
+            )
+        ),
+        'primary key' => array('id'),
+    );
+    $schema ['revslider_layer_animations'] = array(
+        'description' => 'Layer Animations Table',
+        'fields'      => array(
+            'id'       => array(
+                'description' => 'The primary entity identifier.',
+                'type'        => 'serial',
+                'not null'    => TRUE,
+                'unsigned'    => TRUE
+            ),
+            'handle'   => array(
+                'type'     => 'text',
+                'size'     => 'normal',
+                'not null' => true,
+            ),
+            'params'   => array(
+                'type'     => 'text',
+                'size'     => 'normal',
+                'not null' => true,
+            ),
+            'settings' => array(
+                'type'     => 'text',
+                'size'     => 'normal',
+                'not null' => false,
+            )
+        ),
+        'primary key' => array('id'),
+    );
+    $schema ['revslider_navigations'] = array(
+        'description' => 'Navigations Table',
+        'fields'      => array(
+            'id'       => array(
+                'description' => 'The primary entity identifier.',
+                'type'        => 'serial',
+                'not null'    => TRUE,
+                'unsigned'    => TRUE
+            ),
+            'css'      => array(
+                'type'     => 'text',
+                'size'     => 'big',
+                'not null' => true,
+            ),
+            'handle'   => array(
+                'type'     => 'varchar',
+                'length'   => 191,
+                'not null' => true,
+            ),
+            'markup'   => array(
+                'type'     => 'text',
+                'size'     => 'big',
+                'not null' => true,
+            ),
+            'name'     => array(
+                'type'     => 'varchar',
+                'length'   => 191,
+                'not null' => true,
+            ),
+            'settings' => array(
+                'type'     => 'text',
+                'size'     => 'big',
+                'not null' => false,
+            )
+        ),
+        'primary key' => array('id'),
+    );
+    $schema ['revslider_sliders'] = array(
+        'description' => 'Sliders Table',
+        'fields'      => array(
+            'id'       => array(
+                'description' => 'The primary entity identifier.',
+                'type'        => 'serial',
+                'not null'    => TRUE,
+                'unsigned'    => TRUE
+            ),
+            'settings' => array(
+                'type'     => 'text',
+                'size'     => 'normal',
+                'not null' => false,
+            ),
+            'params'   => array(
+                'type'     => 'text',
+                'size'     => 'big',
+                'not null' => true,
+            ),
+            'alias'    => array(
+                'type'     => 'text',
+                'size'     => 'tiny',
+                'not null' => false,
+            ),
+            'title'    => array(
+                'type'     => 'text',
+                'size'     => 'tiny',
+                'not null' => true,
+            ),
+            'type'     => array(
+                'type'     => 'varchar',
+                'length'   => 191,
+                'not null' => true,
+                'default' =>''
+            )
+        ),
+        'primary key' => array('id'),
+    );
+    $schema ['revslider_slides'] = array(
+        'description' => 'Slides Table',
+        'fields'      => array(
+            'id'          => array(
+                'description' => 'The primary entity identifier.',
+                'type'        => 'serial',
+                'not null'    => TRUE,
+                'unsigned'    => TRUE
+            ),
+            'settings'    => array(
+                'type'     => 'text',
+                'size'     => 'normal',
+                'not null' => true,
+            ),
+            'params'      => array(
+                'type'     => 'text',
+                'size'     => 'big',
+                'not null' => true,
+            ),
+            'layers'      => array(
+                'type'     => 'text',
+                'size'     => 'big',
+                'not null' => true,
+            ),
+            'slider_id'   => array(
+                'type'     => 'int',
+                'not null' => true,
+                'unsigned' => TRUE
+            ),
+            'slide_order' => array(
+                'type'     => 'int',
+                'length'   => 11,
+                'not null' => true,
+                'unsigned' => false
+            )
+        ),
+        'primary key' => array('id'),
+    );
+    $schema ['revslider_static_slides'] = array(
+        'description' => 'Static Slides Table',
+        'fields'      => array(
+            'id'        => array(
+                'description' => 'The primary entity identifier.',
+                'type'        => 'serial',
+                'not null'    => TRUE,
+                'unsigned'    => TRUE
+            ),
+            'settings'  => array(
+                'type'     => 'text',
+                'size'     => 'normal',
+                'not null' => true,
+            ),
+            'params'    => array(
+                'type'     => 'text',
+                'size'     => 'big',
+                'not null' => true,
+            ),
+            'layers'    => array(
+                'type'     => 'text',
+                'size'     => 'big',
+                'not null' => true,
+            ),
+            'slider_id' => array(
+                'type'     => 'int',
+                'not null' => true,
+                'unsigned' => TRUE
+            ),
+        ),
+        'primary key' => array('id'),
+    );
+    return $schema;
+}

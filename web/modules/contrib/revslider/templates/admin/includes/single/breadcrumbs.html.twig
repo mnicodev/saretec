@@ -1,0 +1,68 @@
+<div class="rs_breadcrumbs">
+    <a class='breadcrumb-button' href='{{ url.view.sliders | e('html_attr') }}'>
+        <i class="eg-icon-th-large"></i>{{ "All Sliders"| trans }}
+    </a>
+    <a class='breadcrumb-button' href="{{ url.view.slider | e('html_attr') }}">
+        <i class="eg-icon-cog"></i>{{ 'Slider Settings' |trans }}
+    </a>
+    <a class='breadcrumb-button selected' href="#">
+        <i class="eg-icon-pencil-2"></i>{{ 'Slide Editor' | trans}} "{{ breadcrumbs.slider_title | e('html_attr') }}"
+    </a>
+    <div class="tp-clearfix"></div>
+    <!-- FIXED TOOLBAR ON THE RIGHT SIDE -->
+    <ul class="rs-mini-toolbar" id="revslider_mini_toolbar">
+        <li class="rs-toolbar-savebtn rs-mini-toolbar-button">
+            <a class='button-primary revgreen' href='javascript:void(0)' id="{{ breadcrumbs.savebtnid | e('html_attr')}}" >
+                <i class="rs-icon-save-light" style="display: inline-block;vertical-align: middle;width: 18px;height: 20px;background-repeat: no-repeat;"></i>
+                <span class="mini-toolbar-text">{{ "Save Slide"|trans }}</span>
+            </a>
+        </li>
+        <li class="rs-toolbar-cssbtn rs-mini-toolbar-button">
+            <a class='button-primary revpurple' href='javascript:void(0)' id='button_edit_css_global'><i class="">&lt;/&gt;</i>
+                <span class="mini-toolbar-text">{{ "Slider CSS/JS"|trans }}</span>
+            </a>
+        </li>
+        <li class="rs-toolbar-slides rs-mini-toolbar-button">
+            <a class="button-primary revblue" href="{{ url.view.slider_url | e('html_attr') }}" id="link_edit_slides_t">
+                <i class="revicon-cog"></i>
+                <span class="mini-toolbar-text">{{ "Slider Settings"|trans }}</span>
+            </a>
+
+        </li>
+        <li class="rs-toolbar-preview rs-mini-toolbar-button">
+            <a class="button-primary revgray" href="javascript:void(0)"  id="{{ breadcrumbs.prevbtn | e('html_attr') }}" >
+                <i class="revicon-search-1"></i>
+                <span class="mini-toolbar-text">{{ "Preview" |trans }}</span>
+            </a>
+        </li>
+
+    </ul>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        jQuery('.rs-mini-toolbar-button').hover(function() {
+            var btn=jQuery(this),
+                txt = btn.find('.mini-toolbar-text');
+            punchgs.TweenLite.to(txt,0.2,{width:"100px",ease:punchgs.Linear.easeNone,overwrite:"all"});
+            punchgs.TweenLite.to(txt,0.1,{autoAlpha:1,ease:punchgs.Linear.easeNone,delay:0.1,overwrite:"opacity"});
+        }, function() {
+            var btn=jQuery(this),
+                txt = btn.find('.mini-toolbar-text');
+            punchgs.TweenLite.to(txt,0.2,{autoAlpha:0,width:"0px",ease:punchgs.Linear.easeNone,overwrite:"all"});
+        });
+        var mtb = jQuery('.rs-mini-toolbar'),
+            mtbo = mtb.offset().top;
+        function checkStickyToolBar() {
+            if (mtbo-jQuery(window).scrollTop()<35) {
+                mtb.addClass("sticky");
+                jQuery('#wp-admin-bar-my-account').css({paddingRight:"180px"});
+            }
+            else {
+                mtb.removeClass("sticky");
+                jQuery('#wp-admin-bar-my-account').css({paddingRight:"0px"});
+            }
+        }
+        checkStickyToolBar();
+        jQuery(document).on("scroll",checkStickyToolBar);
+    });
+</script>

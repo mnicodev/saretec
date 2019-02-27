@@ -1,0 +1,26 @@
+# Responsive & Mobile
+retractor_display_strategy: 'responsive'
+responsive_breakpoint: 959
+# Script Configuration
+touch_off_close: 1
+reposition_on_load: 0
+intent_delay: 300
+intent_interval: 100
+intent_threshold: 7
+scrollto_offset: 50
+scrollto_duration: 1000
+collapse_after_scroll: 1
+remove_conflicts: 1
+# Custom Styles
+custom_styles: ''
+custom_styles_mobile: ''
+custom_styles_desktop: ''
+# Misc
+accessible: 1
+fontawesome_load: 1
+fontawesome_load_admin_route: 1
+fontawesome_use_cdn: 0
+disable_megamenu_css: 0
+# Menu instances config
+menu_instances_config: []
+menus_styles: []

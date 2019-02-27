@@ -1,0 +1,106 @@
+{% include '@revslider/admin/includes/single/slide-editor-scripts-library.html.twig'
+with {
+url : data.url,
+slide_editor_scripts_library : data.global.slide_editor_scripts_library
+} %}
+{% if data.global.slide.isStaticSlide %}
+<input type="hidden" id="sliderid" value="{{ data.global.slider.id | e('html_attr') }}" />
+{% endif %}
+<div id="viewWrapper" class="view_wrapper">
+    <div class="wrap settings_wrap">
+        <div class="clear_both"></div>
+        {% include '@revslider/admin/includes/single/breadcrumbs.html.twig'
+        with {
+            url : data.url,
+            breadcrumbs : data.global.breadcrumbs
+        } %}
+        {% include '@revslider/admin/includes/slide-selector.html.twig'
+        with {
+            url : data.url,
+            slide_selector : data.global.slide_selector
+        } %}
+        {% include '@revslider/admin/includes/slide-general-settings.html.twig'
+            with {
+            url : data.url,
+            slide_general_settings : data.global.slide_general_settings
+        } %}
+        {{ data.global.html_idesw | raw }}
+    </div>
+    <div class="vert_sap"></div>
+
+
+    <div id="dialog_rename_animation" class="dialog_rename_animation" title="{{'Rename Animation' | trans}}" style="display:none;">
+        <div style="margin-top:14px">
+            <span style="margin-right:15px">{{'Rename to:'|trans}}</span><input id="rs-rename-animation" type="text" name="rs-rename-animation" value="" />
+        </div>
+    </div>
+{% if data.global.slide.isStaticSlide %}
+    {% set slideID = data.global.slide.id %}
+{% else %}
+    {% set slideID = data.global.slideID %}
+{% endif %}
+    <script type="text/javascript">
+        var g_patternViewSlide = '{{ data.global.patternViewSlide | raw }}';
+
+        var g_messageDeleteSlide = "{{"Delete this slide?" | trans}}";
+        document.addEventListener("DOMContentLoaded", function() {
+            RevSliderAdmin.initEditSlideView({{slideID | raw }},{{ data.global.sliderID | raw}},{{ (data.global.slide.isStaticSlide) ? 'true' : 'false' }} );
+
+            UniteLayersRev.setInitSlideIds({{ data.global.mslide_list | raw}});
+        });
+        var curSlideID = {{ slideID | e('js') }};
+        var curSliderID = {{ data.global.sliderID | e('js')}};
+    </script>
+
+    {% include '@revslider/admin/includes/system/dialog-copy-move.html.twig'
+    with {
+    url : data.url,
+    dialog_copy_move : data.global.dialog_copy_move
+    } %}
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            jQuery('#rs-do-set-style-on-devices').click(function(){
+                var layer = UniteLayersRev.getCurrentLayer();
+
+                if(layer !== false){
+                    if(layer['static_styles'] == undefined) layer['static_styles'] = {};
+
+                    var mcolor = jQuery('input[name="color_static"]').val();
+                    var mfontsize = jQuery('input[name="font_size_static"]').val();
+                    var mlineheight = jQuery('input[name="line_height_static"]').val();
+                    var mfontweight = jQuery('select[name="font_weight_static"] option:selected').val();
+
+                    jQuery('.rs-set-device-chk').each(function(){
+                        if(jQuery(this).is(':checked')){
+                            var dt = jQuery(this).data('device'); //which device to set on
+                            var so = jQuery(this).data('seton'); //set on color/font-size and so on
+                            var mval;
+                            switch(so){
+                                case 'color':
+                                    mval = mcolor;
+                                    break;
+                                case 'font-size':
+                                    mval = mfontsize;
+                                    break;
+                                case 'line-height':
+                                    mval = mlineheight;
+                                    break;
+                                case 'font-weight':
+                                    mval = mfontweight;
+                                    break;
+                            }
+
+                            layer['static_styles'] = UniteLayersRev.setVal(layer['static_styles'], so, mval, false, [dt]);
+                        }
+                    });
+
+                    //give status that it has been done
+
+                    jQuery('#rs-set-style-on-devices-dialog').toggle();
+                }
+            });
+        });
+    </script>
+
+</div>

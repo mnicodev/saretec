@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * @file
+ * Install file for MegaMenu.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function megamenu_requirements($phase) {
+  // Create an array to hold requirements.
+  $requirements = [];
+
+  // Check requirements during the runtime phase
+  if ($phase == 'runtime') {
+    // Font Awesome library dependency.
+    if (function_exists('megamenu_fontawesome_library_exists')) {
+      if (megamenu_fontawesome_library_exists()) {
+        $requirements['megamenu_fontawesome_dependency'] = [
+          'title' => t('Mega Menu'),
+          'value' => t('Font Awesome library installed'),
+          'severity' => REQUIREMENT_OK,
+        ];
+      }
+      else {
+        $requirements['megamenu_fontawesome_dependency'] = [
+          'title' => t('Mega Menu'),
+          'value' => t('Font Awesome library could not be found.'),
+          'description' => t('
+            Please make sure that font awesome was download and extracted at /libraries/fontawesome directory.
+            Check README.txt for more details.
+          '),
+          'severity' => REQUIREMENT_ERROR,
+        ];
+      }
+    }
+  }
+
+  return $requirements;
+}
+
+/**
+ * Implements hook_install().
+ */
+function megamenu_install() {
+  // Ensure that the module always loaded last. This will prevent other modules
+  // to take control over menu service providers.
+  module_set_weight('megamenu', 1000);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function megamenu_uninstall() {
+  // Remove mega menu options from menu_link_content_data table.
+  // @todo Next version - Update syntax; db_query will be removed as of v9.0
+  $result = db_query("
+    SELECT id, link__options
+    FROM {menu_link_content_data}
+    WHERE link__options LIKE '%\"megamenu\"%'
+  ");
+
+  foreach ($result as $record) {
+    $link__options = unserialize($record->link__options);
+    unset($link__options['megamenu']);
+    // @todo Next version - Update syntax; db_query will be removed as of v9.0
+    db_query(
+      "UPDATE {menu_link_content_data} SET link__options = :link__options WHERE id = :id",
+      [':link__options' => serialize($link__options), ':id' => $record->id]
+    );
+  }
+
+  // Cleans up config entities installed by this module.
+  \Drupal::configFactory()->getEditable('megamenu.settings')->delete();
+}

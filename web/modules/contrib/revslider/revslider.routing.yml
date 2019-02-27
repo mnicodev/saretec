@@ -1,0 +1,15 @@
+revslider.admin:
+  path: '/admin/structure/revslider'
+  defaults:
+    _title: 'Revolution Sliders'
+    _controller: '\Drupal\revslider\Controller\RevSliderAdmin::index'
+  requirements:
+    _permission: 'administer revslider'
+
+revslider.ajax:
+  path: '/revslider/ajax'
+  defaults:
+    _title: 'RevSlider Ajax Handle'
+    _controller: '\Drupal\revslider\Controller\RevSliderAjax::request'
+  requirements:
+    _custom_access: '\Drupal\revslider\Controller\RevSliderAjax::access'

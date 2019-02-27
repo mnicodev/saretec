@@ -1,0 +1,55 @@
+<li class="tls-slide tls-stype-all tls-stype-{{ slider_type | e('html_attr') }}" data-favorit="{{ (is_favorite) ? 'a' : 'b' }}"
+    data-id="{{ id | e('html_attr') }}" data-name="{{ title | e('html_attr') }}" data-type="{{ slider_type | e('html_attr')}}">
+    <div class="tls-main-metas">
+
+        <span class="tls-firstslideimage {{ first_slide_image_thumb.class  | e('html_attr')}}"
+              style="{{ first_slide_image_thumb.style  | e('css') }};
+              {% if first_slide_image_thumb is not empty %}
+                      background-image:url( {{ first_slide_image_thumb.url  | e('html_attr')}})
+              {% endif %}"></span>
+        <a href="{{ editSlidesLink  | e('html_attr')}}" class="tls-grad-bg tls-bg-top"></a>
+        <span class="tls-source">
+            <i class="{{ preicon | e('html_attr') }}"></i>{{ strSource | e('html') }}
+        </span>
+        <span class="tls-star">
+            <a href="javascript:void(0);" class="rev-toogle-fav" id="reg-toggle-id-{{ id  | e('html_attr')}}">
+                <i class="eg-icon-star{{ (is_favorite) ? '' : '-empty' }}"></i>
+            </a>
+        </span>
+        <span class="tls-slidenr">
+            {{ numSlides | e('html') }}{{ (numReal == '') ? '' : "(#{numReal})" }}
+        </span>
+
+        <span class="tls-title-wrapper">
+						<span class="tls-id">#{{ id  | e('html')}}
+                            <span id="slider_title_{{ id  | e('html_attr')}}" class="hidden">{{ title  | e('html')}}</span>
+                            <span class="tls-alias hidden">{{ alias  | e('html')}}</span>
+                        </span>
+						<span class="tls-title">{{ showTitle|raw }}
+                            {% if errorMessage is not empty  %}
+                                <span class='error_message'>{{ errorMessage  | raw }}</span>
+                            {% endif %}
+						</span>
+						<a class="button-primary tls-settings" href='{{ editLink | e('html_attr') }}'><i
+                                    class="revicon-cog"></i></a>
+						<a class="button-primary tls-editslides" href='{{ editSlidesLink  | e('html_attr')}}'><i
+                                    class="revicon-pencil-1"></i></a>
+						<span class="button-primary tls-showmore"><i class="eg-icon-down-open"></i></span>
+					</span>
+
+    </div>
+
+    <div class="tls-hover-metas">
+        <span class="button-primary rs-embed-slider"><i
+                    class="eg-icon-plus"></i>{{ "Embed Slider" | trans}}</span>
+        <a class="button-primary  export_slider_overview" id="export_slider_{{ id  | e('html_attr')}}"
+           href="javascript:void(0);"><i class="revicon-export"></i>{{ "Export" | trans}}</a>
+        <a class="button-primary  button_delete_slider" id="button_delete_{{ id  | e('html_attr')}}" href='javascript:void(0)'><i
+                    class="revicon-trash"></i>{{ "Delete" | trans }}</a>
+        <a class="button-primary  button_duplicate_slider" id="button_duplicate_{{ id  | e('html_attr')}}"
+           href='javascript:void(0)'><i class="revicon-picture"></i>{{ "Duplicate"|trans }}</a>
+        <div id="button_preview_{{ id  | e('html_attr')}}" class="button_slider_preview button-primary revgray"><i
+                    class="revicon-search-1"></i>{{ "Preview"|trans }}</div>
+    </div>
+    <div class="tls-dimmme"></div>
+</li>

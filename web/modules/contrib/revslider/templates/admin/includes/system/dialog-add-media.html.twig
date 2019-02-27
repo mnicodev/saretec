@@ -1,0 +1,161 @@
+<div class="media-modal wp-core-ui"  id="revslider-media-modal" style="display: none">
+    <button type="button" class="media-modal-close">X</button>
+    <div class="media-modal-content">
+        <div class="media-frame mode-select wp-core-ui hide-menu">
+            <div class="media-frame-title">
+                <h1 data-filter-trigger="revslider-media-uploader">Upload Media</h1>
+                <h1 data-filter-trigger="revslider-images-select">Select Image</h1>
+                <h1 data-filter-trigger="revslider-videos-select">Select Video</h1>
+            </div>
+            <div class="media-frame-router">
+                <div class="media-router">
+                    <a href="#" class="media-menu-item" data-target="revslider-media-uploader">Upload Files</a>
+                    <a href="#" class="media-menu-item active" data-media-type="images" data-target="revslider-images-select">Image Library</a>
+                    <a href="#" class="media-menu-item active" data-media-type="videos" data-target="revslider-videos-select">Video Library</a>
+                    <a href="#" class="media-menu-item active" data-target="revslider-media-uploading" style="display: none">Uploading</a>
+                </div>
+            </div>
+            <div class="media-frame-content" data-columns="10">
+                <div class="uploader-inline" data-filter-trigger="revslider-media-uploader">
+                    <input type="file" name="revslider-media-upload" id="revslider-media-upload">
+                    <div class="uploader-inline-content has-upload-message">
+                        <div class="upload-ui">
+                            <h2 class="upload-message">No items found.</h2>
+                            <h2 class="upload-instructions drop-instructions">Drop files here to upload</h2>
+                            <p class="upload-instructions drop-instructions">or</p>
+                            <label id="revslider-media-upload-mask" for="revslider-media-upload" class="browser button button-hero"
+                               style="display: inline; position: relative; z-index: 1;">Select Files</label>
+                        </div>
+                        <div class="upload-inline-status"></div>
+                    </div>
+                </div>
+                <div class="uploading" data-filter-trigger="revslider-media-uploading">
+                    <div class="waitaminute-message"><i class="eg-icon-emo-coffee"></i><br>{{"Uploading Please Wait..."|trans}}</div>
+                </div>
+                <div class="attachments-browser" data-media-type="images" data-filter-trigger="revslider-images-select">
+                    <textarea style="display: none" class="raw_media_element" data-element-type="images">
+                        <li tabindex="0" aria-checked="false" data-id="{{ "{{_id_}}" }}" class="attachment"
+                            data-element-type="images">
+                            <div class="attachment-preview">
+                                <div class="thumbnail">
+                                    <div class="centered">
+                                        <img src="{{ "{{_src_}}" }}"
+                                             draggable="false" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </textarea>
+                    <div class="media-top-toolbar media-left-container">
+                        <div class="media-search-container">
+                            <input type="text" name="media_search" placeholder="File name">
+                            <button type="button" class="button button-primary button-large button-action" data-action="images-search">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                    <ul tabindex="-1" class="media-attachments attachments ui-sortable ui-sortable-disabled" >
+                    </ul>
+                    <div class="media-bottom-toolbar media-left-container">
+                        <div class="media-loadmore-container">
+                            <button type="button" class="button button-primary button-large button-action" data-action="images-loadmore" >
+                                Load More
+                            </button>
+                        </div>
+                    </div>
+                    <div class="media-sidebar">
+                        <div tabindex="0" data-id="1097" class="attachment-details save-ready">
+                            <h2> Attachment Details </h2>
+                            <div class="attachment-info">
+                                <div class="thumbnail thumbnail-image">
+                                    <div class="centered">
+                                        <img src="" draggable="false" alt="">
+                                    </div>
+                                </div>
+                                <div class="details">
+                                    <div class="file-url"></div>
+                                    <div class="filename"></div>
+                                    <div class="uploaded"></div>
+                                    <div class="file-size"></div>
+                                    <div class="dimensions"></div>
+                                    <div style="color: red;" class="button-link delete-attachment">
+                                        Delete Permanently
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="attachments-browser" data-media-type="videos" data-filter-trigger="revslider-videos-select">
+                    <textarea style="display: none" class="raw_media_element" data-element-type="videos">
+                        <li tabindex="0" aria-checked="false" data-id="{{ "{{_id_}}" }}" class="attachment"
+                            data-element-type="videos">
+                            <div class="attachment-preview">
+                                <div class="thumbnail">
+                                    <div class="centered">
+                                        <video>
+                                            <source src="{{ "{{_src_}}" }}">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </textarea>
+                    <div class="media-top-toolbar media-left-container">
+                        <div class="media-search-container">
+                            <input type="text" name="media_search" placeholder="File name">
+                            <button type="button" class="button button-primary button-large button-action" data-action="videos-search">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                    <ul tabindex="-1" class="media-attachments attachments ui-sortable ui-sortable-disabled" >
+                    </ul>
+                    <div class="media-bottom-toolbar media-left-container">
+                        <div class="media-loadmore-container">
+                            <button type="button" class="button button-primary button-large button-action" data-action="videos-loadmore" >
+                                Load More
+                            </button>
+                        </div>
+                    </div>
+                    <div class="media-sidebar">
+                        <div tabindex="0" data-id="1097" class="attachment-details save-ready">
+                            <h2> Attachment Details </h2>
+                            <div class="attachment-info">
+                                <div class="thumbnail thumbnail-image">
+                                    <div class="centered">
+                                        <video controls>
+                                            <source src="">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="details">
+                                    <div class="file-url"></div>
+                                    <div class="filename"></div>
+                                    <div class="uploaded"></div>
+                                    <div class="file-size"></div>
+                                    <div class="dimensions"></div>
+                                    <div style="color: red;" class="button-link delete-attachment">
+                                        Delete Permanently
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="media-frame-toolbar">
+                <div class="media-toolbar">
+                    <button type="button" id="revslider-add-image-submit"
+                            class="button media-button button-primary button-large media-button-select" data-filter-trigger="revslider-images-select">Insert
+                    </button>
+                    <button type="button" id="revslider-add-video-submit"
+                            class="button media-button button-primary button-large media-button-select" data-filter-trigger="revslider-videos-select">Insert
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

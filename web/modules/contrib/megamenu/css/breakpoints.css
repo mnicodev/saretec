@@ -1,0 +1,323 @@
+/* =========================================================================
+   ABOVE PRIMARY BREAKPOINT
+   ========================================================================= */
+
+.megamenu-responsive-toggle--above-primary {
+  display: none;
+}
+
+.megamenu.megamenu--responsive--above-primary {
+  display: block !important;
+}
+
+.megamenu--responsive.megamenu--responsive--above-primary .megamenu-item.megamenu-item--hide-desktop {
+  display: none !important;
+}
+
+.megamenu--responsive.megamenu--responsive--above-primary.megamenu--retractors-responsive .megamenu-retractor--mobile {
+  display: none;
+}
+
+/* Open current submenu always below others */
+
+.megamenu--responsive--above-primary.megamenu--force-current-submenu .megamenu-item--level-0.megamenu-item--current > .megamenu-submenu--drop,
+.megamenu--responsive--above-primary.megamenu--force-current-submenu .megamenu-item--level-0.megamenu-item--active-trail > .megamenu-submenu--drop {
+  z-index: 19;
+  top: auto !important;
+  visibility: visible !important;
+  display: block !important;
+  opacity: 1 !important;
+  height: auto;
+  margin: 0 !important;
+}
+
+/* Inverted menu
+   ========================================================================= */
+
+.megamenu--responsive--above-primary.megamenu--invert.megamenu--horizontal .megamenu-item--level-0 > .megamenu-submenu--drop {
+  top: auto;
+  bottom: 100%;
+}
+
+.megamenu--responsive--above-primary.megamenu--invert.megamenu--horizontal.megamenu--sub-indicators .megamenu-item--level-0.megamenu-item--has-submenu-drop > .megamenu-anchor:after {
+  content: "\f106";
+}
+
+.megamenu--responsive--above-primary.megamenu--invert.megamenu--horizontal .megamenu-submenu .megamenu-item.megamenu-active > .megamenu-submenu--type-flyout {
+  top: auto;
+  bottom: 0;
+}
+
+.megamenu--responsive--above-primary.megamenu--invert.megamenu--horizontal .megamenu-item--level-0 > .megamenu-submenu--drop {
+  clip: rect(-5000px, 5000px, auto, -5000px);
+}
+
+.megamenu--responsive--above-primary.megamenu--invert.megamenu--vertical .megamenu-item--level-0 > .megamenu-submenu--drop {
+  left: auto;
+  right: 100%;
+}
+
+.megamenu--responsive--above-primary.megamenu--invert.megamenu--vertical.megamenu--sub-indicators .megamenu-item--level-0.megamenu-item--has-children > a.megamenu-anchor:after {
+  left: 10px;
+  right: auto;
+  margin-top: -7px;
+  content: "\f104";
+}
+
+.megamenu--responsive--above-primary.megamenu--vertical.megamenu--invert .megamenu-item > .megamenu-submenu--drop {
+  clip: rect(-5000px, 5000px, 5000px, -5000px);
+}
+
+/* =========================================================================
+   PRIMARY BREAKPOINT
+   ========================================================================= */
+
+.megamenu-responsive-toggle.megamenu-responsive-toggle--primary {
+  display: block;
+}
+
+/* Fix Android browsers don't support properly transitions and transforms */
+
+.megamenu--no-transitions.megamenu--responsive.megamenu--responsive--primary.megamenu--responsive--collapse {
+  display: none;
+  visibility: visible;
+  overflow: visible !important;
+  height: auto;
+  max-height: none;
+}
+
+.megamenu--responsive.megamenu--responsive--primary {
+  visibility: visible;
+  overflow: visible;
+  width: 100%;
+  max-height: 500px;
+  -webkit-transition: max-height 1s ease-in;
+  transition: max-height .3s ease-in;
+}
+
+.megamenu--responsive.megamenu--responsive--primary.megamenu--items-align-center {
+  text-align: left;
+}
+
+.megamenu--responsive.megamenu--responsive--primary.megamenu {
+  margin: 0;
+}
+
+.megamenu--responsive.megamenu--responsive--primary.megamenu .megamenu-nav {
+  display: block;
+}
+
+.megamenu--responsive.megamenu--responsive--primary.megamenu--responsive--no-collapse,
+.megamenu--repsonsive.megamenu--responsive--primary.megamenu--no-transitions {
+  display: block;
+  max-height: none;
+}
+
+.megamenu--responsive.megamenu--responsive--primary.megamenu--responsive--collapse {
+  visibility: visible;
+  overflow: visible;
+  max-height: none;
+}
+
+.megamenu--responsive.megamenu--responsive--primary.megamenu--responsive--collapse {
+  visibility: hidden;
+  overflow: hidden !important;
+  max-height: 0;
+}
+
+.megamenu--responsive.megamenu--responsive--primary.megamenu--in-transition,
+.megamenu--responsive.megamenu--responsive--primary.megamenu--in-transition .megamenu-nav {
+  overflow: hidden !important;
+  visibility: visible;
+}
+
+.megamenu--responsive.megamenu--responsive--primary.megamenu--responsive--collapse:not(.megamenu--in-transition) {
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
+
+.megamenu--responsive.megamenu--responsive--primary.megamenu--responsive--collapse .megamenu-item .megamenu-submenu {
+  display: none;
+}
+
+.megamenu--responsive.megamenu--responsive--primary .megamenu-item--level-0 {
+  width: 50%;
+}
+
+.megamenu--responsive.megamenu--responsive--primary.megamenu--responsive--single-column .megamenu-item--level-0 {
+  clear: both;
+  float: none;
+  width: 100%;
+}
+
+.megamenu--responsive.megamenu--responsive--primary .megamenu-item.megamenu-item--level-0 > .megamenu-anchor {
+  box-shadow: none;
+  border: none;
+}
+
+.megamenu--responsive.megamenu--responsive--primary .megamenu-item.megamenu-item--has-submenu-flyout {
+  position: static;
+}
+
+.megamenu--responsive.megamenu--responsive--primary.megamenu--sub-indicators .megamenu-submenu--type-flyout .megamenu-item--has-submenu-drop > .megamenu-anchor:after {
+  content: "\f107";
+}
+
+.megamenu--responsive.megamenu--responsive--primary .megamenu-nav .megamenu-item .megamenu-submenu.megamenu-submenu--drop {
+  top: auto;
+  left: 0 !important;
+  min-width: 100%;
+  max-width: 100%;
+  width: 100%;
+}
+
+.megamenu--responsive.megamenu--responsive--primary.megamenu--has-border .megamenu-nav .megamenu-item .megamenu-submenu.megamenu-submenu--drop {
+  left: -1px !important;
+}
+
+.megamenu--responsive.megamenu--responsive--primary .megamenu-submenu.megamenu-submenu--type-mega > .megamenu-item.megamenu-column {
+  float: left;
+  display: block;
+  min-height: 0;
+  border-left: none;
+}
+
+.megamenu--responsive.megamenu--responsive--primary .megamenu-item.megamenu-active > .megamenu-submenu.megamenu-submenu--type-mega {
+  overflow: visible;
+  max-height: none;
+  height: auto;
+}
+
+.megamenu--responsive.megamenu--responsive--primary.megamenu--transition-slide .megamenu-item.megamenu--in-transition > .megamenu-submenu--drop {
+  max-height: 1000px;
+}
+
+.megamenu.megamenu--responsive--primary .megamenu-submenu--type-flyout .megamenu-submenu--type-mega {
+  min-height: 0;
+}
+
+.megamenu.megamenu--responsive.megamenu--responsive--primary .megamenu-column,
+.megamenu.megamenu--responsive.megamenu--responsive--primary .megamenu-column--auto {
+  min-width: 50%;
+}
+
+.megamenu.megamenu--responsive.megamenu--responsive--primary .megamenu-autoclear > .megamenu-column {
+  clear: none;
+}
+
+.megamenu.megamenu--responsive.megamenu--responsive--primary .megamenu-column:nth-of-type(2n+1) {
+  clear: both;
+}
+
+.megamenu.megamenu--responsive.megamenu--responsive--primary .megamenu-submenu--retractor-top:not(.megamenu-submenu--retractor-top-2) .megamenu-column:nth-of-type(2n+1) {
+  clear: none;
+}
+
+.megamenu.megamenu--responsive.megamenu--responsive--primary .megamenu-submenu--retractor-top:not(.megamenu-submenu--retractor-top-2) .megamenu-column:nth-of-type(2n+2) {
+  clear: both;
+}
+
+.megamenu.megamenu--responsive.megamenu--responsive--primary .megamenu-tabs,
+.megamenu.megamenu--responsive.megamenu--responsive--primary .megamenu-tabs__group,
+.megamenu.megamenu--responsive.megamenu--responsive--primary .megamenu-tabs__tab,
+.megamenu.megamenu--responsive.megamenu--responsive--primary .megamenu-tabs__pane {
+  left: 0;
+  min-width: 100%;
+  max-width: 100%;
+  width: 100%;
+}
+
+.megamenu.megamenu--responsive.megamenu--responsive--primary .megamenu-tabs,
+.megamenu.megamenu--responsive.megamenu--responsive--primary .megamenu-tabs__pane {
+  min-height: 0 !important;
+}
+
+.megamenu.megamenu--responsive.megamenu--responsive--primary .megamenu-tabs {
+  z-index: 15;
+}
+
+.megamenu.megamenu--responsive.megamenu--responsive--primary .megamenu-tabs__pane {
+  z-index: 20;
+}
+
+.megamenu--responsive.megamenu--responsive--primary .megamenu-tabs__tab {
+  position: relative;
+}
+
+.megamenu--responsive.megamenu--responsive--primary .megamenu-tabs__tab.megamenu-active {
+  position: relative;
+  z-index: 20;
+}
+
+.megamenu--responsive.megamenu--responsive--primary .megamenu-tabs__tab > .megamenu-anchor {
+  border-width: 0 0 1px 0;
+}
+
+.megamenu--responsive.megamenu--responsive--primary.megamenu--sub-indicators .megamenu-tabs > .megamenu-tabs__group > .megamenu-tabs__tab.megamenu-item--has-submenu-drop > .megamenu-anchor:after {
+  content: "\f107";
+}
+
+.megamenu--responsive.megamenu--responsive--primary .megamenu-tabs > .megamenu-tabs__group > .megamenu-tabs__tab > .megamenu-tabs__pane {
+  top: auto;
+  border-width: 1px;
+}
+
+.megamenu-reponsive.megamenu--responsive--primary .megamenu-item--level-0 > .megamenu-submenu--type-stack {
+  position: relative;
+}
+
+.megamenu--responsive.megamenu--responsive--primary .megamenu-submenu--type-stack .megamenu-column,
+.megamenu--responsive.megamenu--responsive--primary .megamenu-submenu--type-stack .megamenu-column--auto {
+  width: 100%;
+  max-width: 100%;
+}
+
+.megamenu--responsive.megamenu--responsive--primary .megamenu-item--mini {
+  clear: none !important;
+  float: left;
+  min-width: 0;
+  width: auto;
+}
+
+.megamenu--responsive.megamenu--responsive--primary .megamenu-item.megamenu-item--mini > a.megamenu-anchor {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.megamenu--responsive.megamenu--responsive--primary .megamenu-item.megamenu-item--hide-mobile {
+  display: none !important;
+}
+
+.megamenu--responsive.megamenu--responsive--primary.megamenu--hide-background .megamenu-submenu.megamenu-submenu--background-image {
+  background-image: none;
+}
+
+.megamenu.megamenu--responsive.megamenu--responsive--primary .megamenu-item--level-0.megamenu-item--mini {
+  min-width: 0;
+  width: auto;
+}
+
+.megamenu--responsive--primary.megamenu--vertical .megamenu-item.megamenu-item--level-0 {
+  width: 100%;
+}
+
+.megamenu--responsive--primary.megamenu--vertical.megamenu--sub-indicators .megamenu-item--level-0.megamenu-item--has-children > .megamenu-anchor:after {
+  content: '\f107';
+}
+
+.megamenu--responsive--primary.megamenu--vertical .megamenu-item.megamenu-item--level-0.megamenu-item--relative.megamenu-active > .megamenu-submenu--drop.megamenu-submenu--align-vertical_parent_item {
+  top: auto;
+}
+
+/* =========================================================================
+   SECONDARY BREAKPOINT
+   ========================================================================= */
+
+.megamenu.megamenu--responsive.megamenu--responsive--secondary .megamenu-item--level-0 {
+  width: 100%;
+}
+
+.megamenu.megamenu--responsive.megamenu--responsive--secondary .megamenu-column,
+.megamenu.megamenu--responsive.megamenu--responsive--secondary .megamenu-column--auto {
+  min-width: 100%;
+}

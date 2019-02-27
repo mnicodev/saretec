@@ -1,0 +1,7 @@
+megamenu.settings:
+  path: '/admin/config/user-interface/megamenu'
+  defaults:
+    _form: '\Drupal\megamenu\Form\MegaMenuSettingsForm'
+    _title: 'Mega Menu'
+  requirements:
+    _permission: 'access administration pages'

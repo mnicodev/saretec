@@ -1,0 +1,9 @@
+name: Mega Menu
+type: module
+description: Mega Menu provides UI to create mega menus easily.
+package: Menus
+version: 1.2
+core: 8.x
+dependencies:
+  - menu_link_content
+configure: megamenu.settings

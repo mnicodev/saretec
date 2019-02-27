@@ -1,0 +1,5 @@
+megamenu.settings:
+  title: Mega Menu
+  description: 'Mega Menu configuration.'
+  route_name: megamenu.settings
+  parent: system.admin_config_ui

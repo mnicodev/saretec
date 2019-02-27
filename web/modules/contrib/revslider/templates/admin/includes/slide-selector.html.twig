@@ -1,0 +1,211 @@
+<input type="hidden" value="{{ slide_selector._width | e('html_attr') }}" name="rs-grid-width" />
+<input type="hidden" value="{{ slide_selector._height | e('html_attr') }}" name="rs-grid-height" />
+
+<div id="slide_selector" class="slide_selector editor_buttons_wrapper  postbox unite-postbox" style="max-width:100% !important; min-width:1200px !important">
+    <div class="inner_wrapper p10 boxsized">
+        <ul class="list_slide_links">
+            <li class="{{ slide_selector.staticclass | e('html_attr')}} eg-drag-disabled">
+                {% if not slide_selector.slide.isStaticSlide %}
+                <a href="{{ url.view.static_slide  | e('html_attr')}}" class="add_slide">
+                {% endif %}
+                    <div class="slide-media-container icon-basketball" style="border:1px solid #3498DB; border-bottom:none;"></div>
+                    <div class="slide-link-content alwaysbluebg" style="background:#3498DB !important; color:#fff">
+                        <span class="slide-link" style="width:100%;text-align: center;">
+                            {{ "Static / Global Layers" | trans }}
+                        </span>
+                    </div>
+                {% if not slide_selector.slide.isStaticSlide %}
+                    </a>
+                {% endif %}
+
+                {% if slide_selector.slide.isStaticSlide %}
+                    <span style="position:absolute; top:13px;left:0px; text-align: center">
+							<span class="setting_text_3">
+                                {{ "Show Layers from Slide :"|trans }}
+                            </span>
+							<select name="rev_show_the_slides">
+								<option value="none">---</option>
+                                {% for c_slide in slide_selector.all_slides %}
+                                    <option value="{{ c_slide.id  | e('html_attr')}}">{{ c_slide.option_label | e('html_attr')}}</option>
+                                {% endfor %}
+							</select>
+					</span>
+                {% endif %}
+            </li>
+            {% for t_slide in slide_selector.arrSlides  %}
+                <li id="slidelist_item_{{ t_slide.slidelistID | e('html_attr')}}" class="{{ t_slide.c_topclass | e('html_attr') }}">
+                    <a href="{{ t_slide.urlEditSlide | e('html_attr')  }}" {{ t_slide.addParams | e('html') }}>
+                        <span class="mini-transparent mini-as-bg"></span>
+                        <span class="slide-media-container {{ t_slide.c_bg_extraClass  | e('html_attr')}}" {{ t_slide.c_bg_fullstyle  | raw}}></span>
+                        <i class="slide-link-forward eg-icon-forward"></i>
+                    </a>
+                    <span class="slide-link-published-wrapper">
+                        {% if not (t_slide.the_slidertype == "hero") %}
+                            {% if t_slide.c_isvisible == "published" %}
+                                <span class="slide-published"></span>
+                                <span class="slide-unpublished pubclickable"></span>
+                            {% else %}
+                                <span class="slide-unpublished"></span>
+                                <span class="slide-published pubclickable"></span>
+                            {% endif %}
+                        {% else %}
+                            {% if ((t_slide.active_slide == t_slide.slidelistID ) or (t_slide.active_slide == -1)) %}
+                                <span class="slide-hero-published"></span>
+                            {% else %}
+                                <span class="slide-hero-unpublished pubclickable"></span>
+                            {% endif %}
+                        {% endif %}
+					</span>
+
+                    <div class="slide-link-content">
+						<span class="slide-link">
+							<span class="slide-link-nr">#{{ t_slide.slidecounter  | e('html')}}</span>
+							<input class="slidetitleinput" name="slidetitle" value="{{ t_slide.title | e('html_attr')}}" />
+							<span class="slidelint-edit-button"></span>
+						</span>
+                        <div class="slide-link-toolbar">
+                            {% if not (t_slide.slidelistID == slide_selector.slideID) and t_slide.is_slide_id_not_in_children_ids %}
+                                <a class="slide-link-toolbar-button slide-moveto" href="#"><span class=""><i class="eg-icon-forward"></i>
+                                        <span>{{ "Copy / Move" | trans }}</span></span>
+                                </a>
+                            {% endif %}
+                            <a class="slide-link-toolbar-button slide-duplicate" href="#">
+                                <span class=""><i class="eg-icon-picture"></i><span>{{ "Duplicate" | trans }}</span></span>
+                            </a>
+                            {#<a class="slide-link-toolbar-button slide-add-as-template" href="#">#}
+                                {#<span class=""><i class="eg-icon-menu"></i><span>{{ "Add to Templates"|trans }}</span></span>#}
+                            {#</a>#}
+                            <a class="slide-link-toolbar-button slide-remove" href="#">
+                                <span class=""><i class="eg-icon-trash"></i><span>{{"Delete"|trans}}</span></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+            <li class="eg-drag-disabled">
+                <a href="javascript:void(0);" class="add_slide">
+                    <div class="slide-media-container" style="border:1px dashed #ddd; border-bottom:none;">
+                        <i style="position:absolute; top:50%;left:50%; font-size:25px; color:#ddd;margin-left:-17px;margin-top:-7px;" class="eg-icon-plus"></i>
+                    </div>
+                    <div class="slide-link-content">
+                        <span class="slide-link" style="width:100%;text-align: center;font-weight:600;">{{ "Add Slide" |trans }}</span>
+                    </div>
+                </a>
+                <div class="slide-link-content">
+                    <div class="slide-link-toolbar">
+                        <a id="link_add_slide" href="javascript:void(0);" class="slide-link-toolbar-button">
+                            <span class="slide-add"><i class="eg-icon-picture-1" style="margin-right:5px"></i>
+                                <span>{{"Add Blank Slide" | trans}}</span>
+                            </span>
+                        </a>
+                        <a id="link_add_bulk_slide" href="javascript:void(0);" class="slide-link-toolbar-button">
+                            <span class="slide-add"><i class="eg-icon-picture" style="margin-right:5px"></i>
+                                <span>{{"Add Bulk Slides" | trans}}</span>
+                            </span>
+                        </a>
+                        {#<a id="rs_copy_slide_from_slider" href="javascript:void(0);" class="slide-link-toolbar-button">#}
+                            {#<span class="slide-copy-from-slider"><i class="eg-icon-menu" style="margin-right:5px"></i>#}
+                                {#<span>{{"Add from Template" |trans}}</span>#}
+                            {#</span>#}
+                        {#</a>#}
+                    </div>
+                    <span class="slide-link" style="text-align:center">
+						{{"Add Slide"|trans}}
+					</span>
+                </div>
+                <div class="small-triangle-bar"></div>
+            </li>
+
+            <li>
+                <div id="loader_add_slide" class="loader_round" style="display:none"></div>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        jQuery('.list_slide_links li').each(function() {
+            var li=jQuery(this);
+
+            li.hover(function() {
+                var li = jQuery(this),
+                    tb = li.find('.slide-link-toolbar');
+                li.removeClass("nothovered");
+                tb.show();
+            }, function() {
+                var li = jQuery(this),
+                    tb = li.find('.slide-link-toolbar');
+                li.addClass("nothovered");
+                if (!li.hasClass("infocus"))
+                    tb.hide();
+            })
+        });
+
+        var oldslidetitle = "";
+
+        jQuery('.slidetitleinput').focus(function() {
+            oldslidetitle=jQuery(this).val();
+            jQuery(this).closest("li").addClass("infocus");
+        }).blur(function() {
+            jQuery(this).val(oldslidetitle);
+            var li = jQuery(this).closest("li")
+            li.removeClass("infocus");
+            if (li.hasClass("nothovered")) {
+                tb = li.find('.slide-link-toolbar');
+                tb.hide();
+            }
+        });
+
+        jQuery('.slidetitleinput').on("change",function() {
+            var titleinp = jQuery(this),
+                slide_title = titleinp.val(),
+                slide_id = jQuery(this).closest('li').attr('id').replace('slidelist_item_', '');
+
+            oldslidetitle = slide_title;
+            titleinp.blur();
+            if(UniteAdminRev.sanitize_input(slide_title) == ''){
+                alert('{{"Slide name should not be empty" | trans}}');
+                return false;
+            }
+
+            var data = {slideID:slide_id,slideTitle:slide_title};
+
+            UniteAdminRev.ajaxRequest('change_slide_title', data, function(response){});
+
+            if(jQuery(this).closest('li').hasClass('selected')){ //set input field to new value
+                jQuery('input[name="title"]').val(slide_title);
+            }
+        })
+
+        jQuery('.slidelint-edit-button').click(function() {
+            var titleinp = jQuery(this).siblings('.slidetitleinput'),
+                slide_title = titleinp.val(),
+                slide_id = jQuery(this).closest('li').attr('id').replace('slidelist_item_', '');
+
+            oldslidetitle = slide_title;
+            titleinp.blur();
+            if(UniteAdminRev.sanitize_input(slide_title) == ''){
+                alert('{{"Slide name should not be empty" | trans }}');
+                return false;
+            }
+
+            var data = {slideID:slide_id,slideTitle:slide_title};
+
+            UniteAdminRev.ajaxRequest('change_slide_title', data, function(response){});
+
+            if(jQuery(this).closest('li').hasClass('selected')){ //set input field to new value
+                jQuery('input[name="title"]').val(slide_title);
+            }
+        });
+
+
+        // OPEN THE TEMPLATE LIST ON CLICK OF ADD SLIDE TEMPLATE
+        jQuery('#rs_copy_slide_from_slider').click(function() {
+            RevSliderAdmin.load_slide_template_html();
+        });
+
+    });
+
+
+</script>
