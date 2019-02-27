@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Modal Page.
+ */
+
+use Drupal\Core\Url;
+
+/**
+ * Modal Page with Entities.
+ */
+function modal_page_update_8001() {
+  \Drupal::entityDefinitionUpdateManager()->applyUpdates();
+  \Drupal::service('modal_page.modals')->importModalConfigToEntity();
+
+  drupal_set_message(t('Thanks for use Modal Page 2'));
+  drupal_set_message(t('You may create Modal by visiting: You may create Modal by visiting: Administration » Structure » Modal'));
+
+}
+
+/**
+ * Implements hook_install().
+ */
+function modal_page_install() {
+  $messenger = \Drupal::messenger();
+  $messenger->deleteAll();
+  $messenger->addStatus(
+    t('Module <em class="placeholder">Modal Page</em> has been enabled.')
+  );
+  $messenger->addStatus(t('Thanks for installing Modal Page'));
+  $messenger->addStatus(t('You may create Modal by visiting <a href="@url_settings">@url_settings</a>', [
+    '@url_settings' => Url::fromRoute('modal_page.default')->toString(),
+  ]));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function modal_page_uninstall() {
+  \Drupal::configFactory()->getEditable('modal_page.settings')->delete();
+}

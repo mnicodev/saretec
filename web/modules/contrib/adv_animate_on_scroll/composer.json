@@ -1,0 +1,55 @@
+{
+  "name": "drupal/adv_animate_on_scroll",
+  "type": "drupal-module",
+  "description": "Advanced animate on scroll",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/adv_animate_on_scroll",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/adv_animate_on_scroll",
+    "source": "http://cgit.drupalcode.org/adv_animate_on_scroll"
+  },
+  "require": {
+    "drupal/adv_animate_on_scroll/aos": "2.3.4",
+    "drupal/adv_animate_on_scroll/aoscss": "2.3.4"
+  },
+  "repositories": {
+    "aos": {
+      "type": "package",
+      "package": {
+        "name": "drupal/adv_animate_on_scroll/aos",
+        "version": "2.3.4",
+        "type": "drupal-library",
+        "extra": {
+          "installer-name": "adv_aos"
+        },
+        "dist": {
+          "url": "https://unpkg.com/aos@2.3.4/dist/aos.js",
+          "type": "file"
+        },
+        "require": {
+          "composer/installers": "~1.0"
+        }
+      }
+    },
+    "aoscss": {
+      "type": "package",
+      "package": {
+        "name": "drupal/adv_animate_on_scroll/aoscss",
+        "version": "2.3.4",
+        "type": "drupal-library",
+        "extra": {
+          "installer-name": "adv_aos/css"
+        },
+        "dist": {
+          "url": "https://unpkg.com/aos@2.3.4/dist/aos.css",
+          "type": "file"
+        },
+        "require": {
+          "composer/installers": "~1.0"
+        }
+      }
+    }
+  }
+}

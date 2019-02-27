@@ -1,0 +1,16 @@
+field.formatter.third_party.adv_animate_on_scroll:
+  type: mapping
+  label: 'Adv aos third party setting'
+  mapping:
+    enable:
+      type: boolean
+      label: 'Enable adv aos settings'
+    animation:
+      type: select
+      label: 'Select an animation type'
+    duration:
+      type: number
+      label: 'Insert animation duration'
+    delay:
+      type: number
+      label: 'Insert animation delay'

@@ -1,0 +1,149 @@
+<?php
+
+/**
+ * @file
+ * Contains adv_animate_on_scroll.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Field\FormatterInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements hook_help().
+ */
+function adv_animate_on_scroll_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the adv_animate_on_scroll module.
+    case 'help.page.adv_animate_on_scroll':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Advanced animate on scroll') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_field_formatter_third_party_settings_form().
+ */
+function adv_animate_on_scroll_field_formatter_third_party_settings_form(FormatterInterface $plugin, FieldDefinitionInterface $field_definition, $view_mode, $form, FormStateInterface $form_state) {
+
+  $element['enable'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable scroll animation'),
+    '#default_value' => $plugin->getThirdPartySetting('adv_animate_on_scroll',
+      'enable', 'FALSE'),
+    '#description' => t('Enable animation settings'),
+  ];
+
+  $element['animation'] = [
+    '#type' => 'select',
+    '#title' => t('Select animation type'),
+    '#description' => t('Select your animation type'),
+    '#states' => [
+      'invisible' => [
+        ':input[name$="[enable]"]' => [
+          'checked' => FALSE,
+        ],
+      ],
+    ],
+    '#default-value' => $plugin->getThirdPartySetting('adv_animate_on_scroll',
+      'animation', 'fade-up'),
+    '#options' => [
+      'fade-up' => t('Fade up'),
+      'fade-down' => t('Fade down'),
+      'fade-right' => t('Fade right'),
+      'fade-left' => t('Fade left'),
+      'fade-up-right' => t('Fade up-right'),
+      'fade-up-left' => t('Fade up-left'),
+      'fade-down-right' => t('Fade down-right'),
+      'fade-down-left' => t('Fade down-left'),
+      'zoom-in' => t('Zoom in'),
+      'zoom-in-up' => t('Zoom in-up'),
+      'zoom-in-down' => t('Zoom in-down'),
+      'zoom-in-right' => t('Zoom in-right'),
+      'zoom-in-left' => t('Zoom in-left'),
+      'zoom-out' => t('Zoom out'),
+      'zoom-out-up' => t('Zoom out-up'),
+      'zoom-out-down' => t('Zoom out-down'),
+      'zoom-out-right' => t('Zoom out-right'),
+      'zoom-out-left' => t('Zoom out-left'),
+      'slide-up' => t('Slide up'),
+      'slide-down' => t('Slide down'),
+      'slide-right' => t('Slide right'),
+      'slide-left' => t('Slide left'),
+      'flip-left' => t('Flip left'),
+      'flip-right' => t('Flip right'),
+      'flip-up' => t('Flip up'),
+      'flip-down' => t('Flip down'),
+    ],
+  ];
+
+  $element['duration'] = [
+    '#type' => 'number',
+    '#title' => t('Duration'),
+    '#description' => t('Animation duration on ms.'),
+    '#states' => [
+      'invisible' => [
+        ':input[name$="[enable]"]' => [
+          'checked' => FALSE,
+        ],
+      ],
+    ],
+    '#default_value' => $plugin->getThirdPartySetting('adv_animate_on_scroll',
+      'duration', 600),
+  ];
+
+  $element['delay'] = [
+    '#type' => 'number',
+    '#title' => t('Delay'),
+    '#description' => t('Animation delay on ms.'),
+    '#states' => [
+      'invisible' => [
+        ':input[name$="[enable]"]' => [
+          'checked' => FALSE,
+        ],
+      ],
+    ],
+    '#default_value' => $plugin->getThirdPartySetting('adv_animate_on_scroll',
+      'delay', 300),
+  ];
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary_alter().
+ */
+function adv_animate_on_scroll_field_formatter_settings_summary_alter(&$summary, $context) {
+  $enabled = $context['formatter']->getThirdPartySetting('adv_animate_on_scroll', 'enable', '');
+  if ($enabled) {
+    $summary[] = t('Animated');
+  }
+}
+
+/**
+ * Implements hook_entity_display_build_alter().
+ */
+function adv_animate_on_scroll_entity_display_build_alter(&$build, $context) {
+  $sw = 0;
+  $display = $context['display'];
+
+  foreach (Element::children($build) as $field_name) {
+    $enabled = $display->getRenderer($field_name)->getThirdPartySetting('adv_animate_on_scroll', 'animation');
+    if ($enabled) {
+      $element =& $build[$field_name];
+      $element['#attributes']['data-aos'][] = $display->getRenderer($field_name)->getThirdPartySetting('adv_animate_on_scroll', 'animation');
+      $element['#attributes']['data-aos-duration'][] = $display->getRenderer($field_name)->getThirdPartySetting('adv_animate_on_scroll', 'duration');
+      $element['#attributes']['data-aos-delay'][] = $display->getRenderer($field_name)->getThirdPartySetting('adv_animate_on_scroll', 'delay');
+      if (!$sw) {
+        $element['#attached']['library'][] = 'adv_animate_on_scroll/animate_on_scroll';
+        $sw = 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+animate_on_scroll:
+  js:
+    /libraries/adv_aos/aos.js: {}
+    js/aos.init.js: {}
+  dependencies:
+    - core/jquery
+  css:
+    theme:
+      /libraries/adv_aos/css/aos.css: {}
